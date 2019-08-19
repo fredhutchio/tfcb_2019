@@ -1,0 +1,5 @@
+You have just catted a file!
+
+Your next step is to learn about the command `less`.
+
+You can learn about it using `man less`.
