@@ -22,6 +22,9 @@
     |_______/    |__|  |__| |_______||_______||_______|
 
 
+This is an interactive adventure to teach you about navigating the shell.
+We'll start with a little introductory material.
+
 ## Starting out
 
 To get started, simply type
