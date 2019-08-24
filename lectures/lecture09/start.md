@@ -8,7 +8,7 @@ This is not a very convenient way to view a long file, because it spits out the 
 
 A better way is to use `less`.
 Before we try that, note:
-**you can navigate using the arrow keys, and exit using the letter `q`**.
+**you can navigate in `less` using the arrow keys, and exit using the letter `q`**.
 Try
 
     less sequence.gb
