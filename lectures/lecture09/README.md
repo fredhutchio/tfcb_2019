@@ -102,8 +102,11 @@ Generally two-dash flags are for long names and single-dash flags are for short 
 For example, try using `--width` in place of `-w` in the command above.
 Does `-width` work?
 
+Try the `-a` flag.
+Now try the `-a` and `-1` flags together as `ls -a -1`.
+
 ---
 
 Congratulations, you know know the basics of command invocation in the shell.
 
-To start your adventure, type `cat start.txt` from inside the `lecture09` directory in the TFCB repository.
+To start your adventure, type `cat start.md` from inside the `lecture09` directory in the TFCB repository.

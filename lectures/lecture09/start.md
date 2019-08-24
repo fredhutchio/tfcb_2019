@@ -27,4 +27,4 @@ OK, so now try `man man` to learn about the command `man`.
    (note that these same commands work for the `less` command)
 3. now look through the contents of the `man` manual to find a flag that will show you the location of the file containing the documentation
 4. save this information somewhere (on a piece of paper?)
-5. execute `cd directories` then `cat README.md` to get to the next part of the adventure
+5. execute `cd directories` then `less README.md` to work through the next part of the adventure
