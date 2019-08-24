@@ -15,11 +15,14 @@ Try
 
 and have a look around this file.
 
-We are now going to learn about the command `man`, which is short for "manual."
+Many commands have built-in help using `-h` or `--help`.
+Try `less --help` to find the commands that allow you to move forward and backward by page, and use them to view `sequence.gb`.
+
+For more in depth help see the command `man`, which is short for "manual."
 
 OK, so now try `man man` to learn about the command `man`.
 
-1. first just enter `man` and then quit
+1. first just enter `man` and then quit (also with the letter `q`)
 2. then re-enter `man` and use the online help to figure out how to forward and backward one window at a time
    (note that these same commands work for the `less` command)
 3. now look through the contents of the `man` manual to find a flag that will show you the location of the file containing the documentation

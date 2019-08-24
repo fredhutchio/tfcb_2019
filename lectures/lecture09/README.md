@@ -23,6 +23,7 @@
 
 
 This is an interactive adventure to teach you about navigating the shell.
+For reference you might be interested in the excellent [course material put out by Software Carpentry](https://swcarpentry.github.io/shell-novice/).
 We'll start with a little introductory material.
 
 ## Starting out
