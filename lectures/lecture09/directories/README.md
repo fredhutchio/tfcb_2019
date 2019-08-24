@@ -49,6 +49,7 @@ The `tree` command can also take an argument, which is the directory for which i
 
 * without changing directories, show the directory tree of the `purchase` directory only
 * look in the `tree` documentation to list only directories and try that out here
+* try giving `cd` the name of a directory that doesn't exist or isn't a subdirectory of the current directory
 
 ### Moving around more freely
 
