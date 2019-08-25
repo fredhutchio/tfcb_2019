@@ -122,3 +122,5 @@ You certainly can, though it's not considered hip (because vim is all about effi
 
 Congratulations!
 You now know a little `vi` which we'll use for the rest of this course.
+
+Head over to the `lecture09/history` directory for the next set of instructions.
