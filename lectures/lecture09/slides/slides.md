@@ -1,4 +1,10 @@
-# all serious bioinformatics software runs (only) on linux
+# all high-performance compute systems run linux
+
+#
+<section data-background="https://img-en.fs.com/community/wp-content/uploads/2016/08/Data-Center-.jpg"></section>
+
+#
+<section data-background="images/gizmo.png"></section>
 
 #
 <p class="stretch"><img src="images/galaxy.png"></p>
@@ -21,8 +27,6 @@
 #
 <section data-background="images/harvesters.jpg"></section>
 
-#
-<section data-background="images/gizmo.png"></section>
 
 # goals
 
