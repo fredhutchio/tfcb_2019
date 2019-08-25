@@ -1,10 +1,12 @@
-# all high-performance compute systems run linux
+# eventually you will outgrow your laptop
 
 #
 <section data-background="https://img-en.fs.com/community/wp-content/uploads/2016/08/Data-Center-.jpg"></section>
 
 #
 <section data-background="images/gizmo.png"></section>
+
+# all high-performance compute systems run linux
 
 #
 <p class="stretch"><img src="images/galaxy.png"></p>
@@ -27,6 +29,7 @@
 #
 <section data-background="images/harvesters.jpg"></section>
 
+# a silly demo
 
 # goals
 

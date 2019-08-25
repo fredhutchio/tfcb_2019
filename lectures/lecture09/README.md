@@ -116,7 +116,7 @@ Now try the `-a` and `-1` flags together as `ls -a -1`.
 
 Try
 
-    cat tiny.md
+    cat vader.txt
 
 This is a handy way to look at small files.
 Now try
@@ -158,4 +158,17 @@ to learn about the command `man`.
 0. Look at the overall structure of the document. What does the top describe? What about the rest?
 1. now look through the contents of the `man` manual to find a flag that will show you the location of the file containing the documentation
 2. save this information somewhere (on a piece of paper?)
+
+
+## A quick practicum
+
+Use any method you like to find documentation about the `wc` command, then use it to count the number of lines in `sequence.gb`.
+
+
+
+---
+
+Congratulations!
+You now know how to navigate around the file system.
+
 3. execute `cd directories` then `less README.md` to work through the next part of the adventure

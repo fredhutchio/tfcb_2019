@@ -66,4 +66,24 @@ The `..` symbol means "one directory towards the root," so `cd ..` will take you
 Try that out now.
 
 We can also `cd` through multiple directories at once by giving an argument like `cd first/second/third` (replacing `first`, `second` and `third` with actual names of directories.
-Try jumping into the `greenland` directory now.
+
+Try jumping into the `greenland` directory in one hop now.
+
+You can also chain together `..`s. Try going back in one hop.
+
+Now try
+
+    cd -
+
+what does this command do?
+(Remember you can use `pwd` to write out where you are.)
+
+Now try changing your directory to `/`.
+Take a look around.
+What do you see?
+
+---
+
+Congratulations!
+You now know how to navigate around the file system.
+For the next lesson, go up one directory and then into the `redirection` directory and have a look at the README there.
