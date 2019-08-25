@@ -77,7 +77,7 @@ If we don't want to over-write the output of a file, we can use the `>>` operato
 This appends the output of `date` to our file.
 
 Now it's your turn.
-Make a file that has the date, Darth Vader's head, and the directory tree of `lecture09`.
+Make a file that has the date, a picture of Darth Vader, and the directory tree of `lecture09`.
 You can use multiple commands to achieve this result.
 
 ---

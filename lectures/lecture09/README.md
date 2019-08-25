@@ -165,10 +165,9 @@ to learn about the command `man`.
 Use any method you like to find documentation about the `wc` command, then use it to count the number of lines in `sequence.gb`.
 
 
-
 ---
 
 Congratulations!
 You now know how to navigate around the file system.
 
-3. execute `cd directories` then `less README.md` to work through the next part of the adventure
+For the next step, execute `cd directories` then `less README.md` to work through the next part of the adventure
