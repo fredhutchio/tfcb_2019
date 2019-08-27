@@ -11,7 +11,6 @@ When we see a command that we like, we can hit `Return` to execute that command,
 Here are some commands to help you browse that history:
 
 * `history`: gives the full history; likely to be too much too be useful
-* `history | tail`: the history truncated to the most recent commands
 * `history | less`: history made more navigable
 
 Now your turn!
