@@ -68,7 +68,7 @@ not expect that completion of the course will make you an expert in any single p
 Rather, you should be equipped with foundational knowledge in reproducible computational science,
 and can continue learning relevant tools to suit your research interests.
 
-** Course objectives: ** By the end of the course, students should be able to:
+**Course objectives:** By the end of the course, students should be able to:
 - Code in R, Python, and Unix/bash shell scripting using appropriate syntax and code convention
 - Select appropriate tools to perform specific programming and data analysis tasks
 - Apply good practices for computational research, including project organization and documentation
