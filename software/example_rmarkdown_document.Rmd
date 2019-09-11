@@ -1,0 +1,54 @@
+---
+title: "Template for analysis in R"
+author: "`r Sys.info()[['user']]`"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output: 
+  github_document:
+    toc: 2
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE)
+```
+
+## Introduction
+
+- This is an example outline of how we will analyze data inside RStudio.
+- Use the `Run` followed by `Run All` button in the tool bar above 
+  to view the results of running this script by scrolling below.  
+
+## Import libraries
+
+```{r}
+# standard analysis and plotting functions, includes dplyr, ggplot2 
+library(tidyverse)
+```
+
+## Import data
+
+```{r}
+# data <- read_csv("https://github.com/tidyverse/readr/raw/master/inst/extdata/mtcars.csv")
+data <- mtcars
+```
+
+
+## Transform data
+
+```{r}
+processed_data <- data %>% 
+  filter(am == 1) %>%
+  select(mpg, qsec, carb)
+
+processed_data 
+```
+
+
+## Plot data
+
+```{r example_plot, fig.width=6, fig.height=3}
+processed_data %>% 
+  gather(statistic, value, -carb) %>% 
+  ggplot(aes(x = carb, y = value, color = statistic)) +
+  facet_wrap(~ statistic, ncol = 2) +
+  geom_jitter(width = 0)
+```
