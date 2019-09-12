@@ -29,7 +29,7 @@
 
 
 <section  class="center">
-<h1 id="orgdd1a7fc">Lecture 4 – Visualize data using <code>R</code> / <code>ggplot2</code></h1>
+<h1 id="orgfae9f0a">Lecture 4 – Visualize data using <code>R</code> / <code>ggplot2</code></h1>
 <p>
 Arvind R. Subramaniam
 </p>
@@ -48,7 +48,7 @@ Fred Hutchinson Cancer Research Center
 
 </section>
 <section >
-<h1 id="org7091819">What you will learn over the next 3 lectures</h1>
+<h1 id="org9be6eb7">What you will learn over the next 3 lectures</h1>
 <p>
 Loading, Transforming, Visualizing Tabular Data using <a href="https://www.tidyverse.org/">Tidyverse</a> packages
 </p>
@@ -76,7 +76,7 @@ Principles of Data Visualization (see <a href="https://serialmentor.com/dataviz/
 
 </section>
 <section >
-<h1 id="orgbdbcc95">Example Datasets</h1>
+<h1 id="orge4b0514">Example Datasets</h1>
 <p>
 Plate Reader Assay
 </p>
@@ -97,8 +97,8 @@ Flow Cytometry
 
 </section>
 <section >
-<h1 id="org381decc">Raw Flow Cytometry Data</h1>
-<table id="org2a31691" border="0" cellspacing="0" cellpadding="6" rules="none" frame="none" width="100%" class="shrunk">
+<h1 id="org08f8d40">Raw Flow Cytometry Data</h1>
+<table id="orgf378859" border="0" cellspacing="0" cellpadding="6" rules="none" frame="none" width="100%" class="shrunk">
 
 
 <colgroup>
@@ -219,7 +219,7 @@ Flow Cytometry
 
 </section>
 <section >
-<h1 id="orga588612">Flow Cytometry Analysis Using <code>Tidyverse</code></h1>
+<h1 id="org9727ec1">Flow Cytometry Analysis Using <code>Tidyverse</code></h1>
 
 <div class="figure">
 <p><img src="img/example_flow_cytometry_analysis.png" alt="example_flow_cytometry_analysis.png" width="900px" />
@@ -237,7 +237,7 @@ Flow Cytometry
 
 </section>
 <section >
-<h1 id="org54a45c0"><code>Tidyverse</code> Functions for Working with Tabular Data</h1>
+<h1 id="org2b23804"><code>Tidyverse</code> Functions for Working with Tabular Data</h1>
 <table border="0" cellspacing="0" cellpadding="6" rules="none" frame="none" style="margin-top:100px;width:100%;">
 
 
@@ -302,35 +302,29 @@ Flow Cytometry
 
 </section>
 <section >
-<h1 id="orgcc30ae7">Use <code>tsv</code> and <code>csv</code>  file formats for tabular data</h1>
+<h1 id="org1fac020">Use <code>TSV</code> and <code>CSV</code>  file formats for tabular data</h1>
 <p>
-<b>T</b>ab <b>S</b>eparated <b>V</b>alues
+Tab-Separated Values:
 </p>
+<pre  class="example">
+strain   mean_yfp  mean_rfp  mean_ratio  se_ratio  insert_sequence  kozak_region 
+schp674      1270     20316       0.561     0.004  10×AAG           CAAA         
+schp675      3687     20438       1.621     0.036  10×AAG           CCGC         
+schp676      2657     20223       1.177     0.048  10×AAG           CCAA         
+schp677      3967     20604       1.728      0.03  10×AAG           CCAC         
+</pre>
 
-
-<p class="verse">
-<br />
-strain	mean_yfp mean_rfp mean_ratio se_ratio<br />
-schp674	1270	20316	0.561	0.004	10×AAG	CAAA<br />
-schp675	3687	20438	1.621	0.036	10×AAG	CCGC<br />
-schp676	2657	20223	1.177	0.048	10×AAG	CCAA<br />
-schp677	3967	20604	1.728	0.03	10×AAG	CCAC<br />
-<br />
-</p>
 
 <p>
-<b>C</b>omma <b>S</b>eparated <b>V</b>alues
+Comma-Separated Values:
 </p>
-
-<p class="verse">
-<br />
-strain,mean_yfp,mean_rfp,mean_ratio,se_ratio,insert_sequence,kozak_region<br />
-schp674,1270,20316,0.561,0.004,10×AAG,CAAA<br />
-schp675,3687,20438,1.621,0.036,10×AAG,CCGC<br />
-schp676,2657,20223,1.177,0.048,10×AAG,CCAA<br />
-schp677,3967,20604,1.728,0.03,10×AAG,CCAC<br />
-<br />
-</p>
+<pre  class="example">
+strain,mean_yfp,mean_rfp,mean_ratio,se_ratio,insert_sequence,kozak_region
+schp674,1270,20316,0.561,0.004,10×AAG,CAAA
+schp675,3687,20438,1.621,0.036,10×AAG,CCGC
+schp676,2657,20223,1.177,0.048,10×AAG,CCAA
+schp677,3967,20604,1.728,0.03,10×AAG,CCAC
+</pre>
 
 <aside class="notes">
 <ul>
@@ -346,7 +340,7 @@ schp677,3967,20604,1.728,0.03,10×AAG,CCAC<br />
 
 </section>
 <section >
-<h1 id="org96f4bc2">Reading tabular data into R</h1>
+<h1 id="org4c04bf7">Reading tabular data into R</h1>
 <div class="org-src-container">
 
 <pre  class="src src-R"><span style="color: #268bd2; font-weight: bold;">library</span>(tidyverse)
@@ -365,7 +359,7 @@ Introduce concept of libraries, assignment, functions.
 
 </section>
 <section >
-<h1 id="org4c543f7">Read tabular data into a <code>DataFrame</code> (<code>tibble</code>)</h1>
+<h1 id="org1ad6ad5">Read tabular data into a <code>DataFrame</code> (<code>tibble</code>)</h1>
 <div class="org-src-container">
 
 <pre  class="src src-R" id="flow_data"><span style="color: #268bd2; font-weight: bold;">library</span>(tidyverse)
@@ -402,7 +396,7 @@ print(data, n = 5)
 
 </section>
 <section >
-<h1 id="orgdb84a43">Comment your code</h1>
+<h1 id="orgbd32df7">Comment your code</h1>
 <div class="org-src-container">
 
 <pre  class="src src-R"><span style="color: #586e75;"># </span><span style="color: #586e75;">library to work with tabular data</span>
@@ -420,7 +414,7 @@ print(data, n = 5)
 
 </section>
 <section >
-<h1 id="org9017fc4">Plotting a point graph</h1>
+<h1 id="org6e200fd">Plotting a point graph</h1>
 <div class="org-src-container">
 
 <pre  class="src src-R">ggplot(data, aes(x = kozak_region,
@@ -445,7 +439,7 @@ print(data, n = 5)
 </aside>
 </section>
 <section >
-<h1 id="orgf1e8561">How do we show multiple experimental parameters?</h1>
+<h1 id="orgf8d61e6">How do we show multiple experimental parameters?</h1>
 <table border="0" cellspacing="0" cellpadding="6" rules="none" frame="none" width="100%" class="shrunk">
 
 
@@ -461,9 +455,9 @@ print(data, n = 5)
 <thead>
 <tr>
 <th scope="col" class="org-left">strain</th>
-<th scope="col" class="org-right">mean_ratio</th>
-<th scope="col" class="org-left">insert_sequence</th>
-<th scope="col" class="org-left">kozak_region</th>
+<th scope="col" class="org-right">mean<sub>ratio</sub></th>
+<th scope="col" class="org-left">insert<sub>sequence</sub></th>
+<th scope="col" class="org-left">kozak<sub>region</sub></th>
 </tr>
 </thead>
 <tbody>
@@ -584,14 +578,14 @@ print(data, n = 5)
 
 <aside class="notes">
 <ul>
-<li>Explain that you are varying both the insert_sequence and kozak_region.</li>
+<li>Explain that you are varying both the insert<sub>sequence</sub> and kozak<sub>region</sub>.</li>
 
 </ul>
 
 </aside>
 </section>
 <section >
-<h1 id="orgb5d8d85">Plotting a point graph with color</h1>
+<h1 id="org6ac3377">Plotting a point graph with color</h1>
 <div class="org-src-container">
 
 <pre  class="src src-R">ggplot(data, aes(x = kozak_region,
@@ -620,7 +614,7 @@ print(data, n = 5)
 
 </section>
 <section >
-<h1 id="org857ab96">Plotting a line graph</h1>
+<h1 id="org9ca7cbb">Plotting a line graph</h1>
 <div class="org-src-container">
 
 <pre  class="src src-R">ggplot(data, aes(x = kozak_region,
@@ -648,7 +642,7 @@ print(data, n = 5)
 
 </section>
 <section >
-<h1 id="orgdb53324">Plotting point and line graphs</h1>
+<h1 id="orgaefb677">Plotting point and line graphs</h1>
 <div class="org-src-container">
 
 <pre  class="src src-R">ggplot(data, aes(x = kozak_region,
@@ -676,7 +670,7 @@ Explain that you can layer multiple <code>geoms</code> on top of each other.
 
 </section>
 <section >
-<h1 id="orgcbec1b6">‘Faceting’ &#x2013; Plotting in multiple panels</h1>
+<h1 id="orge9fce19">‘Faceting’ &#x2013; Plotting in multiple panels</h1>
 <div class="org-src-container">
 
 <pre  class="src src-R">ggplot(data, aes(x = kozak_region,

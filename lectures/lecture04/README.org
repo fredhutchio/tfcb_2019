@@ -90,33 +90,26 @@ Flow Cytometry
 |               |              | =group_by=  |
 |               |              | =summarize= |
 
-* Use =tsv= and =csv=  file formats for tabular data
+* Use =TSV= and =CSV=  file formats for tabular data
 
-@@html:<b>T</b>@@ab @@html:<b>S</b>@@eparated @@html:<b>V</b>@@alues
+Tab-Separated Values:
+#+BEGIN_src
+ strain   mean_yfp  mean_rfp  mean_ratio  se_ratio  insert_sequence  kozak_region 
+ schp674      1270     20316       0.561     0.004  10×AAG           CAAA         
+ schp675      3687     20438       1.621     0.036  10×AAG           CCGC         
+ schp676      2657     20223       1.177     0.048  10×AAG           CCAA         
+ schp677      3967     20604       1.728      0.03  10×AAG           CCAC         
+#+END_src
 
 
-#+BEGIN_VERSE
-
-strain	mean_yfp	mean_rfp	mean_ratio	se_ratio	
-schp674	1270	20316	0.561	0.004	10×AAG	CAAA
-schp675	3687	20438	1.621	0.036	10×AAG	CCGC
-schp676	2657	20223	1.177	0.048	10×AAG	CCAA
-schp677	3967	20604	1.728	0.03	10×AAG	CCAC
-
-#+END_VERSE
-
-@@html:<b>C</b>@@omma @@html:<b>S</b>@@eparated @@html:<b>V</b>@@alues
- 
-#+OPTIONS: ^:nil
-#+BEGIN_VERSE
-
+Comma-Separated Values:
+#+BEGIN_src
 strain,mean_yfp,mean_rfp,mean_ratio,se_ratio,insert_sequence,kozak_region
 schp674,1270,20316,0.561,0.004,10×AAG,CAAA
 schp675,3687,20438,1.621,0.036,10×AAG,CCGC
 schp676,2657,20223,1.177,0.048,10×AAG,CCAA
 schp677,3967,20604,1.728,0.03,10×AAG,CCAC
-
-#+END_VERSE
+#+END_src
 
 #+BEGIN_NOTES
 - TSV and CSV formats can be displayed natively by github. Open this [[https://github.com/rasilab/mkriner_2018/tree/master/data/plate_reader][TSV]] file on github and show how it is displayed nicely.
