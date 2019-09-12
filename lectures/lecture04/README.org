@@ -4,7 +4,20 @@
 #+REVEAL_THEME: default
 #+STARTUP: showeverything
 
-* TOC                                                          :toc:noexport:
+* Lecture 4 – Visualize data using =R= / =ggplot2=
+:PROPERTIES:
+:reveal_extra_attr: class="center"
+:END:
+
+Arvind R. Subramaniam
+
+Assistant Member
+
+Basic Sciences Division and Computational Biology Program
+
+Fred Hutchinson Cancer Research Center
+
+* Contents                                            :toc:noexport:
 - [[#lecture-4--visualize-data-using-r--ggplot2][Lecture 4 – Visualize data using =R= / =ggplot2=]]
 - [[#what-you-will-learn-over-the-next-3-lectures][What you will learn over the next 3 lectures]]
 - [[#example-datasets][Example Datasets]]
@@ -20,19 +33,6 @@
 -  [[#plotting-a-line-graph][Plotting a line graph]]
 -  [[#plotting-point-and-line-graphs][Plotting point and line graphs]]
 -  [[#faceting----plotting-in-multiple-panels][‘Faceting’ -- Plotting in multiple panels]]
-
-* Lecture 4 – Visualize data using =R= / =ggplot2=
-:PROPERTIES:
-:reveal_extra_attr: class="center"
-:END:
-
-Arvind R. Subramaniam
-
-Assistant Member
-
-Basic Sciences Division and Computational Biology Program
-
-Fred Hutchinson Cancer Research Center
 
 * What you will learn over the next 3 lectures 
 Loading, Transforming, Visualizing Tabular Data using [[https://www.tidyverse.org/][Tidyverse]] packages
