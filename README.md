@@ -17,9 +17,9 @@ Location: B1-072, Fred Hutch
 | 1       | Sep 26 | Kate Hertweck    | Introduction to course
 | 2       | Oct 1  | Trevor Bedford   | Introduction to Git and GitHub
 | 3       | Oct 3  | Trevor Bedford   | Introduction to data
-| 4       | Oct 8  | Rasi Subramaniam | Introduction to R
+| 4       | Oct 8  | Rasi Subramaniam | Visualize data using R/ggplot2
 | 5       | Oct 10 | Rasi Subramaniam | Principles of data visualization
-| 6       | Oct 15 | Rasi Subramaniam | Data visualization in R
+| 6       | Oct 15 | Rasi Subramaniam | Working with data using R/tidyverse
 | 7       | Oct 17 | Gavin Ha         | Introduction to sequencing data
 | 8       | Oct 22 | Gavin Ha         | Genomic data in R
 | 9       | Oct 24 | Erick Matsen     | Introduction to the command line
