@@ -4,6 +4,22 @@
 #+REVEAL_THEME: default
 #+STARTUP: showeverything
 
+* TOC                                                          :toc:noexport:
+- [[#lecture-4--visualize-data-using-r--ggplot2][Lecture 4 – Visualize data using =R= / =ggplot2=]]
+- [[#what-you-will-learn-over-the-next-3-lectures][What you will learn over the next 3 lectures]]
+- [[#example-datasets][Example Datasets]]
+- [[#raw-flow-cytometry-data][Raw Flow Cytometry Data]]
+- [[#flow-cytometry-analysis-using-tidyverse][Flow Cytometry Analysis Using =Tidyverse=]]
+- [[#tidyverse-functions-for-working-with-tabular-data][=Tidyverse= Functions for Working with Tabular Data]]
+- [[#use-tsv-and-csv--file-formats-for-tabular-data][Use =TSV= and =CSV=  file formats for tabular data]]
+- [[#reading-tabular-data-into-r][Reading tabular data into R]]
+-  [[#read-tabular-data-into-a-dataframe-tibble][Read tabular data into a =DataFrame= (=tibble=)]]
+- [[#plotting-a-point-graph][Plotting a point graph]]
+- [[#how-do-we-show-multiple-experimental-parameters][How do we show multiple experimental parameters?]]
+- [[#plotting-a-point-graph-with-color][Plotting a point graph with color]]
+-  [[#plotting-a-line-graph][Plotting a line graph]]
+-  [[#plotting-point-and-line-graphs][Plotting point and line graphs]]
+-  [[#faceting----plotting-in-multiple-panels][‘Faceting’ -- Plotting in multiple panels]]
 
 * Lecture 4 – Visualize data using =R= / =ggplot2=
 :PROPERTIES:
