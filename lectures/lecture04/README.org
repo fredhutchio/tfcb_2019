@@ -1,1 +1,326 @@
-# Lecture 4
+#+OPTIONS: num:nil toc:nil reveal_history:t reveal_control:nil reveal_progress:t reveal_center:nil reveal_title_slide:nil
+#+REVEAL_HLEVEL: 0
+#+REVEAL_TRANS: fade
+#+REVEAL_THEME: default
+#+STARTUP: showeverything
+
+
+* Lecture 4 – Visualize data using =R= / =ggplot2=
+:PROPERTIES:
+:reveal_extra_attr: class="center"
+:END:
+
+Arvind R. Subramaniam
+
+Assistant Member
+
+Basic Sciences Division and Computational Biology Program
+
+Fred Hutchinson Cancer Research Center
+
+* What you will learn over the next 3 lectures 
+Loading, Transforming, Visualizing Tabular Data using [[https://www.tidyverse.org/][Tidyverse]] packages
+  - [[https://readr.tidyverse.org/][readr]]
+  - [[http://ggplot2.tidyverse.org][ggplot2]]
+  - [[http://dplyr.tidyverse.org][dplyr]]
+  
+Principles of Data Visualization (see [[https://serialmentor.com/dataviz/][book]])
+
+#+BEGIN_NOTES
+- We will learn a group of packages called tidyverse.
+- Packages are collection of useful functions that others have written and we can reuse them.
+- This is also typical in computational biology: Majority of your work will build upon functions that others have written. Rarely will you write something from scratch.
+- You will learn specific examples of how to work with data, but also some general data analysis principles.
+#+END_NOTES
+
+* Example Datasets
+Plate Reader Assay
+#+ATTR_HTML: :width 400px
+[[file:img/plate_reader.jpg]]
+
+Flow Cytometry
+#+ATTR_HTML: :width 400px
+[[file:img/flow_cytometer.jpg]]
+
+* Raw Flow Cytometry Data
+
+#+name: flowdata
+#+ATTR_HTML: :border 0 :rules none :frame none  :width 100% :class shrunk
+|  FSC.A |  SSC.A | FITC.A | PE.Texas.Red.A | Time |
+|--------+--------+--------+----------------+------|
+|  79033 |  69338 |   9173 |          18690 | 3.02 |
+| 101336 |  87574 |  13184 |          29886 | 3.04 |
+|  51737 |  56161 |   3083 |          18324 | 3.06 |
+|  79904 |  45085 |   9957 |          18099 | 3.08 |
+| 124491 |  97305 |  15739 |          28730 | 3.09 |
+|  54359 |  45015 |   6175 |          11918 | 3.11 |
+|  64615 |  88989 |  11907 |          32413 | 3.13 |
+| 109592 |  64132 |  12561 |          18824 | 3.15 |
+|  58503 | 116384 |  11591 |          27629 | 3.19 |
+|  38634 |  51511 |   7200 |          21930 | 3.21 |
+
+=5 cols × 2,720,000 rows=
+
+#+BEGIN_NOTES
+- Data is typically in tabular form.
+- If not, it is a good idea to convert it into this form.
+#+END_NOTES
+
+* Flow Cytometry Analysis Using =Tidyverse=
+
+#+ATTR_HTML: :width 900px
+[[file:img/example_flow_cytometry_analysis.png]]
+
+#+BEGIN_NOTES
+- This is an example of the plot we want to make from the starting data.
+#+END_NOTES
+
+
+* =Tidyverse= Functions for Working with Tabular Data
+
+
+#+ATTR_HTML: :border 0 :rules none :frame none :style margin-top:100px;width:100%;
+| Import/Export | Visualize    | Transform   |
+|---------------+--------------+-------------|
+| =read_tsv=    | =geom_point= | =select=    |
+| =write_tsv=   | =geom_line=  | =filter=    |
+|               | =facet_grid= | =arrange=   |
+|               |              | =mutate=    |
+|               |              | =join=      |
+|               |              | =group_by=  |
+|               |              | =summarize= |
+
+* Use =tsv= and =csv=  file formats for tabular data
+
+@@html:<b>T</b>@@ab @@html:<b>S</b>@@eparated @@html:<b>V</b>@@alues
+
+
+#+BEGIN_VERSE
+
+strain	mean_yfp	mean_rfp	mean_ratio	se_ratio	
+schp674	1270	20316	0.561	0.004	10×AAG	CAAA
+schp675	3687	20438	1.621	0.036	10×AAG	CCGC
+schp676	2657	20223	1.177	0.048	10×AAG	CCAA
+schp677	3967	20604	1.728	0.03	10×AAG	CCAC
+
+#+END_VERSE
+
+@@html:<b>C</b>@@omma @@html:<b>S</b>@@eparated @@html:<b>V</b>@@alues
+ 
+#+OPTIONS: ^:nil
+#+BEGIN_VERSE
+
+strain,mean_yfp,mean_rfp,mean_ratio,se_ratio,insert_sequence,kozak_region
+schp674,1270,20316,0.561,0.004,10×AAG,CAAA
+schp675,3687,20438,1.621,0.036,10×AAG,CCGC
+schp676,2657,20223,1.177,0.048,10×AAG,CCAA
+schp677,3967,20604,1.728,0.03,10×AAG,CCAC
+
+#+END_VERSE
+
+#+BEGIN_NOTES
+- TSV and CSV formats can be displayed natively by github. Open this [[https://github.com/rasilab/mkriner_2018/tree/master/data/plate_reader][TSV]] file on github and show how it is displayed nicely.
+- I personally prefer TSV since it is easier to align columns by eye.
+- These formats can be read by most programs in all operating systems.
+- =.gz= and =.zip= compression can significantly reduce size.
+- TSV files are displayed nicely by Github.
+#+END_NOTES
+
+* Reading tabular data into R
+
+#+BEGIN_SRC R :exports code :session :results none
+
+  library(tidyverse)
+
+  data <- read_tsv("data/example_dataset_1.tsv")
+#+END_SRC
+
+#+BEGIN_SRC R :exports none :session
+  # turn off coloring of output that screws up org mode formatting
+  # of tibbles
+  options(crayon.enabled = FALSE)
+  library(rasilabRtemplates)
+#+END_SRC
+
+#+BEGIN_NOTES
+Introduce concept of libraries, assignment, functions.
+#+END_NOTES
+
+
+*  Read tabular data into a =DataFrame= (=tibble=)
+
+#+name: flow_data
+#+BEGIN_SRC R :exports both :results output
+
+  library(tidyverse)
+
+  data <- read_tsv("data/example_dataset_1.tsv")
+
+  print(data, n = 5)
+
+#+END_SRC
+
+
+#+BEGIN_NOTES
+- Introduce =print= , =tibble=, =datatypes=
+- [[file:example_dataset_1.tsv]] created in [[file:/fh/fast/subramaniam_a/user/rasi/git/ribosome_colliisions_yeast/scripts/initiation_pgk1_10xaag_flow.Rmd]]
+#+END_NOTES
+
+*  Comment your code
+
+#+BEGIN_SRC R :exports code
+
+  # library to work with tabular data
+  library(tidyverse)
+
+  # read the tsv file into a tibble and 
+  # assign it to the 'data' variable
+  data <- read_tsv("data/example_dataset_1.tsv")
+
+  # display the contents of 'data' 
+  print(data, n = 5)
+#+END_SRC
+
+
+* Plotting a point graph
+
+#+BEGIN_SRC R :exports code :session :output none
+
+  ggplot(data, aes(x = kozak_region,
+                   y = mean_ratio)) +
+    geom_point()
+
+#+END_SRC
+
+#+RESULTS:
+
+#+BEGIN_SRC R :exports none :session
+  ggsave("img/ggplot2_point_example_no_color.png", width = 4, height = 2)
+#+END_SRC
+
+#+RESULTS:
+
+[[file:img/ggplot2_point_example_no_color.png]]
+
+#+BEGIN_NOTES
+- Explain =ggplot=, =aes=, =+=, =geom_point=
+#+END_NOTES
+* How do we show multiple experimental parameters?
+
+#+ATTR_HTML: :border 0 :rules none :frame none  :width 100% :class shrunk
+| strain  | mean_ratio | insert_sequence | kozak_region |
+|---------+------------+-----------------+--------------|
+| schp688 |      0.755 | 10×AGA          | A            |
+| schp684 |      1.437 | 10×AGA          | B            |
+| schp690 |      1.541 | 10×AGA          | C            |
+| schp687 |      2.004 | 10×AGA          | D            |
+| schp686 |      2.121 | 10×AGA          | E            |
+| schp685 |      2.893 | 10×AGA          | F            |
+| schp683 |      3.522 | 10×AGA          | G            |
+| schp689 |      3.424 | 10×AGA          | H            |
+| schp679 |      1.149 | 10×AAG          | A            |
+| schp675 |      1.621 | 10×AAG          | B            |
+| schp681 |      1.645 | 10×AAG          | C            |
+| schp678 |      1.906 | 10×AAG          | D            |
+| schp677 |      1.728 | 10×AAG          | E            |
+| schp676 |      1.177 | 10×AAG          | F            |
+| schp674 |      0.561 | 10×AAG          | G            |
+| schp680 |      0.519 | 10×AAG          | H            |
+
+
+#+BEGIN_NOTES
+- Explain that you are varying both the insert_sequence and kozak_region.
+#+END_NOTES
+* Plotting a point graph with color
+
+#+BEGIN_SRC R :exports code :session :output none
+
+  ggplot(data, aes(x = kozak_region,
+                   y = mean_ratio,
+                   color = insert_sequence)) +
+    geom_point()
+    
+#+END_SRC
+
+#+BEGIN_SRC R :exports none :session
+  ggsave("img/ggplot2_point_example.png", width = 4, height = 2)
+#+END_SRC
+
+#+RESULTS:
+
+[[file:img/ggplot2_point_example.png]]
+
+#+BEGIN_NOTES
+- Explain the color aesthetic.
+- Show other aesthetics.
+- We see  that the two insert sequences have different trends as a function of initiation rate. How do we make this trend obvious? Connect them with a line!
+#+END_NOTES
+
+*  Plotting a line graph
+
+#+BEGIN_SRC R :exports code :session :output none
+
+  ggplot(data, aes(x = kozak_region,
+                   y = mean_ratio,
+                   color = insert_sequence,
+                   group = insert_sequence)) +
+    geom_line()
+
+#+END_SRC
+
+#+BEGIN_SRC R :exports none :session
+  ggsave("img/ggplot2_line_example.png", width = 4, height = 2)
+#+END_SRC
+
+#+RESULTS:
+
+[[file:img/ggplot2_line_example.png]]
+
+#+BEGIN_NOTES
+- Explain the group characteristic
+#+END_NOTES
+
+*  Plotting point and line graphs
+
+#+BEGIN_SRC R :exports code :session :output none
+
+  ggplot(data, aes(x = kozak_region,
+                   y = mean_ratio,
+                   color = insert_sequence,
+                   group = insert_sequence)) +
+    geom_line() +
+    geom_point()
+
+#+END_SRC
+
+#+BEGIN_SRC R :exports none :session
+  ggsave("img/ggplot2_line_point_example.png", width = 4, height = 2)
+#+END_SRC
+
+[[file:img/ggplot2_line_point_example.png]]
+
+#+BEGIN_NOTES
+Explain that you can layer multiple =geoms= on top of each other.
+#+END_NOTES
+
+*  ‘Faceting’ -- Plotting in multiple panels 
+
+
+#+BEGIN_SRC R :exports code :session :output none
+  ggplot(data, aes(x = kozak_region,
+                   y = mean_ratio,
+                   group = insert_sequence)) +
+    geom_line() +
+    geom_point() +
+    facet_grid(~ insert_sequence)
+#+END_SRC
+
+#+BEGIN_SRC R :exports none :session
+  ggsave("img/ggplot2_line_point_facet_example.png", width = 4, height = 2)
+#+END_SRC
+
+[[file:img/ggplot2_line_point_facet_example.png]]
+
+#+BEGIN_NOTES
+Explain =~=
+#+END_NOTES
