@@ -4,6 +4,8 @@
 #+REVEAL_THEME: default
 #+STARTUP: showeverything
 
+To view the slides below in presentation mode, open [[file:README.html]] in a web browser.
+
 * Lecture 4 – Visualize data using =R= / =ggplot2=
 :PROPERTIES:
 :reveal_extra_attr: class="center"
