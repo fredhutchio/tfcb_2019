@@ -10,8 +10,8 @@ Please follow the instructions below to install the required software for this c
 
 Git is version control software, which helps you keep track of changes made to files. GitHub is a repository for data and code tracked with Git, and is a mechanism for publishing and collaborating on project development.
 
-If you do not already have one, please register for a GitHub account. Please note that your name and email will be publicly visible through GitHub by default, but more information on controlling privacy settings can be found here.
-The website for GitHub Desktop should auto-detect your operating system and allow you to download and install the software.
+If you do not already have one, please register for a [GitHub account](https://github.com). Please note that your name and email will be publicly visible through GitHub by default, but more information on controlling privacy settings can be found [here](https://help.github.com/en/articles/setting-your-commit-email-address).
+The website for [GitHub Desktop](https://desktop.github.com) should auto-detect your operating system and allow you to download and install the software.
 
 ## R
 
