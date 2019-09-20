@@ -23,9 +23,9 @@ Location: B1-072, Fred Hutch
 | 7       | Oct 17 | Gavin Ha         | Introduction to sequencing data
 | 8       | Oct 22 | Gavin Ha         | Genomic data in R
 | 9       | Oct 24 | Erick Matsen     | Introduction to the command line
-| 10      | Oct 29 | Erick Matsen     | Intro to the command line (continued)
-| 11      | Oct 31 | Phil Bradley     | Introduction to Python
-| 12      | Nov 5  | Phil Bradley     | Intro to Python (continued)
+| 10      | Oct 29 | Phil Bradley     | Introduction to Python
+| 11      | Oct 31 | Phil Bradley     | Intro to Python (continued)
+| 12      | Nov 5  | Erick Matsen     | Intro to the command line (continued)
 | 13      | Nov 7  | Jesse Bloom      | Data structures and biological analyses using Python
 | 14      | Nov 12 | Jesse Bloom      | Data structures/biological analyses in Python (continued)
 | 15      | Nov 14 | Phil Bradley     | Modeling and machine learning in Python
