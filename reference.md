@@ -15,6 +15,7 @@ The following materials are recommended as supplemental reading.
   - [Reproducible Computational Research](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1003285)
   - [Biologists Learning to Program](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005871)
 - [A Quick Guide to Organizing Computational Biology Projects](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1000424)
+- [Good Enough Practices in Scientific Computing](https://swcarpentry.github.io/good-enough-practices-in-scientific-computing/)
 
 ## Websites
 
