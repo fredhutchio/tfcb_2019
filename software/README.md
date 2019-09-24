@@ -2,7 +2,7 @@
 
 Please follow the instructions below to install the required software for this course. We'll use the other files in this directory to test the software together in class. The tools you'll need include:
 
-- [Git and GitHub](#git) for version control
+- [Git and GitHub](#git) for version control (please note you'll also need to share your GitHub username with us!)
 - [R and RStudio](#r) for R statistical programming
 - [Jupyter Notebooks via Anaconda](#python) for Python
 
@@ -13,6 +13,8 @@ Git is version control software, which helps you keep track of changes made to f
 ### GitHub Account
 
 If you do not already have one, please register for a [GitHub account](https://github.com). Please note that your name and email will be publicly visible through GitHub by default, but more information on controlling privacy settings can be found [here](https://help.github.com/en/articles/setting-your-commit-email-address).
+
+**Please share your GitHub username with us [here](https://docs.google.com/forms/d/e/1FAIpQLSdtlewc-Py9BZ33_Kgi-u2d2ilHYEDEYniwKVjW8mIp508r8A/viewform?usp=sf_link) so we can add you to GitHub classroom (used for homework submission).**
 
 ### GitHub Desktop App
 
