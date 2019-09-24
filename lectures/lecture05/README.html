@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title></title>
+<meta name="author" content="(Arvind ‘Rasi’ Subramaniam)"/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="./reveal.js/css/reveal.css"/>
+
+<link rel="stylesheet" href="./reveal.js/css/theme/default.css" id="theme"/>
+
+
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = './reveal.js/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+
+<section  class="center">
+<h1 id="org5a00484">Lecture 5 – Principles of Data Visualization</h1>
+<p>
+Arvind R. Subramaniam
+</p>
+
+<p>
+Assistant Member
+</p>
+
+<p>
+Basic Sciences Division and Computational Biology Program
+</p>
+
+<p>
+Fred Hutchinson Cancer Research Center
+</p>
+
+</section>
+<section >
+<h1 id="org75756f4">Learning Objectives</h1>
+<ul>
+<li>Know general dos and donts of data visualization</li>
+<li>Know about different types of data visualization</li>
+<li>Effective strategies for visualization</li>
+
+</ul>
+
+
+<p>
+<b>Useful reference</b>
+</p>
+
+<p>
+(Source of many figures in this lecture)
+</p>
+
+<p>
+<a href="https://serialmentor.com/dataviz/">Fundamentals of Data Visualization</a> by Claus O. Wilke
+</p>
+
+
+</section>
+<section >
+<h1 id="org4266c80">Goals of Visualization</h1>
+<ul>
+<li>Show experimental design and results</li>
+<li>Show relationships among variables</li>
+<li>Range and interval of a variable</li>
+
+</ul>
+</section>
+<section >
+<h1 id="orgf99b953">Same data can be visualized very differently</h1>
+
+<div class="figure">
+<p><img src="img/temp-normals-vs-time-1.png" alt="temp-normals-vs-time-1.png" />
+</p>
+</div>
+
+<p>
+<i>(from Wilke 2018)</i>
+</p>
+
+</section>
+<section >
+<h1 id="org256fca9">Same data can be visualized very differently</h1>
+
+<div class="figure">
+<p><img src="img/four-locations-temps-by-month-1.png" alt="four-locations-temps-by-month-1.png" />
+</p>
+</div>
+
+<p>
+<i>(from Wilke 2018)</i>
+</p>
+</section>
+<section >
+<h1 id="orgb229bf5">Same data can be visualized very differently</h1>
+
+<div class="figure">
+<p><img src="img/temperature-normals-polar-1.png" alt="temperature-normals-polar-1.png" />
+</p>
+</div>
+
+<p>
+<i>(from Wilke 2018)</i>
+</p>
+</section>
+<section >
+<h1 id="orgd3f58bb">Elements of a visualization</h1>
+<ul>
+<li>Aesthetics</li>
+<li>Scales</li>
+<li>Labeling</li>
+<li>Exporting</li>
+
+</ul>
+
+</section>
+<section >
+<h2 id="orgd189b9b">Aesthetics</h2>
+
+<div class="figure">
+<p><img src="img/common-aesthetics-1.png" alt="common-aesthetics-1.png" />
+</p>
+</div>
+
+<p>
+<i>(from Wilke 2018)</i>
+</p>
+</section>
+<section >
+<h2 id="org2677049">How do you pick aesthetics?</h2>
+<ul>
+<li>How many variables and data points do you want to show?</li>
+<li>Is your data continuous or discrete?</li>
+<li>Is there a natural order of discrete variables?</li>
+
+</ul>
+
+
+<aside class="notes">
+<p>
+Do not show more than 5 or 6 discrete categories in a graph.
+</p>
+
+</aside>
+
+</section>
+<section >
+<h2 id="orgf540cce">Scales</h2>
+<ul>
+<li>Linear or log scales</li>
+<li>Axis limits</li>
+
+</ul>
+
+</section>
+<section >
+<h2 id="org098f4f6">Log axes suitable for P-values</h2>
+
+<div class="figure">
+<p><img src="img/dong_2019_crispr_screen.png" alt="dong_2019_crispr_screen.png" />
+</p>
+</div>
+
+<p>
+<i>(from Dong 2019)</i>
+</p>
+</section>
+<section >
+<h2 id="org17d7eab">Log axes suitable for fold changes</h2>
+
+<div class="figure">
+<p><img src="img/10xaag_wt_log2.png" alt="10xaag_wt_log2.png" />
+</p>
+</div>
+
+<p>
+<i>(from Park 2019)</i>
+</p>
+</section>
+<section >
+<h2 id="orgfec2fad">Log-log plots are common in biology</h2>
+
+<div class="figure">
+<p><img src="img/dong_2019_volcano_plot.png" alt="dong_2019_volcano_plot.png" />
+</p>
+</div>
+
+<p>
+<i>(from Dong 2019)</i>
+</p>
+</section>
+<section >
+<h2 id="org2f06798">Labeling</h2>
+
+</section>
+<section >
+<h2 id="orgb3dac97">Exporting</h2>
+<ul>
+<li>Vector graphics or bitmap?</li>
+<li><a href="https://inkscape.org">Inkscape</a> is a useful open source vector graphics program for assembling figure panels.</li>
+
+</ul>
+
+</section>
+<section >
+<h1 id="org5d47b0e">Different types of Data Visualization</h1>
+<p>
+Different types of data that we want to visualize:
+</p>
+
+<ul>
+<li>Amounts</li>
+<li>Distributions</li>
+<li>Proportions</li>
+<li>X-Y Relationships</li>
+<li>Uncertainty</li>
+
+</ul>
+
+
+<ul>
+<li>Scatter plot</li>
+<li>Line graph</li>
+<li>Bar graph</li>
+<li>Pie charts</li>
+<li>Heat map</li>
+<li>Violin plots</li>
+<li>Bar and whisker plots</li>
+<li>Volcano plots</li>
+
+</ul>
+
+</section>
+<section >
+<h2 id="org54bddd7">Uncertainty</h2>
+<ul>
+<li>Error Bars</li>
+<li>Confidence Intervals</li>
+
+</ul>
+</section>
+</section>
+</div>
+</div>
+<script src="./reveal.js/lib/js/head.min.js"></script>
+<script src="./reveal.js/js/reveal.js"></script>
+
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+controls: false,
+progress: true,
+history: true,
+center: false,
+slideNumber: 'c',
+rollingLinks: false,
+keyboard: true,
+overview: true,
+
+theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+transition: Reveal.getQueryHash().transition || 'fade', // default/cube/page/concave/zoom/linear/fade/none
+transitionSpeed: 'default',
+multiplex: {
+    secret: '', // null if client
+    id: '', // id, obtained from socket.io server
+    url: '' // Location of socket.io server
+},
+
+// Optional libraries used to extend on reveal.js
+dependencies: [
+ { src: './reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+ { src: './reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: './reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: './reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: './reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }]
+});
+</script>
+</body>
+</html>

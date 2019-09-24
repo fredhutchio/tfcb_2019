@@ -1,0 +1,143 @@
+#+OPTIONS: num:nil toc:nil reveal_history:t reveal_control:nil reveal_progress:t reveal_center:nil reveal_title_slide:nil
+#+REVEAL_HLEVEL: 0
+#+REVEAL_TRANS: fade
+#+REVEAL_THEME: default
+#+STARTUP: showeverything
+
+* Lecture 5 – Principles of Data Visualization
+:PROPERTIES:
+:reveal_extra_attr: class="center"
+:END:
+
+Arvind R. Subramaniam
+
+Assistant Member
+
+Basic Sciences Division and Computational Biology Program
+
+Fred Hutchinson Cancer Research Center
+
+* Contents                                            :toc:noexport:
+- [[#lecture-5--principles-of-data-visualization][Lecture 5 – Principles of Data Visualization]]
+- [[#learning-objectives][Learning Objectives]]
+- [[#goals-of-visualization][Goals of Visualization]]
+- [[#same-data-can-be-visualized-very-differently][Same data can be visualized very differently]]
+- [[#same-data-can-be-visualized-very-differently-1][Same data can be visualized very differently]]
+- [[#same-data-can-be-visualized-very-differently-2][Same data can be visualized very differently]]
+- [[#elements-of-a-visualization][Elements of a visualization]]
+  - [[#aesthetics][Aesthetics]]
+  - [[#how-do-you-pick-aesthetics][How do you pick aesthetics?]]
+  - [[#scales][Scales]]
+  - [[#log-axes-suitable-for-p-values][Log axes suitable for P-values]]
+  - [[#log-axes-suitable-for-fold-changes][Log axes suitable for fold changes]]
+  - [[#log-log-plots-are-common-in-biology][Log-log plots are common in biology]]
+  - [[#labeling][Labeling]]
+  - [[#exporting][Exporting]]
+- [[#different-types-of-data-visualization][Different types of Data Visualization]]
+  - [[#uncertainty][Uncertainty]]
+
+* Learning Objectives
+- Know general dos and donts of data visualization
+- Know about different types of data visualization
+- Effective strategies for visualization
+
+
+*Useful reference*
+
+(Source of many figures in this lecture)
+
+[[https://serialmentor.com/dataviz/][Fundamentals of Data Visualization]] by Claus O. Wilke
+
+
+* Goals of Visualization
+
+- Show experimental design and results
+- Show relationships among variables
+- Range and interval of a variable
+* Same data can be visualized very differently
+
+[[file:img/temp-normals-vs-time-1.png]]
+
+/(from Wilke 2018)/
+
+* Same data can be visualized very differently
+
+[[file:img/four-locations-temps-by-month-1.png]]
+
+/(from Wilke 2018)/
+* Same data can be visualized very differently
+
+[[file:img/temperature-normals-polar-1.png]]
+
+/(from Wilke 2018)/
+* Elements of a visualization
+
+- Aesthetics
+- Scales
+- Labeling
+- Exporting
+
+** Aesthetics
+
+[[file:img/common-aesthetics-1.png]]
+
+/(from Wilke 2018)/
+** How do you pick aesthetics?
+
+- How many variables and data points do you want to show?
+- Is your data continuous or discrete?
+- Is there a natural order of discrete variables?
+
+
+#+BEGIN_NOTES
+Do not show more than 5 or 6 discrete categories in a graph.
+#+END_NOTES
+
+** Scales
+- Linear or log scales
+- Axis limits
+
+** Log axes suitable for P-values
+
+[[file:img/dong_2019_crispr_screen.png]]
+
+/(from Dong 2019)/
+** Log axes suitable for fold changes 
+
+[[file:img/10xaag_wt_log2.png]]
+
+/(from Park 2019)/
+** Log-log plots are common in biology
+
+[[file:img/dong_2019_volcano_plot.png]]
+
+/(from Dong 2019)/
+** Labeling
+
+** Exporting
+- Vector graphics or bitmap?
+- [[https://inkscape.org][Inkscape]] is a useful open source vector graphics program for assembling figure panels.
+
+* Different types of Data Visualization
+
+Different types of data that we want to visualize:
+
+- Amounts
+- Distributions
+- Proportions
+- X-Y Relationships
+- Uncertainty
+
+
+- Scatter plot
+- Line graph
+- Bar graph
+- Pie charts
+- Heat map
+- Violin plots
+- Bar and whisker plots
+- Volcano plots
+
+** Uncertainty
+- Error Bars
+- Confidence Intervals
