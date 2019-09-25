@@ -1,6 +1,6 @@
 # Software installation
 
-Please follow the instructions below to install the required software for this course. We'll use the other files in this directory to test the software together in class. The tools you'll need include:
+We ask you come prepared to class with a laptop on which you can participate in coding activities (talk to Kate if you don't have access to a computer and we can arrange one to borrow). Please follow the instructions below to install the required software for this course. We'll use the other files in this directory to test the software together in class. The tools you'll need include:
 
 - [Git and GitHub](#git) for version control (please note you'll also need to share your GitHub username with us!)
 - [R and RStudio](#r) for R statistical programming
