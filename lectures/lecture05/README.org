@@ -25,16 +25,27 @@ Fred Hutchinson Cancer Research Center
 - [[#same-data-can-be-visualized-very-differently-1][Same data can be visualized very differently]]
 - [[#same-data-can-be-visualized-very-differently-2][Same data can be visualized very differently]]
 - [[#elements-of-a-visualization][Elements of a visualization]]
-  - [[#aesthetics][Aesthetics]]
-  - [[#how-do-you-pick-aesthetics][How do you pick aesthetics?]]
-  - [[#scales][Scales]]
-  - [[#log-axes-suitable-for-p-values][Log axes suitable for P-values]]
-  - [[#log-axes-suitable-for-fold-changes][Log axes suitable for fold changes]]
-  - [[#log-log-plots-are-common-in-biology][Log-log plots are common in biology]]
-  - [[#labeling][Labeling]]
-  - [[#exporting][Exporting]]
-- [[#different-types-of-data-visualization][Different types of Data Visualization]]
-  - [[#uncertainty][Uncertainty]]
+- [[#aesthetics][Aesthetics]]
+- [[#how-do-you-pick-the-type-of-aesthetics][How do you pick the type of aesthetics?]]
+- [[#scales][Scales]]
+- [[#log-axes-suitable-for-p-values][Log axes suitable for P-values]]
+- [[#log-axes-suitable-for-fold-changes][Log axes suitable for fold-changes]]
+- [[#log-log-plots-are-common-in-biology][Log-log plots are common in biology]]
+- [[#labels][Labels]]
+- [[#cannot-read-labels][Cannot-read labels]]
+- [[#small-labels][Small labels]]
+- [[#appropriately-sized-labels][Appropriately-sized labels]]
+- [[#too-big-labels][Too-big labels]]
+- [[#seemingly-big-but-ok-labels][Seemingly big but ok labels]]
+- [[#exporting][Exporting]]
+- [[#colors][Colors]]
+- [[#color-to-distinguish-groups][Color to distinguish groups]]
+- [[#color-to-represent-quantitative-data][Color to represent quantitative data]]
+- [[#how-to-choose-colors][How to choose colors]]
+- [[#how-to-choose-colors-1][How to choose colors]]
+- [[#different-types-of-data-that-we-want-to-visualize][Different types of data that we want to visualize]]
+- [[#common-types-of-data-visualizations][Common types of data visualizations]]
+- [[#visualizing-uncertainty][Visualizing uncertainty]]
 
 * Learning Objectives
 - Know general dos and donts of data visualization
@@ -42,34 +53,46 @@ Fred Hutchinson Cancer Research Center
 - Effective strategies for visualization
 
 
+#+ATTR_REVEAL: :frag appear
+#+ATTR_HTML: :style margin-top:50px;
+#+BEGIN_aside
 *Useful reference*
 
 (Source of many figures in this lecture)
 
 [[https://serialmentor.com/dataviz/][Fundamentals of Data Visualization]] by Claus O. Wilke
+#+END_aside
+
 
 
 * Goals of Visualization
 
+#+ATTR_REVEAL: :frag (appear)
 - Show experimental design and results
 - Show relationships among variables
 - Range and interval of a variable
+ 
 * Same data can be visualized very differently
 
 [[file:img/temp-normals-vs-time-1.png]]
 
-/(from Wilke 2018)/
+#+ATTR_HTML: :class reference
+[[https://serialmentor.com/dataviz/][Wilke 2018]]
 
 * Same data can be visualized very differently
 
 [[file:img/four-locations-temps-by-month-1.png]]
 
-/(from Wilke 2018)/
+#+ATTR_HTML: :class reference
+[[https://serialmentor.com/dataviz/][Wilke 2018]]
+
 * Same data can be visualized very differently
 
 [[file:img/temperature-normals-polar-1.png]]
 
-/(from Wilke 2018)/
+#+ATTR_HTML: :class reference
+[[https://serialmentor.com/dataviz/][Wilke 2018]]
+
 * Elements of a visualization
 
 - Aesthetics
@@ -77,13 +100,17 @@ Fred Hutchinson Cancer Research Center
 - Labeling
 - Exporting
 
-** Aesthetics
+* Aesthetics
 
 [[file:img/common-aesthetics-1.png]]
 
-/(from Wilke 2018)/
-** How do you pick aesthetics?
 
+#+ATTR_HTML: :class reference
+[[https://serialmentor.com/dataviz/][Wilke 2018]]
+
+* How do you pick the type of aesthetics?
+
+#+ATTR_REVEAL: :frag (appear)
 - How many variables and data points do you want to show?
 - Is your data continuous or discrete?
 - Is there a natural order of discrete variables?
@@ -93,51 +120,191 @@ Fred Hutchinson Cancer Research Center
 Do not show more than 5 or 6 discrete categories in a graph.
 #+END_NOTES
 
-** Scales
-- Linear or log scales
-- Axis limits
+* Scales
+[[file:img/basic-scales-example-1.png]]
 
-** Log axes suitable for P-values
+#+ATTR_HTML: :class reference
+[[https://serialmentor.com/dataviz/][Wilke 2018]]
+
+* Log axes suitable for P-values
 
 [[file:img/dong_2019_crispr_screen.png]]
 
-/(from Dong 2019)/
-** Log axes suitable for fold changes 
+#+ATTR_HTML: :class reference
+[[https://www.ncbi.nlm.nih.gov/pubmed/31442407][Dong 2019]]
+
+* Log axes suitable for fold-changes 
 
 [[file:img/10xaag_wt_log2.png]]
 
-/(from Park 2019)/
-** Log-log plots are common in biology
+#+ATTR_HTML: :class reference
+[[https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.3000396][Park 2019]]
+
+* Log-log plots are common in biology
 
 [[file:img/dong_2019_volcano_plot.png]]
 
-/(from Dong 2019)/
-** Labeling
+#+ATTR_HTML: :class reference
+[[https://www.ncbi.nlm.nih.gov/pubmed/31442407][Dong 2019]]
 
-** Exporting
-- Vector graphics or bitmap?
-- [[https://inkscape.org][Inkscape]] is a useful open source vector graphics program for assembling figure panels.
+* Labels
 
-* Different types of Data Visualization
+#+BEGIN_QUOTE
+If you take away only one single lesson from this book, make it this one: Pay attention to your axis labels, axis tick labels, and other assorted plot annotations. Chances are they are too small. In my experience, nearly all plot libraries and graphing softwares have poor defaults. If you use the default values, you’re almost certainly making a poor choice.
+#+END_QUOTE
 
-Different types of data that we want to visualize:
-
-- Amounts
-- Distributions
-- Proportions
-- X-Y Relationships
-- Uncertainty
+#+ATTR_HTML: :class reference
+/[[https://serialmentor.com/dataviz/][Wilke 2018]]/
 
 
-- Scatter plot
-- Line graph
-- Bar graph
-- Pie charts
-- Heat map
-- Violin plots
-- Bar and whisker plots
-- Volcano plots
 
-** Uncertainty
-- Error Bars
-- Confidence Intervals
+#+BEGIN_NOTES
+Figures in presentations require bigger fonts than figures in papers.
+
+By having small fonts, you lose your audience especially in a presentation.
+
+Corollary of above is that taking a figure out of a paper and blowing it up for a presentation rarely retains the readability.
+#+END_NOTES
+
+* Cannot-read labels
+
+[[file:img/Aus-athletes-small-1.png]]
+
+#+ATTR_HTML: :class reference
+[[https://serialmentor.com/dataviz/][Wilke 2018]]
+
+* Small labels
+
+[[file:img/Aus-athletes-ugly-1.png]]
+
+#+ATTR_HTML: :class reference
+[[https://serialmentor.com/dataviz/][Wilke 2018]]
+
+* Appropriately-sized labels
+
+[[file:img/Aus-athletes-good-1.png]]
+
+#+ATTR_HTML: :class reference
+[[https://serialmentor.com/dataviz/][Wilke 2018]]
+
+* Too-big labels
+
+[[file:img/Aus-athletes-big-ugly-1.png]]
+
+#+ATTR_HTML: :class reference
+[[https://serialmentor.com/dataviz/][Wilke 2018]]
+
+* Seemingly big but ok labels
+
+[[file:img/Aus-athletes-big-good-1.png]]
+
+#+ATTR_HTML: :class reference
+[[https://serialmentor.com/dataviz/][Wilke 2018]]
+
+* Exporting
+
+#+ATTR_REVEAL: :frag (appear)
+- Finalize the figure within R as much as possible.
+- Use vector graphics for saving: PDF or SVG.
+- [[https://inkscape.org][Inkscape]] – useful open source vector graphics program for editing figures.
+- Make sure that text can be edited when you open the image.
+
+#+BEGIN_NOTES
+Do not use Powerpoint to draw figures. They are not easily editable by others.
+#+END_NOTES
+
+* Colors 
+
+Why use colors?
+
+#+ATTR_REVEAL: :frag (appear)
+1. As a tool to distinguish
+2. To represent data values
+
+* Color to distinguish groups
+
+[[file:img/findlay_2018_colors_example.png]]
+
+#+ATTR_HTML: :class reference
+[[https://www.ncbi.nlm.nih.gov/pubmed/30209399][Findlay 2018]]
+
+* Color to represent quantitative data
+
+[[file:img/tukiainen_2017_heatmap.png]]
+
+#+ATTR_HTML: :class reference
+[[https://www.nature.com/articles/nature24265][Tukiainen 2017]]
+
+
+* How to choose colors
+
+Avoid using many colors in a single graph
+
+[[file:img/biddy_2018_lot_of_colors.png]]
+
+#+ATTR_HTML: :class reference
+[[https://www.ncbi.nlm.nih.gov/pubmed/30518857][Biddy 2018]]
+
+* How to choose colors
+
+[[file:img/fluorescent_micrograph_colorblind_example.jpg]]
+#+ATTR_REVEAL: :frag appear
+[[file:img/fluorescent_micrograph_colorblind_simulation.jpg]]
+
+#+ATTR_REVEAL: :frag appear
+Use colorblind-friendly palettes 
+
+#+ATTR_REVEAL: :frag appear
+#+ATTR_HTML: :style margine-top:100px
+[[file:img/colorblind_friendly_palette.png]]
+
+
+#+ATTR_HTML: :style margine-top:20px
+#+ATTR_REVEAL: :frag appear
+- http://www.cookbook-r.com/Graphs/Colors_(ggplot2) 
+- https://jfly.uni-koeln.de/color/
+
+* Different types of data that we want to visualize
+
+#+ATTR_HTML: :border 0 :rules none :frame none  :class shrunk
+| Amounts           |
+| Distributions     |
+| Proportions       |
+| X-Y Relationships |
+| Uncertainty       |
+
+
+* Common types of data visualizations
+
+#+ATTR_HTML: :border 0 :rules none :frame none  :class shrunk
+| Scatter plot          |
+| Line graph            |
+| Bar graph             |
+| Pie charts            |
+| Heat map              |
+
+
+#+ATTR_REVEAL: :frag (appear)
+#+BEGIN_aside
+#+ATTR_HTML: :border 0 :rules none :frame none  :class shrunk :style margin-top:100px;
+| Bar and whisker plots |
+| Violin plots          |
+#+END_aside
+
+* Visualizing uncertainty
+
+#+ATTR_HTML: :border 0 :rules none :frame none  :class shrunk
+| Standard Error       |
+| Confidence Intervals |
+
+#+ATTR_REVEAL: :frag appear
+#+ATTR_HTML: :style margin-top:100px;
+#+BEGIN_aside
+Standard deviation or standard error?
+#+END_aside
+
+#+ATTR_REVEAL: :frag appear
+#+ATTR_HTML: :style margin-top:30px;
+#+BEGIN_aside
+Standard deviation does not decrease with more measurements.
+#+END_aside

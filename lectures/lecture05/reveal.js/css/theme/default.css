@@ -76,8 +76,8 @@ svg {
   margin-bottom: 25px; }
 
 .reveal ul li, .reveal ol li {
-  margin-top: 25px;
-  margin-bottom: 25px; }
+  margin-top: 60px;
+  margin-bottom: 60px; }
 
 .reveal li ul{
   margin-top: 30px; }
@@ -191,13 +191,27 @@ tr:nth-child(even) {background-color: #f2f2f2;}
     text-align: left;
 }
 
-.reveal table {
-    margin-bottom: 20px;
-}
+
 
 .reveal pre {
     font-size: 0.8em;
     box-shadow: none;
     margin: 0px;
     margin-bottom: 20px;
+}
+
+/*********************
+* Custom classes for academic presentations
+* Rasi Subramaniam
+* 23 Sep 2019
+*******************/
+.reference, .reference a {
+    margin-top: 100px;
+    font-size: 24px;
+    text-align: right;
+}
+
+.reveal blockquote {
+    width: 80%;
+    box-shadow: none; 
 }
