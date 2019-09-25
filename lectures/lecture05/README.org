@@ -4,6 +4,7 @@
 #+REVEAL_THEME: default
 #+STARTUP: showeverything
 
+
 * Lecture 5 – Principles of Data Visualization
 :PROPERTIES:
 :reveal_extra_attr: class="center"
@@ -53,15 +54,15 @@ Fred Hutchinson Cancer Research Center
 - Effective strategies for visualization
 
 
-#+ATTR_REVEAL: :frag appear
+#+ATTR_REVEAL: :frag appear :frag_idx 1
 #+ATTR_HTML: :style margin-top:50px;
-#+BEGIN_div
 *Useful reference*
 
+#+ATTR_REVEAL: :frag appear :frag_idx 1
 (Source of many figures in this lecture)
 
+#+ATTR_REVEAL: :frag appear :frag_idx 1
 [[https://serialmentor.com/dataviz/][Fundamentals of Data Visualization]] by Claus O. Wilke
-#+END_div
 
 
 
@@ -266,7 +267,6 @@ Use colorblind-friendly palettes
 
 * Different types of data that we want to visualize
 
-#+ATTR_HTML: :border 0 :rules none :frame none  :class shrunk
 | Amounts           |
 | Distributions     |
 | Proportions       |
@@ -276,7 +276,6 @@ Use colorblind-friendly palettes
 
 * Common types of data visualizations
 
-#+ATTR_HTML: :border 0 :rules none :frame none  :class shrunk
 | Scatter plot          |
 | Line graph            |
 | Bar graph             |
@@ -284,27 +283,24 @@ Use colorblind-friendly palettes
 | Heat map              |
 
 
-#+ATTR_REVEAL: :frag (appear)
-#+BEGIN_aside
-#+ATTR_HTML: :border 0 :rules none :frame none  :class shrunk :style margin-top:100px;
+#+ATTR_HTML: :style margin-top:100px;
+#+BEGIN_ASIDE
+
+#+END_ASIDE
+
+#+ATTR_REVEAL: :frag appear
 | Bar and whisker plots |
 | Violin plots          |
-#+END_aside
 
 * Visualizing uncertainty
 
-#+ATTR_HTML: :border 0 :rules none :frame none  :class shrunk
 | Standard Error       |
 | Confidence Intervals |
 
 #+ATTR_REVEAL: :frag appear
 #+ATTR_HTML: :style margin-top:100px;
-#+BEGIN_aside
 Standard deviation or standard error?
-#+END_aside
 
 #+ATTR_REVEAL: :frag appear
 #+ATTR_HTML: :style margin-top:30px;
-#+BEGIN_aside
 Standard deviation does not decrease with more measurements.
-#+END_aside
