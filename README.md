@@ -1,5 +1,7 @@
 # MCB 517A: Tools for Computational Biology
 
+This document is the syllabus for this course.
+
   * [Class schedule](#class-schedule)
   * [Homework and grading](#homework-and-grading)
   * [Course Description](#course-description)
