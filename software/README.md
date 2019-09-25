@@ -4,6 +4,7 @@ Please follow the instructions below to install the required software for this c
 
 - [Git and GitHub](#git) for version control (please note you'll also need to share your GitHub username with us!)
 - [R and RStudio](#r) for R statistical programming
+- [WSL or Terminal](#unix-command-line) for Unix command line
 - [Jupyter Notebooks via Anaconda](#python) for Python
 
 ## Git
@@ -39,7 +40,7 @@ RStudio + R is available through the Self Service application.
 - Double-click the downloaded `.exe` file and follow the prompts to install (default options are acceptable).
 - Once both are installed, launch RStudio and make sure there are no error messages.
 
-### macOS
+### MacOSX
 
 - Download the installer for the latest version of R compatible with your version of macOS from [CRAN](https://cran.r-project.org/bin/macosx/).
   If you are not using a recent version of macOS you may have to scroll down to _Binaries for legacy OS X systems_ and find the one appropriate for your version of macOS.
@@ -50,6 +51,18 @@ RStudio + R is available through the Self Service application.
 - Under _Installers_, click the link for the your OSX version's installer to download it.
 - Double-click the downloaded `.dmg` file, then open the RStudio folder that appears on your desktop. Drag the RStudio icon into the Applications folder.
 - Once everything is installed, launch RStudio and make sure there are no error messages.
+
+## Unix command line
+
+### Windows
+
+Windows 10 comes with a new feature called Windows Subsystem for Linux (WSL) that allows you to access Unix tools on your computer. Installation instructions can be found [here](https://docs.microsoft.com/en-us/windows/wsl/install-win10).
+
+Another option (such as if you are not running Windows 10) is Git for Windows, which also installs Git command-line tools. You can download [here](https://git-scm.com/download/win) and install with default options.
+
+### MacOSX
+
+Macintosh operating systems are built on Unix, so many of the tools you'll need are pre-installed on your computer. You can access the command line through an application called **Terminal**. You can either search for this in Finder, or use the Go drop-down menu to locate it in the Utilities folder.
 
 ## Python
 
