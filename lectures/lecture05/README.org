@@ -4,6 +4,7 @@
 #+REVEAL_THEME: default
 #+STARTUP: showeverything
 
+To view the slides below in presentation mode, open [[file:README.html]] in a web browser.
 
 * Lecture 5 – Principles of Data Visualization
 :PROPERTIES:
@@ -47,6 +48,22 @@ Fred Hutchinson Cancer Research Center
 - [[#different-types-of-data-that-we-want-to-visualize][Different types of data that we want to visualize]]
 - [[#common-types-of-data-visualizations][Common types of data visualizations]]
 - [[#visualizing-uncertainty][Visualizing uncertainty]]
+- [[#visualizing-uncertainty-1][Visualizing uncertainty]]
+- [[#-or-][👍 or 👎?]]
+- [[#-or--1][👍 or 👎?]]
+- [[#-or--2][👍 or 👎?]]
+- [[#which-is-better--pie-or-bar][Which is better – pie or bar?]]
+- [[#which-is-better--pie-or-bar-1][Which is better – pie or bar?]]
+- [[#-or--3][👍 or 👎?]]
+- [[#-or--4][👍 or 👎?]]
+- [[#-or--5][👍 or 👎?]]
+- [[#-or--6][👍 or 👎?]]
+- [[#-or--7][👍 or 👎?]]
+- [[#-or--8][👍 or 👎?]]
+- [[#-or--9][👍 or 👎?]]
+- [[#-or--10][👍 or 👎?]]
+- [[#-or--11][👍 or 👎?]]
+- [[#-or--12][👍 or 👎?]]
 
 * Learning Objectives
 - Know general dos and donts of data visualization
@@ -267,40 +284,217 @@ Use colorblind-friendly palettes
 
 * Different types of data that we want to visualize
 
+#+ATTR_HTML: :style margin:auto;
 | Amounts           |
+| X-Y Relationships |
 | Distributions     |
 | Proportions       |
-| X-Y Relationships |
-| Uncertainty       |
 
 
 * Common types of data visualizations
 
-| Scatter plot          |
-| Line graph            |
-| Bar graph             |
-| Pie charts            |
-| Heat map              |
-
-
-#+ATTR_HTML: :style margin-top:100px;
-#+BEGIN_ASIDE
-
-#+END_ASIDE
-
-#+ATTR_REVEAL: :frag appear
-| Bar and whisker plots |
-| Violin plots          |
+#+ATTR_HTML: :width 900px
+[[file:img/types_of_visualizations.png]]
 
 * Visualizing uncertainty
 
-| Standard Error       |
-| Confidence Intervals |
+#+ATTR_HTML: :style margin:auto;
+| Standard Error   |
+| Confidence Bands |
 
 #+ATTR_REVEAL: :frag appear
+#+ATTR_HTML: :width 900px 
+[[file:img/types_of_uncertainty.png]]
+
+
+* Visualizing uncertainty
+
+#+ATTR_HTML: :style margin:auto;
+| Standard Error   |
+| Confidence Bands |
+
 #+ATTR_HTML: :style margin-top:100px;
 Standard deviation or standard error?
 
 #+ATTR_REVEAL: :frag appear
 #+ATTR_HTML: :style margin-top:30px;
 Standard deviation does not decrease with more measurements.
+
+* 👍 or 👎?
+
+#+ATTR_HTML: :width 800px
+[[file:img/hawaii-income-bars-bad-1.png]]
+
+
+#+ATTR_REVEAL: :frag appear :frag_idx 1
+#+ATTR_HTML: :style margin-top:30px;
+Linear scales should begin at 0.
+#+ATTR_REVEAL: :frag appear :frag_idx 1
+#+ATTR_HTML: :class reference
+[[https://serialmentor.com/dataviz/][Wilke 2018]]
+
+* 👍 or 👎?
+
+[[file:img/oceania-gdp-logbars-1.png]]
+
+
+#+ATTR_REVEAL: :frag appear :frag_idx 1
+#+ATTR_HTML: :style margin-top:30px;
+Bar areas are not proportional to value.
+#+ATTR_REVEAL: :frag appear :frag_idx 2
+/Principle of proportional ink/
+#+ATTR_REVEAL: :frag appear :frag_idx 2
+#+ATTR_HTML: :class reference
+[[https://serialmentor.com/dataviz/][Wilke 2018]]
+
+
+* 👍 or 👎?
+
+[[file:img/oceania-gdp-dots-1.png]]
+
+
+#+ATTR_REVEAL: :frag appear :frag_idx 1
+#+ATTR_HTML: :style margin-top:30px;
+Log data values are best shown as points.
+#+ATTR_REVEAL: :frag appear :frag_idx 1
+#+ATTR_HTML: :class reference
+[[https://serialmentor.com/dataviz/][Wilke 2018]]
+
+* Which is better – pie or bar?
+
+#+ATTR_HTML: :width 800px
+[[file:img/RI-pop-pie-1.png]]
+
+* Which is better – pie or bar?
+
+#+ATTR_HTML: :width 800px
+[[file:img/RI-pop-bars-1.png]]
+
+
+#+ATTR_REVEAL: :frag appear :frag_idx 2
+#+ATTR_HTML: :style margin-top:30px;
+Bars are more accurately perceived than areas.
+#+ATTR_REVEAL: :frag appear :frag_idx 2
+#+ATTR_HTML: :class reference
+[[https://serialmentor.com/dataviz/][Wilke 2018]]
+
+
+* 👍 or 👎?
+
+#+ATTR_HTML: :width 750px
+[[file:img/mpg-cty-displ-solid-1.png]]
+
+#+ATTR_REVEAL: :frag appear :frag_idx 1
+#+ATTR_HTML: :style margin-top:30px;
+Overlapping points can be hidden.
+#+ATTR_REVEAL: :frag appear :frag_idx 1
+#+ATTR_HTML: :class reference
+[[https://serialmentor.com/dataviz/][Wilke 2018]]
+
+* 👍 or 👎?
+
+#+ATTR_HTML: :width 750px
+[[file:img/mpg-cty-displ-transp-1.png]]
+
+#+ATTR_REVEAL: :frag appear :frag_idx 1
+#+ATTR_HTML: :style margin-top:30px;
+Make points semi-transparent.
+#+ATTR_REVEAL: :frag appear :frag_idx 1
+#+ATTR_HTML: :class reference
+[[https://serialmentor.com/dataviz/][Wilke 2018]]
+
+* 👍 or 👎?
+
+#+ATTR_HTML: :width 750px
+[[file:img/mpg-cty-displ-jitter-1.png]]
+
+#+ATTR_REVEAL: :frag appear :frag_idx 1
+#+ATTR_HTML: :style margin-top:30px;
+Slightly jitter points along the direction of overlap.
+#+ATTR_REVEAL: :frag appear :frag_idx 1
+#+ATTR_HTML: :class reference
+[[https://serialmentor.com/dataviz/][Wilke 2018]]
+
+* 👍 or 👎?
+
+#+ATTR_HTML: :width 750px
+[[file:img/mpg-cty-displ-jitter-extreme-1.png]]
+
+#+ATTR_REVEAL: :frag appear :frag_idx 1
+#+ATTR_HTML: :style margin-top:30px;
+But too much jittering can be misleading.
+#+ATTR_REVEAL: :frag appear :frag_idx 1
+#+ATTR_HTML: :class reference
+[[https://serialmentor.com/dataviz/][Wilke 2018]]
+
+* 👍 or 👎?
+
+#+ATTR_HTML: :width 750px
+[[file:img/nycflights-points-1.png]]
+
+#+ATTR_REVEAL: :frag appear :frag_idx 1
+#+ATTR_HTML: :style margin-top:30px;
+Neither transparency nor jittering will help when data density is too high.
+#+ATTR_REVEAL: :frag appear :frag_idx 1
+#+ATTR_HTML: :class reference
+[[https://serialmentor.com/dataviz/][Wilke 2018]]
+
+* 👍 or 👎?
+
+#+ATTR_HTML: :width 750px
+[[file:img/nycflights-2d-bins-1.png]]
+
+#+ATTR_REVEAL: :frag appear :frag_idx 1
+#+ATTR_HTML: :style margin-top:30px;
+Binned 2D histograms is a good solution.
+#+ATTR_REVEAL: :frag appear :frag_idx 1
+#+ATTR_HTML: :class reference
+[[https://serialmentor.com/dataviz/][Wilke 2018]]
+
+* 👍 or 👎?
+
+#+ATTR_HTML: :width 750px
+[[file:img/nycflights-hex-bins-1.png]]
+
+#+ATTR_REVEAL: :frag appear :frag_idx 1
+#+ATTR_HTML: :style margin-top:30px;
+Hexagonal bins are slightly more accurate.
+#+ATTR_REVEAL: :frag appear :frag_idx 1
+#+ATTR_HTML: :class reference
+[[https://serialmentor.com/dataviz/][Wilke 2018]]
+
+* 👍 or 👎?
+
+#+ATTR_HTML: :width 800px
+[[file:img/tech-stocks-bad-legend-1.png]]
+
+#+ATTR_REVEAL: :frag appear :frag_idx 1
+#+ATTR_HTML: :style margin-top:30px;
+Legend order does not match plot order.
+#+ATTR_REVEAL: :frag appear :frag_idx 1
+#+ATTR_HTML: :class reference
+[[https://serialmentor.com/dataviz/][Wilke 2018]]
+
+* 👍 or 👎?
+
+#+ATTR_HTML: :width 800px
+[[file:img/tech-stocks-good-legend-1.png]]
+
+#+ATTR_REVEAL: :frag appear :frag_idx 1
+#+ATTR_HTML: :style margin-top:30px;
+Legend order matches plot order.
+#+ATTR_REVEAL: :frag appear :frag_idx 1
+#+ATTR_HTML: :class reference
+[[https://serialmentor.com/dataviz/][Wilke 2018]]
+
+* 👍 or 👎?
+
+#+ATTR_HTML: :width 800px
+[[file:img/tech-stocks-good-no-legend-1.png]]
+
+#+ATTR_REVEAL: :frag appear :frag_idx 1
+#+ATTR_HTML: :style margin-top:30px;
+Pick direct labeling over legend.
+#+ATTR_REVEAL: :frag appear :frag_idx 1
+#+ATTR_HTML: :class reference
+[[https://serialmentor.com/dataviz/][Wilke 2018]]
