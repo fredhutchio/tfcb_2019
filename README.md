@@ -48,7 +48,7 @@ Grading criteria and assessment will also be available there.
 - You are encouraged to search online for solutions and discuss the homework with your classmates.
 However, the answers you submit should be written in your own words.
 You should also cite any online source or person that helped you arrive at your solution as inline comments in your code.
-- Each homework will count for 10% of your final grade. In-class participation will count for the remaining 20%.
+- Each homework will count for 10% of your final grade. In-class participation will count for the remaining 20%, and will be assessed from the rubric presented [here](lectures/lecture01/participation_rubric.md).
 
 | Homework | Assigned Date | Due Date | Topic
 |----------|--------------|----------|-------
