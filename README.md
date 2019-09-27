@@ -37,7 +37,13 @@ Location: B1-072, Fred Hutch
 | 19      | Dec 3  | Rasi Subramaniam | Course summary and synthesis
 | 20      | Dec 5  | Kate Hertweck    | Capstone project
 
-Materials for each lecture will be available in this repository prior to the class session.
+Materials for each lecture will be available in this repository prior to the class session; 
+the link for each topic will take you to the folder containing materials for that class.
+
+For further assistance, Kate and/or TA Katie Kistler will be available for office hours Tuesday from 9 am to noon
+in the [Coop Lab (M1-B406, Arnold](https://research.fhcrc.org/coop/en/coop-lab.html). 
+If you do not have key-card access to the Hutch, or if you are unable to attend during this time, 
+please email Kate (khertwec at fredhutch.org) to set up an (in person or online) appointment.
 
 ## Homework and grading
 
