@@ -2,10 +2,19 @@
 
 We ask you come prepared to class with a laptop on which you can participate in coding activities (talk to Kate if you don't have access to a computer and we can arrange one to borrow). Please follow the instructions below to install the required software for this course. We'll use the other files in this directory to test the software together in class. The tools you'll need include:
 
+- [Text Editor](#text-editor) for simple file viewing / manipulation
 - [Git and GitHub](#git) for version control (please note you'll also need to share your GitHub username with us!)
 - [R and RStudio](#r) for R statistical programming
 - [WSL or Terminal](#unix-command-line) for Unix command line
 - [Jupyter Notebooks via Anaconda](#python) for Python
+
+## Text Editor
+
+Computational Biology and Bioinformatics are almost entirely based around manipulation of text files. It's often useful to be able to open and examine these text files. Word is not suitable. Instead a light-weight text editor is necessary.
+
+### MacOSX
+
+For MacOSX, a good recommendation is [BBEdit (free download)](https://www.barebones.com/products/bbedit/download.html). BBEdit won't complain about opening very large files and has good support for find-replace with regular expressions.
 
 ## Git
 
