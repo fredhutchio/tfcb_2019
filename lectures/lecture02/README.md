@@ -1,12 +1,22 @@
-# Reproducible Research, Markdown, Git and GitHub
+# Lecture 2: Reproducible Research, Markdown, Git and GitHub
 
 **Trevor Bedford ([@trvrb](https://twitter.com/trvrb), [bedford.io](https://bedford.io))**
 
-## Lecture outline
+## Learning objectives
 
-1. Reproducibility and collaborative science
-2. Markdown
-3. Git and GitHub
+- Identify minimum requirements for a reproducible computational project
+- Apply basic tasks using Git and GitHub to track versions of files
+- Write formatted text files using Markdown
+
+## Class materials
+
+1. [Reproducibility and collaborative science](#reproducible-science)
+2. [Markdown](#markdown)
+3. [Git and GitHub](#git-and-github)
+
+## Reminders
+
+- Recommended reading is available at the end of each section
 
 ## Reproducible science
 
