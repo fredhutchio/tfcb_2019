@@ -3,6 +3,7 @@
 We ask you come prepared to class with a laptop on which you can participate in coding activities (talk to Kate if you don't have access to a computer and we can arrange one to borrow). Please follow the instructions below to install the required software for this course (all programs should come pre-installed on your computer, or are freely available for academic use). We'll use the other files in this directory to test the software together in class. The tools you'll need include:
 
 - [Text Editor](#text-editor) for simple file viewing / manipulation
+- [Spreadsheet program](#spreadsheet-program), like Microsoft Excel
 - [Git and GitHub](#git) for version control (please note you'll also need to share your GitHub username with us!)
 - [R and RStudio](#r) for R statistical programming
 - [WSL or Terminal](#unix-command-line) for Unix command line
@@ -18,7 +19,14 @@ BBEdit can be downloaded from [here](https://www.barebones.com/products/bbedit/d
 
 ### Windows
 
-[Notepad++](https://notepad-plus-plus.org) can be downloaded by going to the [Download page](https://notepad-plus-plus.org/downloads/) and selecting the latest release. 
+[Notepad++](https://notepad-plus-plus.org) can be downloaded by going to the [Download page](https://notepad-plus-plus.org/downloads/) and selecting the latest release.
+
+## Spreadsheet program
+
+Spreadsheet programs are a useful way for us as humans to interact with data. The most common of these is Microsoft Excel. Commands may differ a bit between programs, but the general ideas for thinking about spreadsheets are the same. If you are working on a computer owned by Fred Hutch, Microsoft Office (including Excel) is available through the Self Service application. If you are working on a personal computer that doesn’t have a spreadsheet program, you can use a free, open source program called LibreOffice.
+
+Install LibreOffice by going to the installation page. The version for your operating system should automatically be selected. Click Download Version X.X.X (whichever is the most recent version). You will go to a page that asks about a donation, but you don’t need to make one. Your download should begin automatically.
+Once the installer is downloaded, double click on it and LibreOffice should install.
 
 ## Git
 
