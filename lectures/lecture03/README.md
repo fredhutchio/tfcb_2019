@@ -2,14 +2,22 @@
 
 **Trevor Bedford ([@trvrb](https://twitter.com/trvrb), [bedford.io](https://bedford.io))**
 
-## Lecture outline
+## Learning objectives
 
-1. File organization and naming
-2. Tidy data
+- Apply computational project organization principles specifically to good practices in data management
+- Implement best practices for organizing tabular (spreadsheet-style) data according to tidy data principles
 
-### Required software
+## Class materials
 
-1. Excel (or equivalent that can open `.xlsx` files)
+1. [File organization and naming](#project-and-data-organization)
+2. [Tidy data](#tidy-data)
+
+This class requires Microsoft Excel (or an equivalent program that can open `.xlsx` files); see [Software installation](../../software/) for more information.
+
+## Reminders
+
+- Recommended reading is available throughout each section
+- Please have R and RStudio installed with additional packages installed before the next class session. See [Software installation](../../software/) for more information.
 
 ## Project and data organization
 
