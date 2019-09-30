@@ -1,11 +1,24 @@
 # Software installation
 
-We ask you come prepared to class with a laptop on which you can participate in coding activities (talk to Kate if you don't have access to a computer and we can arrange one to borrow). Please follow the instructions below to install the required software for this course. We'll use the other files in this directory to test the software together in class. The tools you'll need include:
+We ask you come prepared to class with a laptop on which you can participate in coding activities (talk to Kate if you don't have access to a computer and we can arrange one to borrow). Please follow the instructions below to install the required software for this course (all programs should come pre-installed on your computer, or are freely available for academic use). We'll use the other files in this directory to test the software together in class. The tools you'll need include:
 
+- [Text Editor](#text-editor) for simple file viewing / manipulation
 - [Git and GitHub](#git) for version control (please note you'll also need to share your GitHub username with us!)
 - [R and RStudio](#r) for R statistical programming
 - [WSL or Terminal](#unix-command-line) for Unix command line
 - [Jupyter Notebooks via Anaconda](#python) for Python
+
+## Text Editor
+
+Biological data is almost exclusively represented as text, and we will be writing code in text files. It's useful to be able to open, examine, and edit text files using a light-weight text editor. Microsoft Word is not suitable for these types of files, and we do not recommend the text editors set as default on your computer, as these programs are often not optimized for working with code. If you have a text editor already installed that you have previously used for code, you are welcome to use that software. If not, please install one of our recommendations below, which are appropriate for viewing very large text files and doing find-and-replace tasks using regular expressions.
+
+### MacOSX
+
+BBEdit can be downloaded from [here](https://www.barebones.com/products/bbedit/download.html) or installed via the App Store.
+
+### Windows
+
+[Notepad++](https://notepad-plus-plus.org) can be downloaded by going to the [Download page](https://notepad-plus-plus.org/downloads/) and selecting the latest release. 
 
 ## Git
 
