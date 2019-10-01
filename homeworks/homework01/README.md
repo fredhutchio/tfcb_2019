@@ -10,7 +10,7 @@ At the end of this assignment, you will have two public repositories. One reposi
 
 Make a GitHub account and populate your bio by including your research interests, place of work, location, professional webpage (or science-focused twitter account!). Here's an example [github.com/trvrb/](https://github.com/trvrb/).
 
-_Include the think to your GitHub profile here._
+_Include the link to your GitHub profile here._
 
 ## Problem 2
 
@@ -37,7 +37,7 @@ This question assesses your ability to publish projects to GitHub.
 
 Publish `tfcb-homework01` to GitHub using GitHub Desktop. Make sure to set this to be a "public" repository. The resulting repository can now be accessed at github.com/{your_name}/tfcb-homework01. If necessary, you can make this repository public by going to "Settings" from this page.
 
-_Include the think to your `tfcb-homework01` GitHub repository here._
+_Include the link to your `tfcb-homework01` GitHub repository here._
 
 ## Problem 4
 
