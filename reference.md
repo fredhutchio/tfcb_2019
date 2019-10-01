@@ -6,6 +6,7 @@ The following materials are recommended as supplemental reading.
 
 - [R for Data Science](http://r4ds.had.co.nz/) by Hadley Wickham
 - [Python Data Science Handbook](https://jakevdp.github.io/PythonDataScienceHandbook/) by Jake Vanderplas
+- [Fundamentals of Data Visualization](https://serialmentor.com/dataviz/) by Claus Wilke
 
 ## Articles
 
