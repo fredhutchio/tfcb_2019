@@ -17,6 +17,7 @@
 ## Reminders
 
 - Recommended reading is available at the end of each section
+- Your first homework assignment is available today, and due Tuesday, October 8 at noon. You should receive an email containing an invitation to create your repository using GitHub Classroom. Please note that this homework covers project organization and Git/GitHub (lectures 1 and 2) as well as tidy data (lecture 3). Contact Kate (khertwec at fredhutch.org) with any questions or concerns.
 
 ## Reproducible science
 
