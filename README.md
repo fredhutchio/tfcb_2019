@@ -17,7 +17,7 @@ Location: B1-072, Fred Hutch
 | Lecture | Date   | Instructor       | Topic
 |---------|--------|------------------|--------
 | 1       | Sep 26 | Kate Hertweck    | [Introduction to course](lectures/lecture01/)
-| 2       | Oct 1  | Trevor Bedford   | Introduction to Git and GitHub
+| 2       | Oct 1  | Trevor Bedford   | [Introduction to Git and GitHub](lectures/lecture02/)
 | 3       | Oct 3  | Trevor Bedford   | Introduction to data
 | 4       | Oct 8  | Rasi Subramaniam | Visualize data using R/ggplot2
 | 5       | Oct 10 | Rasi Subramaniam | Principles of data visualization
