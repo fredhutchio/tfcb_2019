@@ -2,7 +2,7 @@
 
 This homework will assess your ability to use GitHub, organize projects, and apply tidy data principles, and represents content covered in lectures 01-03. You will also have the opportunity to familiarize yourself with GitHub Classroom, through which you will submit homework assignments for the duration of the course.
 
-At the end of this assignment, you will have two public repositories. One repository (`tfcb-homework01`) will be a revision of `messy-project-directory/`, following the instructions below, and will be located in your own GitHub account. The second repository (prefixed with `homework01`) will belong to the GitHub organization set up specifically for homework collection. The second repository will contain a separate copy of this file that you will modify for your homework submission. Your answers will replace the lines specified in _italics_ below.
+At the end of this assignment, you will have two public repositories. One repository (`tfcb-homework01`) will be a revision of `messy-project-directory/`, following the instructions below, and will be located in your own GitHub account. The second repository (prefixed with `homework01`) will belong to the GitHub organization set up specifically for homework collection; this repository will be automatically set up after you accept the invitation (from clicking the link sent via email). The second repository will contain a separate copy of this file that you will modify for your homework submission. Your answers will replace the lines specified in _italics_ below.
 
 ## Problem 1
 
