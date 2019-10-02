@@ -17,7 +17,7 @@ This class requires Microsoft Excel (or an equivalent program that can open `.xl
 ## Reminders
 
 - Recommended reading is available throughout each section
-- Please have R and RStudio installed before the next class session. See [Software installation](../../software/) for more information. **Please also follow the instructions to install tidyverse.**
+- Please have R and RStudio installed before the next class session. See [Software installation](../../software/) for more information. **Please also follow the instructions to [install tidyverse](../../software/README.md#installing-tidyverse).**
 - Your first homework assignment is currently available and is due Tuesday, October 8 at noon. You should have received an email containing an invitation to create your repository using GitHub Classroom. Contact Kate (khertwec at fredhutch.org) with any questions or concerns.
 
 ## Project and data organization
@@ -51,7 +51,7 @@ Ideally, your `data/` directory will include an additional `README` that (at bar
 - **Data type**: file types and formats
 - **Provenance**: how data were created and by whom (including analytical pipelines), what normalization or transformations are currently represented
 
-Documenting data can be a time-consuming process, but is often required to submit data to repositories. Since data publishing is a requirement for most academic research as a part of publication, keeping track of this information early on can save you time later, and increase the chances of other researchers using your data later (which means more citations for you). 
+Documenting data can be a time-consuming process, but is often required to submit data to repositories. Since data publishing is a requirement for most academic research as a part of publication, keeping track of this information early on can save you time later, and increase the chances of other researchers using your data later (which means more citations for you).
 
 ### Miscellaneous advice
 
