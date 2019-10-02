@@ -73,6 +73,13 @@ RStudio + R is available through the Self Service application.
 - Double-click the downloaded `.dmg` file, then open the RStudio folder that appears on your desktop. Drag the RStudio icon into the Applications folder.
 - Once everything is installed, launch RStudio and make sure there are no error messages.
 
+### Installing tidyverse
+
+- Open Rstudio. 
+- Click the Packages tab in the lower right panel. 
+- Click the Install button (upper left corner of the panel). In the empty space for Packages, type `tidyverse`. The other defaults (Install from CRAN and the Install to Library path) should be ok. Make sure the box next to "Install dependencies" is checked, and click Install.
+- If your installation is successful, you should see tidyverse appear in the list below. 
+
 ## Unix command line
 
 ### Windows
