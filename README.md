@@ -87,8 +87,8 @@ flow cytometry, and 96-well plate readers.
 
 - This course will require a laptop computer, on which you should install the [required software](software/README.md).
 - Additional reading material is available [for your reference](reference.md).
-- If you are a UW student who does not possess a prior affiliation with Fred Hutch, you will need to complete a form
-the first day of class to allow you access to Fred Hutch computational resources. Please note that this process
+- If you are a UW student who does not possess a prior affiliation with Fred Hutch: We will request a HutchNetID for you, 
+which will allow access to computational resources used for this class (please note that this process
 requires a background check). Parking on campus is limited, so we recommend taking public transit. More information
 for visitors to campus can be found [here](https://www.fredhutch.org/en/about/contact-us.html).
 - Information about expectations for student conduct, disability resources, academic integrity, and religious
