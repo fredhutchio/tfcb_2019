@@ -1,5 +1,7 @@
 # MCB 517A: Tools for Computational Biology
 
+This document is the syllabus for this course.
+
   * [Class schedule](#class-schedule)
   * [Homework and grading](#homework-and-grading)
   * [Course Description](#course-description)
@@ -14,18 +16,18 @@ Location: B1-072, Fred Hutch
 
 | Lecture | Date   | Instructor       | Topic
 |---------|--------|------------------|--------
-| 1       | Sep 26 | Kate Hertweck    | Introduction to course
-| 2       | Oct 1  | Trevor Bedford   | Introduction to Git and GitHub
-| 3       | Oct 3  | Trevor Bedford   | Introduction to data
-| 4       | Oct 8  | Rasi Subramaniam | Introduction to R
+| 1       | Sep 26 | Kate Hertweck    | [Introduction to course](lectures/lecture01/)
+| 2       | Oct 1  | Trevor Bedford   | [Introduction to Git and GitHub](lectures/lecture02/)
+| 3       | Oct 3  | Trevor Bedford   | [Introduction to data](lectures/lecture03/)
+| 4       | Oct 8  | Rasi Subramaniam | [Visualize data using R/ggplot2](lectures/lecture04/)
 | 5       | Oct 10 | Rasi Subramaniam | Principles of data visualization
-| 6       | Oct 15 | Rasi Subramaniam | Data visualization in R
+| 6       | Oct 15 | Rasi Subramaniam | Working with data using R/tidyverse
 | 7       | Oct 17 | Gavin Ha         | Introduction to sequencing data
 | 8       | Oct 22 | Gavin Ha         | Genomic data in R
 | 9       | Oct 24 | Erick Matsen     | Introduction to the command line
-| 10      | Oct 29 | Erick Matsen     | Intro to the command line (continued)
-| 11      | Oct 31 | Phil Bradley     | Introduction to Python
-| 12      | Nov 5  | Phil Bradley     | Intro to Python (continued)
+| 10      | Oct 29 | Phil Bradley     | Introduction to Python
+| 11      | Oct 31 | Phil Bradley     | Intro to Python (continued)
+| 12      | Nov 5  | Erick Matsen     | Intro to the command line (continued)
 | 13      | Nov 7  | Jesse Bloom      | Data structures and biological analyses using Python
 | 14      | Nov 12 | Jesse Bloom      | Data structures/biological analyses in Python (continued)
 | 15      | Nov 14 | Phil Bradley     | Modeling and machine learning in Python
@@ -35,7 +37,13 @@ Location: B1-072, Fred Hutch
 | 19      | Dec 3  | Rasi Subramaniam | Course summary and synthesis
 | 20      | Dec 5  | Kate Hertweck    | Capstone project
 
-Materials for each lecture will be available in this repository prior to the class session.
+Materials for each lecture will be available in this repository prior to the class session; 
+the link for each topic will take you to the folder containing materials for that class.
+
+For further assistance, Kate and/or TA Katie Kistler will be available for office hours Tuesday from 9 am to noon
+in the [Coop Lab (M1-B406, Arnold](https://research.fhcrc.org/coop/en/coop-lab.html). 
+If you do not have key-card access to the Hutch, or if you are unable to attend during this time, 
+please email Kate (khertwec at fredhutch.org) to set up an (in person or online) appointment.
 
 ## Homework and grading
 
@@ -46,15 +54,15 @@ Grading criteria and assessment will also be available there.
 - You are encouraged to search online for solutions and discuss the homework with your classmates.
 However, the answers you submit should be written in your own words.
 You should also cite any online source or person that helped you arrive at your solution as inline comments in your code.
-- Each homework will count for 10% of your final grade. In-class participation will count for the remaining 20%.
+- Each homework will count for 10% of your final grade. In-class participation will count for the remaining 20%, and will be assessed from the rubric presented [here](lectures/lecture01/participation_rubric.md).
 
 | Homework | Assigned Date | Due Date | Topic
 |----------|--------------|----------|-------
 | 1        | Oct 1        | Oct 8    | Reproducible science, Git and GitHub, Markdown
-| 2        | Oct 15       | Oct 22   | Data visualization and manipulation in R
-| 3        | Oct 22       | Oct 29   | Genomic data in R
-| 4        | Oct 29       | Nov 5    | Unix command line
-| 5        | Nov 5        | Nov 12   | Programming in Python
+| 2        | Oct 15       | Oct 22   | Data organization and manipulation in R
+| 3        | Oct 22       | Oct 29   | Data visualization and genomic data in R
+| 4        | Oct 24       | Nov 7    | Unix command line
+| 5        | Oct 29        | Nov 7   | Programming in Python
 | 6        | Nov 12       | Nov 19   | Data structures and biological analyses in Python
 | 7        | Nov 26       | Dec 3    | Modeling and machine learning in Python
 | 8        | Dec 3        | Dec 5    | Capstone
@@ -81,7 +89,7 @@ flow cytometry, and 96-well plate readers.
 - Additional reading material is available [for your reference](reference.md).
 - If you are a UW student who does not possess a prior affiliation with Fred Hutch, you will need to complete a form
 the first day of class to allow you access to Fred Hutch computational resources. Please note that this process
-requires a background check. Parking on campus is limited, so we recommend taking public transit. More information
+requires a background check). Parking on campus is limited, so we recommend taking public transit. More information
 for visitors to campus can be found [here](https://www.fredhutch.org/en/about/contact-us.html).
 - Information about expectations for student conduct, disability resources, academic integrity, and religious
 accommodations can be found on [this page](https://registrar.washington.edu/staffandfaculty/syllabi-guidelines/).
