@@ -81,7 +81,7 @@ data <- read_tsv("ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE89nnn/GSE89183/suppl/
 Using the code below:
 
 1. Convert both axes to `log10` instead of linear scales.
-2. Show axis tick labels as 10^0^, 10^1^, 10^2^,10^3^, 10^4^, 10^5^ for both axes.
+2. Show axis tick labels as 10<sup>0</sup>, 10<sup>1</sup>, 10<sup>2</sup>, 10<sup>3</sup>, 10<sup>4</sup>, 10<sup>5</sup> for both axes.
 3. There are two many points overlapping in certain regions. Use a different
 `geom_` function to convey to your reader how many overlapping points are present
 in each region.
