@@ -155,4 +155,4 @@ Problem 10
 
 Select only the bottom 10 genes with the lowest `avg_lfc` and display the gene `symbol`, gene `name` and `avg_lfc` for these genes.
 
-5 bonus points if you use one of the new functions you learned above!
+5 bonus points if you use one of the new functions you learned in Problem 1!
