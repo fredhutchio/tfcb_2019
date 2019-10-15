@@ -1,0 +1,197 @@
+---
+title: "MCB517A Lecture 8: Genomic Data Analysis in R"
+author: "Gavin Ha"
+date: "10/2/2019"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# 1. GenomicRanges Object to Store Genomic Data
+
+## 1.0 Install and load the GenomicRanges Bioconductor package
+```{r, echo=FALSE, include=FALSE}
+#BiocManager::install(GenomicRanges")
+library(GenomicRanges)
+```
+
+## 1.1 Manually create GRanges ojbect
+This will make use of two of the packages (`GRanges` and `IRanges`). A `GRanges` object must contain an attribute called `seqnames` to represent chromosomes and `ranges` attribute to represent the `start` and `end` coordinates. The range is 1-index-based (as opposed to 0-index), The `start` and `end` can be the same value if it is a single base-pair.  
+```{r}
+myGRange1 <- GRanges(seqnames = "chr17", 
+                        ranges = IRanges(start = 37844393, end = 37844393), myCol = "moreInfo1")
+myGRange2 <- GRanges(seqnames = "chr17", 
+                        IRanges(start = 37844477, end = 37844477), myCol = "moreInfo2")
+myGRange <- append(myGRange1, myGRange2)
+myGRange
+```
+
+## 1.2 SeqInfo for a genome build and chromosome naming conventions
+We can get genome build information directly in R, which can be useful. In this example, we will work with the human genome build, hg19. For this, we will need to install and load the library `BSgenome.Hsapiens.UCSC.hg19`
+http://bioconductor.org/packages/release/data/annotation/html/BSgenome.Hsapiens.UCSC.hg19.html
+```{r, echo=FALSE, include=FALSE}
+#BiocManager::install("BSgenome.Hsapiens.UCSC.hg19")
+library(BSgenome.Hsapiens.UCSC.hg19)
+```
+
+Now load the `SeqInfo` object for human genome hg19. There are 2 ways to do this. 
+```{r}
+seqinfo1 <- Seqinfo(genome="hg19")  # option 1 - slower
+seqinfo2 <- seqinfo(get("BSgenome.Hsapiens.UCSC.hg19"))  # option 2 - faster
+```
+
+An important consideration is the chromosome naming convention. This is usually a major source of issues related to matching and querying genomic regions. For the human genome reference, there are 2 conventions for hg19:
+  1. UCSC - uses "chr" string in front of the chromosome number (e.g. chr1)
+  2. NCBI - does not add a string to the front of the chromosome number (e.g. 1)
+In genome build GRCh38 (or hg38), this dual convention is no longer a problem and the string "chr" is always used (e.g. chr1).
+Let's say we still want to only work with the known autosomes and sex chromosomes in NCBI format, `1:22, "X", "Y"`.
+```{r}
+chrs <- c(1:22, "X", "Y") # NCBI format
+keepSeqlevels(seqinfo2, value = chrs, pruning.mode = "tidy")
+```
+
+This gives an error because `seqinfo1` is in `UCSC` format and so we need to convert this to `NCBI` format.
+```{r}
+seqlevelsStyle(seqinfo2) <- "NCBI"
+seqinfo2
+```
+
+Now, we can select the autosomes and sex chromosomes.
+```{r}
+seqinfo3 <- keepSeqlevels(seqinfo2, value = chrs)
+seqinfo3
+```
+
+Functions such as `keekpSeqlevels` and `seqlevelsStyle` can be applied to `GRanges` objects as well. Let's try this on our exmample `myGRange` variable.
+```{r}
+myGRange # original format: UCSC
+seqlevelsStyle(myGRange) <- "NCBI"
+myGRange # new format: NCBI
+```
+
+# 2. Loading Genomic Data From A File
+There are numerous text file formats for representing genomic data and some of these were discussed in Lecture 7. Here, we will show you that a `GRanges` can be easily created from any text file that contains delimited columns specifying genomic coorindates.
+
+## 2.1 BED format
+Browser Extensible Data (BED; https://genome.ucsc.edu/FAQ/FAQformat.html#format1) format is tab-delimited and a flexible way to define any genomic data. 
+There are 3 required columns:
+  1. Chromosome
+  2. Start Coordinate 
+  3. End Coordinate 
+
+For this example, we will work with TCGA data for primary breast cancer patient samples. Specifically, these are segmentation data used for copy number alteration analysis. See Lecture 7: Slide 38.
+
+First, we will learn about a very useful R package to read large datasets in R called, `data.table`. `data.table` allows for very fast operations on very large tables. We won't be able to go over the common operations here but I encourage you to check out the documentation and cheat sheet (https://www.datacamp.com/community/tutorials/data-table-cheat-sheet) 
+```{r, include=FALSE}
+#install.packages("data.table")
+library(data.table)
+segs <- fread("BRCA.genome_wide_snp_6_broad_Level_3_scna.seg.bed")
+segs
+```
+
+Small processing of this file to correct a few legacy hacks. We need to change chromosome 23 to chromosome X.
+```{r}
+str(segs) # show the class type for each column
+mode(segs$Chromosome) <- "character" # change the class of the chromosome to character
+segs[Chromosome == 23, Chromosome := "X"]
+segs
+```
+
+Convert the `data.table` object into a `GRanges`. You can use the `as()` function, as long as the 3 required columns are present. It is also flexible how the columns are named. For example, the column can be `Start`, `start`, `Chr`, `chr`, `Chromosome`, `End`, `Stop`, etc.
+```{r}
+segs.gr <- as(segs, "GRanges")
+segs.gr
+```
+
+Notice that the `seqinfo` is not specified for this `GRanges` object. So let's provide it with the `seqinfo` object we created before.
+```{r}
+seqinfo(segs.gr) <- seqinfo3
+```
+
+
+# 3. Operations and features of GenomicRanges/GRanges
+
+## 3.1 Tiling the genome
+Often we would like to find or count events overlapping regions in the genome. In an unbiased fashion, we could do this genome-wide by dividing the genome into tiles/windows/bins. We will use the `tileGenome()` for this task, which requires three arguments: length of the chromosomes, number of tiles and the size of each tile.
+```{r}
+slen <- seqlengths(seqinfo3) # get the length of the chromosomes
+tileWidth <- 500000 # tile size of 500kb
+tiles <- tileGenome(seqlengths = seqlengths(seqinfo3), tilewidth = tileWidth, 
+                    cut.last.tile.in.chrom = TRUE)
+```
+
+## 3.2 Subsetting by overlapping ranges
+
+```{r}
+q <- GRanges(seqnames = "17", ranges = IRanges(start = 35000000, end = 37000000))
+tiles.subset <- subsetByOverlaps(tiles, q)
+tiles.subset
+```
+
+## 3.2 Counting overlapping ranges
+
+```{r}
+
+```
+
+## 3.3 Finding overlapping ranges
+
+```{r}
+
+```
+
+# 4 Reading Genome Variation Data 
+
+## 4.1 VCF format
+Variant Call Format (VCF) is a very common format for representing genomic variation data. See Lecture 7: Slides 40-42.
+
+First, load the `VariantAnnotation` package
+```{r, include = FALSE}
+#BiocManager::install("VariantAnnotation")
+library(VariantAnnotation)
+```
+
+We will learn to read VCF files within R using a publicly available dataset of genomic variant calls for the infamous individual, NA12878. The Genome-in-a-Bottle Consortium has compiled consenuse variant calls on this individual's genome and released this data for researchers to use. One of the main purposes of this data is to provide a benchmark for those to develop computational tools and analysis of human genomes. See https://github.com/genome-in-a-bottle/giab_latest_release 
+
+There are a lot of variants in this file `GIAB_highconf_v.3.3.2.vcf.gz`, so we want to restrict to a smaller region for this example. First, we need to set up a `ScanVcfParam` object.
+```{r}
+vcfHead <- scanVcfHeader(vcfFile)
+vcf.param <- ScanVcfParam(which = tiles.subset[3]) # single 500kb bin
+vcfFile <- "GIAB_highconf_v.3.3.2.vcf.gz"
+vcf <- readVcf(vcfFile, genome = "hg19", param = vcf.param)
+vcf
+```
+
+The `vcf` variable is of class `CollapsedVCF` and will contain header information and data. Let's see what information has been parsed by `readVcf`. 
+
+The `rowRanges` function will return a `GRanges` object containing the coordinates, REF/ALT bases, quality, and filtering status of the variants.
+```{r}
+rowRanges(vcf) 
+```
+
+The `INFO` column in the original VCF text file contains a semi-colon delimited set of custom fields with flexible format that algorithms will output.  Here, it is parsed into usable format. First, let's look at what fields are available from the header.
+```{r}
+info(header(vcf)) # returns a DataFrame object
+```
+
+The `FORMAT` column in the original VCF text file contains the format and description of the genotype fields. Let's see what these are.
+```{r}
+geno(header(vcf))
+```
+
+To see the genotype `GT`, read depth `DP`, and allele depth `AD`, we access the the list.
+```{r}
+geno(vcf)$GT[1:10]
+geno(vcf)$DP[1:10]
+geno(vcf)$AD[1:10]
+```
+
+You can also combine all fields into a `data.table` object. But this code only works if the VCF contains a single sample.
+```{r}
+genoData <- data.table(do.call(cbind, geno(vcf)))
+colnames(genoData) <- rownames(geno(header(vcf)))
+genoData
+```
+

@@ -1,0 +1,84 @@
+---
+title: "MCB517A Lecture 8: Genomic Variant Annotations in R"
+author: "Gavin Ha"
+date: "10/10/2019"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# 3. Genomic Annotations
+
+## 3.0 Load our variant file
+```{r}
+vcfHead <- scanVcfHeader(vcfFile)
+vcf.param <- ScanVcfParam(which = tiles.subset[3]) # single 500kb bin
+vcfFile <- "GIAB_highconf_v.3.3.2.vcf.gz"
+vcf <- readVcf(vcfFile, genome = "hg19", param = vcf.param)
+vcf
+```
+
+## 3.1 Load UCSC Transcript and Gene Model
+```{r}
+library(GenomicFeatures)
+#BiocManager::install("TxDb.Hsapiens.UCSC.hg19.knownGene")
+library(TxDb.Hsapiens.UCSC.hg19.knownGene)
+txdb <- TxDb.Hsapiens.UCSC.hg19.knownGene
+```
+
+Show genes and coordinates based on Entrez Gene IDs
+```{r}
+genes(txdb)
+```
+
+## 3.2 Annotate Variant Genomic Context
+
+First, we need to set the genome style of the `vcf` variable to `UCSC` and keep only the autosomes and chrX for the `txdb` object.
+```{r}
+seqlevelsStyle(vcf) <- "UCSC"
+chrs <- paste0("chr", c(1:22, "X"))
+keepSeqlevels(txdb, value = chrs, pruning.mode = "tidy")
+```
+
+```{r}
+loc <- locateVariants(query = rowRanges(vcf)[1], subject = txdb, 
+                      region = CodingVariants())
+```
+
+## 3.2 Ensembl Annotations
+```{r}
+library(biomaRt)
+ensembl <- useMart("ensembl",dataset="hsapiens_gene_ensembl")
+ensembl
+```
+
+```{r}
+head(listAttributes(ensembl))
+res <- getBM(attributes=c("ensembl_gene_id", "hgnc_symbol", 
+                          "entrezgene_id", "chromosome_name", 
+                          "start_position" ,"end_position", 
+                          "gene_biotype"), 
+             filters = "biotype", values = "protein_coding", 
+             mart = ensembl)
+head(res)
+```
+
+Convert gene table into a GRanges object
+```{r}
+colnames(res)[4:6] <- c("chr", "start", "end") # need to have the correct columns names
+res.gr <- as(res, "GRanges")
+res.gr
+```
+
+Filter `protein_coding` gene list by chromosomes
+```{r}
+chrs <- paste0("chr", c(1:22, "X", "Y"))
+seqlevelsStyle(chrs)  # chromosomes use the UCSC naming convention (ie. with "chr")
+length(seqlevels(res.gr)) # too many chromosomes 
+seqlevelsStyle(res.gr) # chromosome naming convention is NCBI
+seqlevelsStyle(res.gr) <- "UCSC" # change it to UCSC
+res.gr <- keepSeqlevels(res.gr, value = chrs, pruning.mode = "coarse")
+seqlevelsStyle(res.gr) <- "NCBI"
+```
