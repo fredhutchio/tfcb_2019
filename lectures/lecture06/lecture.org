@@ -1,0 +1,453 @@
+#+OPTIONS: num:nil toc:nil reveal_history:t reveal_control:nil reveal_progress:t reveal_center:nil reveal_title_slide:nil
+#+REVEAL_HLEVEL: 0
+#+REVEAL_TRANS: fade
+#+REVEAL_THEME: default
+#+STARTUP: showeverything
+
+To view the slides below in presentation mode, open [[file:README.html]] in a web browser.
+
+* Lecture 6 – Working with data using =R= / =tidyverse=
+:PROPERTIES:
+:reveal_extra_attr: class="center"
+:END:
+
+Arvind R. Subramaniam
+
+Assistant Member
+
+Basic Sciences Division and Computational Biology Program
+
+Fred Hutchinson Cancer Research Center
+
+
+* Contents                                            :toc:noexport:
+- [[#lecture-6--working-with-data-using-r--tidyverse][Lecture 6 – Working with data using =R= / =tidyverse=]]
+- [[#tidyverse-functions-for-working-with-tabular-data][=Tidyverse= Functions for Working with Tabular Data]]
+- [[#read-tabular-data-into-a-dataframe-tibble][Read tabular data into a =DataFrame= (=tibble=)]]
+- [[#use-the-pipe--operator-to-chain-commands][Use the pipe =%>%= operator to chain commands]]
+- [[#all-these-commands-produce-the-same-output][All these commands produce the same output.]]
+- [[#simple-data-manipulations--select-columns][Simple Data Manipulations – =select= columns]]
+- [[#simple-data-manipulations--filter--rows][Simple Data Manipulations – =filter=  rows]]
+- [[#simple-data-manipulations--arrange--rows][Simple Data Manipulations – =arrange=  rows]]
+- [[#use-mutate-to-create-new-columns][Use =mutate= to create new columns]]
+- [[#use-mutate-to-create-new-columns-1][Use =mutate= to create new columns]]
+- [[#use-mutate-to-modify-existing-columns][Use =mutate= to modify existing columns]]
+- [[#use-type_join-to-join-two-data-frames][Use =TYPE_join= to join two data frames]]
+- [[#inner_join-keeps-common-rows][=inner_join= keeps common rows]]
+- [[#left_join-keeps-all-rows-in-left-data-frame][=left_join= keeps all rows in left data frame]]
+- [[#right_join-keeps-all-rows-in-right-data-frame][=right_join= keeps all rows in right data frame]]
+- [[#use-summarize-to-calculate-stats-across-rows][Use =summarize= to calculate stats across rows]]
+- [[#use-summarize-to-calculate-stats-across-rows-1][Use =summarize= to calculate stats across rows]]
+- [[#use-group_by-to-group-subsets-of-rows][Use =group_by= to group subsets of rows]]
+- [[#use-group_by-to-group-subsets-of-rows-1][Use =group_by= to group subsets of rows]]
+- [[#group_by--summarize-for-statistics-by-group][=group_by= + =summarize= for statistics by group]]
+- [[#group_by--summarize-for-statistics-by-group-1][=group_by= + =summarize= for statistics by group]]
+- [[#-enables-complex-data-analysis-pipelines][=%>%= enables complex data analysis pipelines]]
+- [[#-and--if-you-want-to-plot][=%>%= and =+= if you want to plot]]
+
+* =Tidyverse= Functions for Working with Tabular Data
+
+
+#+ATTR_HTML: :border 0 :rules none :frame none :style margin-top:100px;width:100%;
+| Import/Export | Visualize    | Transform   |
+|---------------+--------------+-------------|
+| =read_tsv=    | =geom_point= | =select=    |
+| =write_tsv=   | =geom_line=  | =filter=    |
+|               | =facet_grid= | =arrange=   |
+|               |              | =mutate=    |
+|               |              | =join=      |
+|               |              | =group_by=  |
+|               |              | =summarize= |
+
+* Read tabular data into a =DataFrame= (=tibble=)
+
+#+BEGIN_SRC R :exports none :session
+  # turn off coloring of output that screws up org mode formatting
+  # of tibbles
+  options(crayon.enabled = FALSE)
+#+END_SRC
+
+#+name: flow_data
+#+BEGIN_SRC R :exports code :session :results output
+
+  library(tidyverse)
+
+  data <- read_tsv("data/example_dataset_1.tsv")
+#+END_SRC
+
+#+BEGIN_SRC R :exports both :session :results output
+  print(data, n = 5)
+
+#+END_SRC
+
+* Use the pipe =%>%= operator to chain commands
+ 
+#+BEGIN_SRC R :exports both  :session :results output
+  data %>%
+    print(n = 5)
+#+END_SRC
+
+#+BEGIN_NOTES
+- Results from the LHS of the pipe are passed to the RHS.
+- This is one of the most useful and important features of =tidyverse=.
+- Remember that =ggplot2= uses =+= instead of =%>%=!
+#+END_NOTES
+
+* All these commands produce the same output.
+ 
+1) 
+
+    #+BEGIN_SRC R :exports code :session :results output
+    print(data, n= 5)
+    #+END_SRC
+2) 
+
+    #+BEGIN_SRC R :exports code :session :results output
+    data %>%
+        print(., n = 5)
+    #+END_SRC
+3) 
+
+     #+BEGIN_SRC R :exports code :session :results output
+     data %>%
+         print(n = 5)
+     #+END_SRC
+
+* Simple Data Manipulations – =select= columns
+
+#+BEGIN_SRC R :exports both  :session :results output
+  data %>%
+    print(n = 2)
+#+END_SRC
+
+#+BEGIN_SRC R :exports both  :session :results output
+  data %>%
+    select(strain, mean_ratio, insert_sequence, kozak_region) %>%
+    print(n = 2)
+#+END_SRC
+
+#+BEGIN_NOTES
+- You don't need to add quotes around variables.
+- However, this mean you cannot have weird characters in the name.
+#+END_NOTES
+
+* Simple Data Manipulations – =filter=  rows
+
+#+BEGIN_SRC R :exports both  :session :results output
+  data %>%
+    filter(kozak_region == "A")
+#+END_SRC
+
+#+BEGIN_SRC R :exports both  :session :results output
+  data %>%
+    filter(kozak_region == "A", insert_sequence == "10×AGA")
+#+END_SRC
+
+#+BEGIN_SRC R :exports both  :session :results output
+  data %>%
+    filter(kozak_region == "A") %>% 
+    filter(insert_sequence == "10×AGA")
+#+END_SRC
+
+#+BEGIN_NOTES
+- Note composability
+- Note '==' sign
+- Note that you don't need quotes for the variables that are already defined but you need it for strings
+#+END_NOTES
+
+* Simple Data Manipulations – =arrange=  rows
+
+#+BEGIN_SRC R :exports both  :session :results output
+  data %>%
+    arrange(mean_ratio)
+#+END_SRC
+
+#+BEGIN_NOTES
+- You can also arrange in descending order. That is one of the homework questions.
+#+END_NOTES
+* Use =mutate= to create new columns
+#+BEGIN_SRC R :exports none :session :results none
+  library(tidyverse)
+  # turn off coloring of output that screws up org mode formatting
+  # of tibbles
+  options(crayon.enabled = FALSE, messages = F, warnings = F)
+  library(rasilabRtemplates)
+
+  data <- read_tsv("data/example_dataset_2.tsv")
+#+END_SRC
+
+#+BEGIN_SRC R :exports both :results output :session :eval no
+  data <- read_tsv("data/example_dataset_2.tsv") %>%
+      print()
+#+END_SRC
+
+#+RESULTS:
+#+begin_example
+# A tibble: 16 x 3
+   strain  mean_yfp mean_rfp
+   <chr>      <int>    <int>
+ 1 schp688     1748    20754
+ 2 schp684     3294    20585
+ 3 schp690     3535    20593
+ 4 schp687     4658    20860
+ 5 schp686     5000    21171
+ 6 schp685     7379    22956
+ 7 schp683     9365    23866
+ 8 schp689     8693    22649
+ 9 schp679     2528    19906
+10 schp675     3687    20438
+11 schp681     3705    20227
+12 schp678     4378    20630
+13 schp677     3967    20604
+14 schp676     2657    20223
+15 schp674     1270    20316
+16 schp680     1117    19377
+#+end_example
+
+* Use =mutate= to create new columns
+
+#+BEGIN_SRC R :exports both :results output :session
+  data <- data %>%
+    mutate(mean_ratio = mean_yfp / mean_rfp) %>%
+    print()
+#+END_SRC
+
+* Use =mutate= to modify existing columns
+
+#+BEGIN_SRC R :exports both :results output :session
+  data %>%
+    mutate(mean_ratio = round(mean_ratio, 2)) %>%
+    print()
+#+END_SRC
+
+* Use =TYPE_join= to join two data frames
+
+#+BEGIN_SRC R :exports none :results output :session
+  annotations <- read_tsv("data/example_dataset_3.tsv") %>%
+    print()
+#+END_SRC
+
+#+BEGIN_SRC R :exports both :results output :session :eval no
+  annotations <- read_tsv("data/example_dataset_3.tsv") %>%
+    print()
+#+END_SRC
+
+#+RESULTS:
+#+begin_example
+# A tibble: 17 x 3
+   strain  insert_sequence kozak_region
+   <chr>   <chr>           <chr>       
+ 1 schp674 10×AAG          G           
+ 2 schp675 10×AAG          B           
+ 3 schp676 10×AAG          F           
+ 4 schp677 10×AAG          E           
+ 5 schp678 10×AAG          D           
+ 6 schp679 10×AAG          A           
+ 7 schp680 10×AAG          H           
+ 8 schp681 10×AAG          C           
+ 9 schp683 10×AGA          G           
+10 schp684 10×AGA          B           
+11 schp685 10×AGA          F           
+12 schp686 10×AGA          E           
+13 schp687 10×AGA          D           
+14 schp688 10×AGA          A           
+15 schp689 10×AGA          H           
+16 schp690 10×AGA          C           
+17 control <NA>            <NA>
+#+end_example
+
+* =inner_join= keeps common rows
+
+#+BEGIN_SRC R :exports both :results output :session
+  data %>%
+    inner_join(annotations, by = "strain") %>% 
+    print()
+#+END_SRC
+
+#+RESULTS:
+#+begin_example
+# A tibble: 16 x 6
+   strain  mean_yfp mean_rfp mean_ratio insert_sequence kozak_region
+   <chr>      <int>    <int>      <dbl> <chr>           <chr>       
+ 1 schp688     1748    20754     0.0842 10×AGA          A           
+ 2 schp684     3294    20585     0.160  10×AGA          B           
+ 3 schp690     3535    20593     0.172  10×AGA          C           
+ 4 schp687     4658    20860     0.223  10×AGA          D           
+ 5 schp686     5000    21171     0.236  10×AGA          E           
+ 6 schp685     7379    22956     0.321  10×AGA          F           
+ 7 schp683     9365    23866     0.392  10×AGA          G           
+ 8 schp689     8693    22649     0.384  10×AGA          H           
+ 9 schp679     2528    19906     0.127  10×AAG          A           
+10 schp675     3687    20438     0.180  10×AAG          B           
+11 schp681     3705    20227     0.183  10×AAG          C           
+12 schp678     4378    20630     0.212  10×AAG          D           
+13 schp677     3967    20604     0.193  10×AAG          E           
+14 schp676     2657    20223     0.131  10×AAG          F           
+15 schp674     1270    20316     0.0625 10×AAG          G           
+16 schp680     1117    19377     0.0576 10×AAG          H
+#+end_example
+
+#+BEGIN_NOTES
+- Joining data with annotations is a very common workflow and part of tidy data analysis that we will be talking about later.
+- Joining data with annotations is useful for slicing and dicing data by different experimental variables and is a common way to see dependence on different variables.
+#+END_NOTES
+
+* =left_join= keeps all rows in left data frame
+
+#+BEGIN_SRC R :exports both :results output :session
+  data %>%
+    left_join(annotations, by = "strain") %>% 
+    print()
+#+END_SRC
+
+#+RESULTS:
+#+begin_example
+# A tibble: 16 x 6
+   strain  mean_yfp mean_rfp mean_ratio insert_sequence kozak_region
+   <chr>      <int>    <int>      <dbl> <chr>           <chr>       
+ 1 schp688     1748    20754     0.0842 10×AGA          A           
+ 2 schp684     3294    20585     0.160  10×AGA          B           
+ 3 schp690     3535    20593     0.172  10×AGA          C           
+ 4 schp687     4658    20860     0.223  10×AGA          D           
+ 5 schp686     5000    21171     0.236  10×AGA          E           
+ 6 schp685     7379    22956     0.321  10×AGA          F           
+ 7 schp683     9365    23866     0.392  10×AGA          G           
+ 8 schp689     8693    22649     0.384  10×AGA          H           
+ 9 schp679     2528    19906     0.127  10×AAG          A           
+10 schp675     3687    20438     0.180  10×AAG          B           
+11 schp681     3705    20227     0.183  10×AAG          C           
+12 schp678     4378    20630     0.212  10×AAG          D           
+13 schp677     3967    20604     0.193  10×AAG          E           
+14 schp676     2657    20223     0.131  10×AAG          F           
+15 schp674     1270    20316     0.0625 10×AAG          G           
+16 schp680     1117    19377     0.0576 10×AAG          H
+#+end_example
+
+* =right_join= keeps all rows in right data frame
+
+#+BEGIN_SRC R :exports both :results output :session
+  data %>%
+    right_join(annotations, by = "strain") %>% 
+    print()
+#+END_SRC
+
+* Use =summarize= to calculate stats across rows
+
+#+BEGIN_SRC R :exports both :results output :session
+  data %>%
+    summarize(max_yfp = max(mean_yfp),
+              max_rfp = max(mean_rfp)) %>%
+    print()
+    
+#+END_SRC
+
+* Use =summarize= to calculate stats across rows
+
+#+BEGIN_SRC R :exports both :results output :session
+  data %>%
+    summarize(max_yfp = max(mean_yfp),
+              max_rfp = max(mean_rfp)) %>%
+    print()
+    
+#+END_SRC
+
+
+Other examples of summary functions:
+
+
+#+ATTR_HTML: :border 0 :rules none :frame none :width 80% :style margin-top:50px;margin-bottom:100px;
+ | =min()= | =mean()= | =sd()= | =first()= | =n()= |
+
+* Use =group_by= to group subsets of rows
+
+#+BEGIN_SRC R :exports none :results none :session
+  data <- read_tsv("data/example_dataset_4.tsv") %>% 
+    arrange(desc(strain)) %>%
+    print(n = 10)
+#+END_SRC
+
+#+BEGIN_SRC R :exports both :results output :session :eval no
+  data <- read_tsv("data/example_dataset_4.tsv") %>% 
+    print(n = 10)
+#+END_SRC
+
+#+RESULTS:
+#+begin_example
+# A tibble: 74 x 4
+   strain    yfp   rfp replicate
+   <chr>   <int> <int>     <int>
+ 1 schp690  3640 20944         1
+ 2 schp690  3502 20881         2
+ 3 schp690  3569 20063         3
+ 4 schp690  3475 20773         4
+ 5 schp690  3487 20307         5
+ 6 schp689  9790 24399         1
+ 7 schp689  9821 24932         2
+ 8 schp689  9310 23007         3
+ 9 schp689  6269 19075         4
+10 schp689  8273 21835         5
+# ... with 64 more rows
+#+end_example
+
+* Use =group_by= to group subsets of rows
+
+#+BEGIN_SRC R :exports both :results output :session
+  data %>% 
+    group_by(strain) %>%
+    print(n = 10)
+#+END_SRC
+
+* =group_by= + =summarize= for statistics by group
+
+#+BEGIN_SRC R :exports both :results output :session
+  data %>% 
+    group_by(strain) %>%
+    summarize(mean_yfp = mean(yfp), mean_rfp = mean(rfp)) %>%
+    print()
+#+END_SRC
+
+* =group_by= + =summarize= for statistics by group
+
+#+BEGIN_SRC R :exports both :results output :session
+  data %>% 
+    group_by(strain) %>%
+    summarize(mean_yfp = mean(yfp), mean_rfp = mean(rfp),
+              se_yfp = sd(yfp) / sqrt(n()), 
+              se_rfp = sd(rfp) / sqrt(n())) %>%
+    print()
+#+END_SRC
+
+* =%>%= enables complex data analysis pipelines
+
+#+BEGIN_SRC R :exports both :results output :session
+  data %>% 
+    group_by(strain) %>%
+    summarize(mean_yfp = mean(yfp), mean_rfp = mean(rfp)) %>%
+    mutate(mean_ratio = mean_yfp / mean_rfp) %>%
+    left_join(annotations, by = "strain") %>%
+    print()
+#+END_SRC
+
+* =%>%= and =+= if you want to plot
+
+#+BEGIN_SRC R :exports both :results output :session
+  data %>% 
+    group_by(strain) %>%
+    summarize(mean_yfp = mean(yfp), mean_rfp = mean(rfp)) %>%
+    mutate(mean_ratio = mean_yfp / mean_rfp) %>%
+    left_join(annotations, by = "strain") %>%
+    ggplot(aes(x = kozak_region, y = mean_ratio, 
+               color = insert_sequence, group = insert_sequence)) +
+    geom_line() +
+    geom_point()
+#+END_SRC
+
+#+BEGIN_SRC R :exports none :results output :session
+  ggsave("img/complex_pipeline_example.png", width = 4, height = 2)
+#+END_SRC
+#+ATTR_HTML: :width 70%
+[[file:img/complex_pipeline_example.png]]
+
+#+BEGIN_NOTES
+Mention that you can also troubleshoot by removing lines in a pipeline !important
+#+END_NOTES
