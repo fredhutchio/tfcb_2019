@@ -4,7 +4,7 @@ Sequencing of nucleic acids is almost ubiquitous in biological research. In this
 
 This lecture will be largely based on introduction of concepts and will include examples with real data and code. The code is mostly for tools used in the command line and are provided for your reference; this will not be included in the homework for this section. 
 
-## Learning Objectives
+## Learning objectives
 
 1. Sequence data
 - Databases and online resources for sequence data
@@ -22,6 +22,7 @@ This lecture will be largely based on introduction of concepts and will include 
 - Learn the common file formats for variation data
 - Databases and online resources for human variation data
 
+
 ## Class materials
 
 For your reference, data and examples show in this lecture can be downloaded here:
@@ -33,3 +34,5 @@ BRCA_IDC_cfDNA.bam.bai
 It is not necessary to have these for this lecture but we will be using these in Lecture 8.
 
 ## Reminders
+
+-
