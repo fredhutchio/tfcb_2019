@@ -21,7 +21,7 @@ Location: B1-072, Fred Hutch
 | 3       | Oct 3  | Trevor Bedford   | [Introduction to data](lectures/lecture03/)
 | 4       | Oct 8  | Rasi Subramaniam | [Visualize data using R/ggplot2](lectures/lecture04/)
 | 5       | Oct 10 | Rasi Subramaniam | [Principles of data visualization](lectures/lecture05/)
-| 6       | Oct 15 | Rasi Subramaniam | Working with data using R/tidyverse
+| 6       | Oct 15 | Rasi Subramaniam | [Working with data using R/tidyverse](lectures/lecture06/)
 | 7       | Oct 17 | Gavin Ha         | Introduction to sequencing data
 | 8       | Oct 22 | Gavin Ha         | Genomic data in R
 | 9       | Oct 24 | Erick Matsen     | Introduction to the command line
