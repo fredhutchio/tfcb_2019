@@ -1,8 +1,17 @@
-TFCB 2019: Homework 2
-=====================
+---
+title: "TFCB 2019: Homework 2"
+date: "Oct 15, 2018"
+output:
+  github_document:
+    toc: 2
+---
 
-In this homework, we will work through a series of manipulations to analyze
-a recently published deep sequencing dataset using `tidyverse` functions.
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+In this homework, we will work through a series of manipulations to analyze a recently published deep sequencing
+dataset using `tidyverse` functions.
 
 In the process, we will learn some new functions in `tidyverse` and apply
 them to our data analysis.
@@ -17,20 +26,10 @@ about integrating Git/GitHub with RStudio.
 
 **This assignment is due at 12pm on Oct 22, 2019. Your responses should be submitted
 through the private repository created via GitHub Classroom using the link emailed to
-you. See the note at the bottom of this document for more information on formatting your final submission.**
+you. See the note at the bottom of this document for more information on
+formatting your final submission.**
 
--   [Problem 1](#problem-1)
--   [Problem 2](#problem-2)
--   [Problem 3](#problem-3)
--   [Problem 4](#problem-4)
--   [Problem 5](#problem-5)
--   [Problem 6](#problem-6)
--   [Problem 7](#problem-7)
--   [Problem 8](#problem-8)
--   [Problem 9](#problem-9)
--   [Problem 10](#problem-10)
-
-``` r
+```{r}
 library(tidyverse)
 ```
 
@@ -81,7 +80,7 @@ data <- read_tsv("ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE89nnn/GSE89183/suppl/
 Using the code below:
 
 1. Convert both axes to `log10` instead of linear scales.
-2. Show axis tick labels as 10<sup>0</sup>, 10<sup>1</sup>, 10<sup>2</sup>, 10<sup>3</sup>, 10<sup>4</sup>, 10<sup>5</sup> for both axes.
+2. Show axis tick labels as 10^0^, 10^1^, 10^2^,10^3^, 10^4^, 10^5^ for both axes.
 3. There are two many points overlapping in certain regions. Use a different
 `geom_` function to convey to your reader how many overlapping points are present
 in each region.
@@ -92,7 +91,6 @@ data %>%
   ggplot(aes(x = CD34_shRPL5_RNA_1, y = CD34_shRPS19_RNA_1)) +
   geom_point()
 ```
-![](README_files/figure-markdown_github/unnamed-chunk-4-1.png)
 
 **In problems 4 through 6, assign the result of your operation back to the `data`
 variable.**
