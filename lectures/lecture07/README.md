@@ -30,7 +30,9 @@ Outline of [content from the slides](MCB517A_lecture7_IntroSeqData.pdf):
 - Learn the common file formats for variation data
 - Databases and online resources for human variation data
 
-For your reference, data and examples show in this lecture are available [here](https://www.dropbox.com/sh/zoitjnobgp7l7c2/AABBIpTQcNA4lWYOFnV5dlMKa?dl=0). It is not necessary to download these for this lecture, although we'll use them in the next class.
+For your reference, data and examples shown in this lecture are available [here](https://www.dropbox.com/sh/zoitjnobgp7l7c2/AABBIpTQcNA4lWYOFnV5dlMKa?dl=0). It is not necessary to download these for this lecture, although we'll use them in the next class. 
+
+We will also use the [Integrative Genomics Viewer (IGV)](https://software.broadinstitute.org/software/igv/) for visualizing sequence data in Lecture 7 and 8.
 
 ## Reminders
 
