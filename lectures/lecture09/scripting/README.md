@@ -76,7 +76,7 @@ Samtools has a nice command line user interface that has commands within the com
 
     samtools COMMAND ETC
 
-where COMMAND is a command such as `index` and `ETC` are flags, files, etc.
+where `COMMAND` is a command such as `index` and `ETC` are flags, files, etc.
 This is now common and is used for git and other lovely software.
 
 You can view reads from the first chromosome with
@@ -108,3 +108,89 @@ Now we will learn something very important...
 * Re-introduce the "bug".
 * Remove the output files.
 * Re-run the script.
+
+
+## Don't write shell
+
+"Classic" shell is a rich programming language.
+The most frequently used shell, called "bash", [is way more complex](https://www.tldp.org/LDP/abs/html/).
+However, I do not suggest that you use shell in this way.
+
+Rather, I suggest that once you start to need more than just executing a series of commands, you reach for a general-purpose programming language such as Python.
+Speaking from personal experience and experience of those in my group, scripts often get increasingly complex to the point where one is doing more complex manipulations that are more suited to a more complete programming language.
+
+However, sometimes we need to execute a command over a series of files, which would typically happen in a loop.
+Of course, shell does have loops, but next I'll present an alternative, which is simple and has some good bonuses.
+
+
+## GNU Parallel
+
+Here we will provide an introduction to a command that provides a convenient and efficient alternative to loops: [GNU Parallel](https://www.gnu.org/software/parallel/).
+
+To get set up, let's split our input BAM file into a bunch of text-format SAM files.
+
+    samtools split --output-fmt SAM input.bam
+
+Have a look at these files using your favorite method.
+
+There also exists a command called `file` that tells us information about the file.
+Run `file` on `input_0.sam`.
+
+Now, if we want to run file on all of the sam files, we can can use the fact that `file` accepts multiple arguments like so:
+
+    file *sam
+
+If `file` didn't accept multiple files as arguments, we'd have to do something else.
+
+Here we're going to use `parallel` to do that job.
+To use it in this case we can do
+
+    ls *sam | parallel file
+
+Here we are piping the file names to the `parallel` command.
+We give `parallel` the argument `file`, which tells it which command to run.
+
+Let's try a slightly less trivial example.
+There is a program called `gzip` that compresses text files.
+We'll play around with that for a bit.
+
+First try
+
+    gzip -k -f input_0.sam
+
+What do the `-k` and `-f` flags do?
+Look them up in the `gzip` documentation.
+
+Now try
+
+    ls *sam | parallel gzip -k -f
+
+What did that do?
+Use `ls` and `file` to find out.
+
+We now want to start giving flags to `parallel`.
+This works like so:
+
+    ls *sam | parallel -v gzip -k -f
+
+This may seem a little confusing at first, but all that's happening is that we are running `parallel` with the `-v` flag, giving `gzip -k -f` as the argument.
+What did the `-v` flag do?
+
+OK, now for the fun part: running in parallel!
+"Parallel" means to run multiple computations at the same time, which is faster than running them one at a time.
+We can tell `parallel` that we want to run (at most) 4 parallel processes at once with the `-j 4` flag:
+
+    ls *sam | parallel -j 4 -v gzip -k -f
+
+Try this version as well as with `-j 1` to run one process at a time.
+Which is faster?
+Do you notice anything about the execution order when using `-j 4`?
+
+We have just barely scratched the surface of `parallel`.
+It is tremendously powerful!
+
+
+## More references
+
+* [my notes on shell scripting](https://www.fredhutch.io/articles/2017/02/25/shell-scripting/)
+* [GNU Parallel documentation](https://www.gnu.org/software/parallel/).
