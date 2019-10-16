@@ -18,11 +18,11 @@ Take a look through your history.
 
 You can also search through your history.
 Hitting `Ctrl-r` brings up reverse interactive search.
-In this example, I typed `tags`, which brings up the most recent command containing the string `tags`:
+Here you could type `cd`, which brings up the most recent command containing the string `cd`:
 
 ```
-$ git describe --tags --long
-bck-i-search: tags_
+$ cd history
+bck-i-search: cd_
 ```
 
 You can cycle through earlier commands by hitting `Ctrl-r` again.

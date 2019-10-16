@@ -78,9 +78,12 @@ Now try
 what does this command do?
 (Remember you can use `pwd` to write out where you are.)
 
+First use `pwd` to print out your current directory, and save that location.
 Now try changing your directory to `/`.
 Take a look around.
 What do you see?
+
+Now go back to where you were before.
 
 ---
 
