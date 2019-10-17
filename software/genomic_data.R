@@ -1,5 +1,9 @@
 # Installation for genomic analysis in R
 
+# To run the following code, you can:
+#   update your class repository locally, open this file in RStudio, and execute
+#   copy and paste the code into your console
+
 # The packages below include tools from Bioconductor, a software suite designed for genomic analsyis in R. These packages include (relatively) large data files, as well as many dependencies (other packages that are installed with the main package). Please plan ahead for installing these tools, and be aware that the output from these installs is verbose and may include warnings. Feel free to show up early to lecture if you'd like assistance confirming the installs completed satisfactorily.
 
 # install data.table from CRAN
