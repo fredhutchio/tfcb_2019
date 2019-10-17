@@ -19,10 +19,10 @@ Outline of [content from the slides](MCB517A_lecture7_IntroSeqData.pdf):
 - Learn the common sequence data file formats
 
 2. Tools for sequencing data
-- Tools to query, inspect, visualize an aligned sequence file 
+- Tools to query, inspect, visualize an aligned sequence file
 - Learn the contents of sequence data files
 - Learn to generate sequencing metrics and to process sequence data
-- Learn about Python and R libraries/packages to read sequence data 
+- Learn about Python and R libraries/packages to read sequence data
 
 3. Genome variant analysis
 - Types of genomic variation
@@ -30,11 +30,9 @@ Outline of [content from the slides](MCB517A_lecture7_IntroSeqData.pdf):
 - Learn the common file formats for variation data
 - Databases and online resources for human variation data
 
-For your reference, data and examples shown in this lecture are available [here](https://www.dropbox.com/sh/zoitjnobgp7l7c2/AABBIpTQcNA4lWYOFnV5dlMKa?dl=0). It is not necessary to download these for this lecture, although we'll use them in the next class. 
-
-We will also use the [Integrative Genomics Viewer (IGV)](https://software.broadinstitute.org/software/igv/) for visualizing sequence data in Lecture 7 and 8.
+For your reference, data and examples shown in this lecture are available [here](https://www.dropbox.com/sh/zoitjnobgp7l7c2/AABBIpTQcNA4lWYOFnV5dlMKa?dl=0), and visualization uses the [Integrative Genomics Viewer (IGV)](https://software.broadinstitute.org/software/igv/). It is not necessary to download these for this lecture, although we'll use them in the next class.
 
 ## Reminders
 
 - Homework 2 (data manipulation and visualization in R/tidyverse) is currently available and is due Tuesday, October 22 at noon. You should have received an email containing an invitation to create your repository using GitHub Classroom. Contact Kate (khertwec at fredhutch.org) with any questions or concerns.
-- The next class session (lecture 8) will include analysis of genomic data in R. To prepare for this session, please download all data files in [this Dropbox folder](https://www.dropbox.com/sh/zoitjnobgp7l7c2/AABBIpTQcNA4lWYOFnV5dlMKa?dl=0) and follow the instructions in [this script](../../software/genomic_data.R) to install required packages.
+- The next class session (lecture 8) will include analysis of genomic data in R. To prepare for this session, please download all data files in [this Dropbox folder](https://www.dropbox.com/sh/zoitjnobgp7l7c2/AABBIpTQcNA4lWYOFnV5dlMKa?dl=0) and follow the instructions in [this script](../../software/genomic_data.R) to install required packages. You may also find it useful to install the [Integrative Genomics Viewer (IGV)](https://software.broadinstitute.org/software/igv/) for visualization of genomic data.
