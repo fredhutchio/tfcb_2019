@@ -1,7 +1,7 @@
 ---
 title: "MCB517A Lecture 8: Genomic Variant Annotations in R"
 author: "Gavin Ha"
-date: "10/20/2019"
+date: "10/22/2019"
 output: pdf_document
 ---
 
@@ -13,7 +13,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## 1.0 Load our variant file
 Re-use the same code from *4.1 VCF format* section of *Lecture8_GenomicData.Rmd*
-```{r, messages = FALSE}
+```{r, message = FALSE}
 library(VariantAnnotation)
 vcfFile <- "GIAB_highconf_v.3.3.2.vcf.gz"
 vcfHead <- scanVcfHeader(vcfFile)
@@ -23,7 +23,7 @@ vcf <- readVcf(vcfFile, genome = "hg19", param = vcf.param)
 ```
 
 ## 1.1 Load UCSC Transcript and Gene Model
-```{r, include = FALSE}
+```{r, message = FALSE}
 library(GenomicFeatures)
 #BiocManager::install("TxDb.Hsapiens.UCSC.hg19.knownGene")
 library(TxDb.Hsapiens.UCSC.hg19.knownGene)
@@ -49,7 +49,7 @@ locateVariants(query = rowRanges(vcf)[1:10], subject = txdb,
 ```
 
 ## 1.2 Ensembl Annotations
-```{r}
+```{r, message = FALSE}
 library(biomaRt)
 ensembl <- useMart("ensembl",dataset="hsapiens_gene_ensembl")
 ensembl

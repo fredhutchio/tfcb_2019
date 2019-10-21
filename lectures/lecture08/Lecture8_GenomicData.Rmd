@@ -1,7 +1,7 @@
 ---
 title: "MCB517A Lecture 8: Genomic Data Analysis in R"
 author: "Gavin Ha"
-date: "10/20/2019"
+date: "10/22/2019"
 output: pdf_document
 ---
 
