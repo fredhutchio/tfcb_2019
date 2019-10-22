@@ -14,7 +14,7 @@ This lecture will unite the last lecture's content on genomic analysis with our 
   - [Lecture8_GenomicData.Rmd](Lecture8_GenomicData.Rmd): storing genomic data as objects, assessing genomic ranges, importing and assessing variant (vcf) data
   - [Lecture8_Annotations.Rmd](Lecture8_Annotations.Rmd): load and apply gene annotations to genomic data
   - [Lecture8_Rsamtools.Rmd](Lecture8_Rsamtools.Rmd): Compute “pile-up” statistics at genomic loci to identify genomic variants
-- Please download all data files found in [this folder](https://www.dropbox.com/home/File%20requests/TFCB_tutorials) and add them to your `lecture08` directory. The files should have the following filenames:
+- Please download all data files found in [this folder](https://www.dropbox.com/sh/zoitjnobgp7l7c2/AABBIpTQcNA4lWYOFnV5dlMKa?dl=0) and add them to your `lecture08` directory. The files should have the following filenames:
   - `BRCA.genome_wide_snp_6_broad_Level_3_scna.seg`
   - `BRCA_IDC_cfDNA.bam`
   - `BRCA_IDC_cfDNA.bam.bai`
