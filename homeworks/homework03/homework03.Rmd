@@ -37,10 +37,10 @@ This problem will continue to use the copy number data stored in `segs.gr`.
 ### a. Create a genome-wide tile of 1Mb windows for chromosomes 1-22 and X. (2 points)
 
 ### b. Count the number of copy number alteration segments overlapping each 1Mb tile in chromosome X. (2 points)
-For each 1Mb tile in chrX, print out the count of `any` type of overlap of copy number segments.
+For each 1Mb tile in chrX, print out the count of `any` type of overlap of copy number segments in `segs.gr`.
 
 ### c. Find the 1Mb window with the most *complete* overlap of segments (3 points).
-Here, we want to find the overlap of segments from `segs.gr` that is *completely* `within` a 1Mb bin created in (c). Return the 1Mb window `GRanges` entry with the highest count of segments fully contained `within`. Hints: see *3.3 Counting overlapping ranges* of *Lecture8_GenomicData.Rmd* if you want to use `data.table` for this. 
+Here, we want to find the overlap of segments from `segs.gr` that is *completely* `within` a 1Mb bin created in (a). Return the 1Mb window `GRanges` entry with the highest count of segments fully contained `within`. Hints: see *3.3 Counting overlapping ranges* of *Lecture8_GenomicData.Rmd* if you want to use `data.table` for this. 
 
 ### d. Find the 1Mb window with the most frequent overlapping deletions. (3 points)
 Find the 1Mb windows with `any` overlap with deletion copy number segments. Assume a deletion segment is defined as a segment with `Segment_Mean < -0.3`. Return the 1Mb window `Granges` entry with the highest count of deletion segments.
@@ -50,6 +50,8 @@ Provide a screen shot of IGV at the 1Mb window with the most frequent overlap wi
 
 
 ## Problem 3: Finding Copy Number of Genes (8 points total)
+
+This problem will continue to use the copy number data stored in `segs.gr`.
 
 ### Preparation
 You will use the Ensembl gene annotations from `biomaRt` to annotate copy number segments. Here is some code to help you get started with loading the `GRanges` for the `protein_coding` gene list.
@@ -67,12 +69,12 @@ annot <- getBM(attributes=c("ensembl_gene_id", "hgnc_symbol",
 ### a. Convert the data.frame `annot` into a sorted `GRanges` object with only chromosomes 1-22 and X. (2 points) 
 Hint: for sorting, use `sort` directly on the `GRanges` object.
 
-### b. Find the segments that have `any` overlap with the gene `ERBB2`. (2 points)
+### b. Find the segments in `segs.gr` that have `any` overlap with the gene `ERBB2`. (2 points)
 Print the first five `Granges` entries in `segs.gr`, sorted by range coordinates, that overlap the gene coordinates of `ERBB2`.
 Hint: for sorting, use `sort` directly on the `GRanges` object.
 
 ### c. Find the distribution of copy number for `PIK3CA`. (4 points)
-Find the counts of deletion (D; `Segment_Mean < -0.3`), neutral (N; `Segment_Mean >= -0.3 & Segment_Mean <= 0.3`), gain (G; `Segment_Mean > 0.3`) segments that have `any` overlap with `PIK3CA` gene coordinates.  
+Find the counts of deletion (`Segment_Mean < -0.3`), neutral (`Segment_Mean >= -0.3 & Segment_Mean <= 0.3`), gain (`Segment_Mean > 0.3`) segments that have `any` overlap with `PIK3CA` gene coordinates.  
 
 
 ## Problem 4: Reading and annotating genomic variants (16 points total)
