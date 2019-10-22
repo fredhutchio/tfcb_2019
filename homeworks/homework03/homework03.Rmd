@@ -2,12 +2,15 @@
 title: "MCB517A Homework 3"
 author: "Student Name"
 date: "10/22/2019"
-output: html_document
+output:
+  github_document:
+    toc: 3
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
+
 Complete this homework by writing R code to complete the following tasks. Keep in mind:
 
 i. Empty chunks have been included where code is required
