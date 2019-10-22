@@ -176,14 +176,18 @@ tiles.subset$counts.overlapAny <- counts
 tiles.subset
 ```
 
-How would we find the count of copy number segments in `segs.gr` that are *completely* `within` `tiles.subset` ranges?
+How would we find the count of copy number segments in `segs.gr` that are *completely* `within` each `tiles.subset` ranges? Recall the specific directionality of the overlap comparison. For `type = within`, the `query` regions that are completely `within` the subject region is considered an overlap. `countOverlaps` will not work for this problem. 
+
+Therefore, we go back to the original `findOverlaps` method, which gives more the more flexible basic functionality of overlap comparisons. Then, we can do perform counting of overlaps ourselves. Here, I use the aggregate functionality of `data.table`, but you can choose to use other approaches such as `tidyverse` or `aggregate`.
+
+`data.table` can perform aggregation over a variable directly by using the argument `by`. It also contains a built-in  variable `.N` that specifies the number of rows.
 ```{r}
 hits2.dt <- as.data.table(hits2)
 hits2.dt
-hits2.dt[, .N, by = subjectHits] # .N is the variable for # rows
+hits2.dt[, .N, by = subjectHits] 
 ```
 
-3.4 Merging by overlapping ranges
+## 3.4 Merging by overlapping ranges
 Another method that has additional built-in functionality beyond the basic `findOverlaps` is `mergeByOverlaps`. This function gives us a final `DataFrame` object that contains the columns in both `query` and `subject` for overlapping ranges. In this example, we are interested again in the *complete* overlap of copy number segments from `segs.gr` `within` `tiles.subset` ranges.
 ```{r}
 mergeByOverlaps(query = segs.gr, subject = tiles.subset, type = "within")
