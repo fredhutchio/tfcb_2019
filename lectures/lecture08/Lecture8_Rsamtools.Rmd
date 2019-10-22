@@ -1,0 +1,127 @@
+---
+title: "MCB517A Lecture 8: Sequence Data Analysis in R"
+author: "Gavin Ha"
+date: "10/22/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# 1. Load and query a BAM file
+
+## 1.0 Install and load the `Rsamtools` Bioconductor package
+Bioconductor package providing functions to interface with aligned BAM files.
+https://bioconductor.org/packages/release/bioc/html/Rsamtools.html
+
+```{r, echo=FALSE, include=FALSE}
+#BiocManager::install("Rsamtools")
+library(Rsamtools)
+```
+
+## 1.1 Loading a BAM file using Rsamtools
+The BAM file is the primary input for Rsamtools. There are two initial steps:
+
+  * a. Define the genomic coordinates and components to query (`ScanBamParam`)
+  * b. Scan the BAM file (`scanBam`)
+
+For this tutorial, we will be using the same data and example from Lecture 7: Slides 12-16.
+The BAM file can be downloaded at https://www.dropbox.com/home/File%20requests/TFCB_tutorials
+
+For more information, refer to https://bioconductor.org/packages/release/bioc/vignettes/Rsamtools/inst/doc/Rsamtools-Overview.pdf
+
+## 1.2 Setup parameters for scanning BAM file
+a. Specify the genomic location of interest to query in the BAM file. This will make use of two of the packages (`GRanges` and `IRanges`) that we will describe in more detail later.
+```{r}
+whichRanges1 <- GRanges(seqnames = "17",
+                        IRanges(start = 37844393, end = 37844393), myCol = "moreInfo1")
+whichRanges2 <- GRanges(seqnames = "17",
+                        IRanges(start = 37844477, end = 37844477), myCol = "moreInfo2")
+whichRanges <- append(whichRanges1, whichRanges2)
+whichRanges
+```
+
+b. Specify which fields to return in the query. To find out the default fields to return, use
+```{r}
+whatFields <- scanBamWhat()
+whatFields
+```
+
+c. Specify the filters to use to include or exclude reads. This is an essential concept in analyzing sequence data.
+
+> First, specify the status of the reads based on the `FLAG` (recall Lecture 7: Slide 16)
+For more details, use `?scanBamFlag`
+
+```{r}
+flag <- scanBamFlag(isDuplicate = FALSE)
+flag
+```
+
+>Next, specify additional filters to use including `mapqFilter`, `tagFilter`. These are included in the final `scanBamParam` object instantiation, along with all the previous arguments.
+
+```{r}
+param <- ScanBamParam(which = whichRanges, what = whatFields,  
+             mapqFilter = 30, tag = c("RG"))
+param
+```
+
+## 1.3 Query the BAM file
+Using the params we just defined, we will query the BAM file `BRCA_IDC_cfDNA.bam`.
+```{r}
+bamFile <- "BRCA_IDC_cfDNA.bam"
+bam <- scanBam(bamFile, param = param)
+bam
+```
+
+This returns a `list` object with each element representing a read. For each element/read, there is another `list` with the fields in the BAM file we requested with `scanBamWhat()`. Here is a breakdown of what is in the first read.
+Refer to Lecture 7: Slides 16-17.
+```{r}
+bam[[1]]$qname # reqd query name
+bam[[1]]$flag  # bitwise flag describing the read alignment
+bam[[1]]$rname # reference sequence name
+bam[[1]]$pos   # position of aligned read (leftmost coordinate)
+bam[[1]]$mapq  # mapping quality of the read alignment
+bam[[1]]$cigar # CIGAR string
+bam[[1]]$mrnm  # mate read's reference sequence name
+bam[[1]]$mpos  # mate read's aligned position
+bam[[1]]$isize # insert size or templent length; aka fragment size
+as.character(bam[[1]]$seq)   # sequence of mapped reads on forward strand
+as.character(bam[[1]]$qual)  # base qualities of the sequence aligment
+bam[[1]]$tag   # value for the tag we specified
+```
+
+Note: `isize` or `TLEN` equals the number of bases from the leftmost mapped base to the rightmost mapped base. The leftmost mate read has a plus sign and the rightmost has a minus sign for pairs mapping to the same chromosome.
+
+
+# 2. Compute "Pile-Up" Statistics
+The pileup is a term referring to counting the alleles from all the reads at a given genomic locus. It is the data that many variant and mutation calling algorithms use to determine variant status and allelic fractions.
+
+There are 3 steps:
+
+* a. Define the genomic coordinates and read components to query (`ScanBamParam`) - same as before
+* b. Define the pileup-specific parameters, such as filters (`PileupParam`)
+* c. Run the `pileup` command
+
+## 3.1 Setup pileup parameters and generate pileup
+https://www.rdocumentation.org/packages/Rsamtools/versions/1.24.0/topics/pileup
+```{r}
+pu.param <- PileupParam() # default settings
+pu.param
+```
+
+
+```{r}
+pu <- pileup(file = bamFile, scanBamParam = param, pileupParam = pu.param)
+pu
+```
+
+The `pileup` command outputs a `data.frame` object containing the counts for each allele at every base specified in `param` from `2.1 Setup parameters for scanning BAM file`
+
+Let's try generating the pileup for more loci and reads
+```{r}
+whichRanges3 <- GRanges(seqnames = "17",
+                        IRanges(start = 37883255, end = 37883260), myCol = "moreInfo2")
+bamWhich(param) <- whichRanges3
+pileup(file = bamFile, scanBamParam = param, pileupParam = pu.param)
+```

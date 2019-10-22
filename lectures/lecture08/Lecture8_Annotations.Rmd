@@ -1,0 +1,75 @@
+---
+title: "MCB517A Lecture 8: Genomic Variant Annotations in R"
+author: "Gavin Ha"
+date: "10/22/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# 1. Genomic Annotations
+
+## 1.0 Load our variant file
+Re-use the same code from *4.1 VCF format* section of *Lecture8_GenomicData.Rmd*
+```{r, message = FALSE}
+library(VariantAnnotation)
+vcfFile <- "GIAB_highconf_v.3.3.2.vcf.gz"
+vcfHead <- scanVcfHeader(vcfFile)
+q <- GRanges(seqnames = "17", ranges = IRanges(start = 35000000, end = 37000000))
+vcf.param <- ScanVcfParam(which = q) # single 500kb bin
+vcf <- readVcf(vcfFile, genome = "hg19", param = vcf.param)
+```
+
+## 1.1 Load UCSC Transcript and Gene Model
+```{r, message = FALSE}
+library(GenomicFeatures)
+#BiocManager::install("TxDb.Hsapiens.UCSC.hg19.knownGene")
+library(TxDb.Hsapiens.UCSC.hg19.knownGene)
+txdb <- TxDb.Hsapiens.UCSC.hg19.knownGene
+```
+
+Show genes and coordinates based on Entrez Gene IDs
+```{r}
+genes(txdb)
+```
+
+## 1.2 Annotate Variant Genomic Context
+
+First, we need to set the genome style of the `txdb` variable to `NCBI` to match `vcf` and keep only the autosomes and chrX for the `vcf` object.
+```{r}
+seqlevelsStyle(txdb) <- "NCBI"
+vcf <- keepSeqlevels(vcf, value = c(1:22, "X"))
+```
+
+```{r}
+locateVariants(query = rowRanges(vcf)[1:10], subject = txdb,
+                      region = AllVariants())
+```
+
+## 1.2 Ensembl Annotations
+```{r, message = FALSE}
+library(biomaRt)
+ensembl <- useMart("ensembl",dataset="hsapiens_gene_ensembl")
+ensembl
+```
+
+```{r}
+head(listAttributes(ensembl))
+res <- getBM(attributes=c("ensembl_gene_id", "hgnc_symbol",
+                          "entrezgene_id", "chromosome_name",
+                          "start_position" ,"end_position",
+                          "gene_biotype"),
+             filters = "biotype", values = "protein_coding",
+             mart = ensembl)
+head(res)
+```
+
+Convert gene table into a GRanges object
+```{r}
+colnames(res)[4:6] <- c("chr", "start", "end") # need to have the correct columns names
+res.gr <- as(res, "GRanges")
+res.gr <- keepSeqlevels(res.gr, value = c(1:22, "X"), pruning.mode = "tidy")
+sort(res.gr)
+```
