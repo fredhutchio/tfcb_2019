@@ -125,8 +125,8 @@ sorting, use `sort` directly on the `GRanges` object.
 ### c. Find the distribution of copy number for `PIK3CA`. (4 points)
 
 Find the counts of deletion (`Segment_Mean < -0.3`), neutral
-(`Segment_Mean >= -0.3 & Segment_Mean <= 0.3`), gain (`Segment_Mean
-> 0.3`) segments that have `any` overlap with `PIK3CA` gene coordinates.
+(`Segment_Mean >= -0.3 & Segment_Mean <= 0.3`), gain (`Segment_Mean> 0.3`) 
+segments that have `any` overlap with `PIK3CA` gene coordinates.
 
 ## Problem 4: Reading and annotating genomic variants (16 points total)
 
