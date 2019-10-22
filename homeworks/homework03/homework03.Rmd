@@ -9,10 +9,11 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 Complete this homework by writing R code to complete the following tasks. Keep in mind:
-- Empty chunks have been included where code is required
-- For Problem 2e, you should include a image (screen shot) instead of providing code
-- This homework requires use of `BRCA.genome_wide_snp_6_broad_Level_3_scna.seg`. If you choose to include this file in the same directory as your homework file, please do not include it in your homework submission (e.g., do not commit to GitHub).
-- You will be graded on your code and output results (md file). The assignment is worth XXX points total; partial credit can be awarded.
+
+i. Empty chunks have been included where code is required
+ii. For Problem 2e, you should include a image (screen shot) instead of providing code
+iii. This homework requires use of `BRCA.genome_wide_snp_6_broad_Level_3_scna.seg`. If you choose to include this file in the same directory as your homework file, please do not include it in your homework submission (e.g., do not commit to GitHub).
+iv. You will be graded on your code and output results (knitted .html file). The assignment is worth 40 points total; partial credit can be awarded.
 
 This assignment is due at 12pm on Oct 29, 2019. Your responses should be submitted through the private repository created via GitHub Classroom using the link emailed to you. See the note at the bottom of this document for more information on formatting your final submission.
 
@@ -39,7 +40,7 @@ Print out the first five unique TCGA IDs after sorting alphabetically/lexicograp
 ```
 
 
-# Problem 2: Frequency of copy number alteration events within genomic regions. (12 points total)
+## Problem 2: Frequency of copy number alteration events within genomic regions. (12 points total)
 
 ```{r}
 
@@ -74,7 +75,7 @@ Find the 1Mb windows with `any` overlap with deletion copy number segments. Assu
 ```
 
 
-## e. Visually inspect the deletion overlap result from part (d) using IGV. (2 points)
+### e. Visually inspect the deletion overlap result from part (d) using IGV. (2 points)
 Provide a screen shot of IGV at the 1Mb window with the most frequent overlap with deletion segments. The image should include the segments from `RCA.genome_wide_snp_6_broad_Level_3_scna.seg` loaded.
 
 *Include image here*
@@ -171,7 +172,7 @@ Hints:
   ```{r}
 
   ```
-  
+
 
 ### f. Find the phased SNPs for both haplotypes within the region chr8:128,740,000-128,760,000. (4 points)
 Print the sequence of phased SNPs for Haplotype 1 and Haplotype 2. Haplotype 1 is defined as the number to the left of the `"|"` and Haplotype 2 is defined as the number to the right of the `"|"`. Recall that a `0` denotes the reference allele and a `1` denotes the alternate allele.
