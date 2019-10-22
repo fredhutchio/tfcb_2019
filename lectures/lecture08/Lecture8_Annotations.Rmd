@@ -2,7 +2,7 @@
 title: "MCB517A Lecture 8: Genomic Variant Annotations in R"
 author: "Gavin Ha"
 date: "10/22/2019"
-output: pdf_document
+output: html_document
 ---
 
 ```{r setup, include=FALSE}
@@ -44,7 +44,7 @@ vcf <- keepSeqlevels(vcf, value = c(1:22, "X"))
 ```
 
 ```{r}
-locateVariants(query = rowRanges(vcf)[1:10], subject = txdb, 
+locateVariants(query = rowRanges(vcf)[1:10], subject = txdb,
                       region = AllVariants())
 ```
 
@@ -57,11 +57,11 @@ ensembl
 
 ```{r}
 head(listAttributes(ensembl))
-res <- getBM(attributes=c("ensembl_gene_id", "hgnc_symbol", 
-                          "entrezgene_id", "chromosome_name", 
-                          "start_position" ,"end_position", 
-                          "gene_biotype"), 
-             filters = "biotype", values = "protein_coding", 
+res <- getBM(attributes=c("ensembl_gene_id", "hgnc_symbol",
+                          "entrezgene_id", "chromosome_name",
+                          "start_position" ,"end_position",
+                          "gene_biotype"),
+             filters = "biotype", values = "protein_coding",
              mart = ensembl)
 head(res)
 ```
