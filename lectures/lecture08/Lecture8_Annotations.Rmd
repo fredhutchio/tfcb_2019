@@ -4,7 +4,7 @@ author: "Gavin Ha"
 date: "10/22/2019"
 output: html_document
 ---
-
+ 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
@@ -36,27 +36,37 @@ genes(txdb)
 ```
 
 ## 1.2 Annotate Variant Genomic Context
-
 First, we need to set the genome style of the `txdb` variable to `NCBI` to match `vcf` and keep only the autosomes and chrX for the `vcf` object.
 ```{r}
 seqlevelsStyle(txdb) <- "NCBI"
 vcf <- keepSeqlevels(vcf, value = c(1:22, "X"))
 ```
 
+Then, we use the `locateVariants` method in the the `VariantAnnotation` R package to annotate the type of genomic context for each variant. Here, we only annotate the first 10 entries in `vcf`.
 ```{r}
 locateVariants(query = rowRanges(vcf)[1:10], subject = txdb,
                       region = AllVariants())
 ```
 
-## 1.2 Ensembl Annotations
+## 1.3 Ensembl Annotations
+Ensemble is a popular database for various genome annotations. In particular, the BioMart website (http://www.biomart.org/) is an extremely useful resource for selecting and downloading data for many organisms. The majority of the time, you will use the website for your needs. However, there is an R Bioconductor package, called `biomaRt`, that allows users to query and extract annotations directly using code within R. 
+
+Here, we will extract a reference to the human gene database. Because our data is still in hg19 (GRCh37), we need to use an older database version (https://grch37.ensembl.org/biomart/martview/). We will use the `host` argument to specify `grch37.ensembl.org` instead of the default `www.ensembl.org`.
+
+This example will retrieve information from the Ensembl database for human genes from the GRCh37 (hg19) build.
 ```{r, message = FALSE}
 library(biomaRt)
-ensembl <- useMart("ensembl",dataset="hsapiens_gene_ensembl")
-ensembl
+ensembl <- useMart("ensembl", 
+                   dataset = "hsapiens_gene_ensembl") # loads from www.ensembl.org
+listDatasets(ensembl)[85, ]
+ensembl <- useMart("ensembl", host = "grch37.ensembl.org", 
+                   dataset = "hsapiens_gene_ensembl") # loads from grch37.ensembl.org
+listDatasets(ensembl)[26,]
 ```
 
+Now, we can specify attributes we want to query in the gene database. We can also apply `filters` so that it returns only `protein_coding` genes specified under `biotype` (attribute `gene_biotype`). 
 ```{r}
-head(listAttributes(ensembl))
+head(listAttributes(ensembl)) # lists the first 10 attributes
 res <- getBM(attributes=c("ensembl_gene_id", "hgnc_symbol",
                           "entrezgene_id", "chromosome_name",
                           "start_position" ,"end_position",
@@ -70,6 +80,7 @@ Convert gene table into a GRanges object
 ```{r}
 colnames(res)[4:6] <- c("chr", "start", "end") # need to have the correct columns names
 res.gr <- as(res, "GRanges")
-res.gr <- keepSeqlevels(res.gr, value = c(1:22, "X"), pruning.mode = "tidy")
+res.gr <- keepSeqlevels(res.gr, value = c(1:22, "X"), 
+                        pruning.mode = "coarse") # removes elements for unwanted chrs
 sort(res.gr)
 ```

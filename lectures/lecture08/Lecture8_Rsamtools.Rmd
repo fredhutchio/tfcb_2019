@@ -23,8 +23,8 @@ library(Rsamtools)
 ## 1.1 Loading a BAM file using Rsamtools
 The BAM file is the primary input for Rsamtools. There are two initial steps:
 
-  * a. Define the genomic coordinates and components to query (`ScanBamParam`)
-  * b. Scan the BAM file (`scanBam`)
+  a. Define the genomic coordinates and components to query (`ScanBamParam`)
+  b. Scan the BAM file (`scanBam`)
 
 For this tutorial, we will be using the same data and example from Lecture 7: Slides 12-16.
 The BAM file can be downloaded at https://www.dropbox.com/home/File%20requests/TFCB_tutorials
@@ -50,7 +50,7 @@ whatFields
 
 c. Specify the filters to use to include or exclude reads. This is an essential concept in analyzing sequence data.
 
-> First, specify the status of the reads based on the `FLAG` (recall Lecture 7: Slide 16)
+First, specify the status of the reads based on the `FLAG` (recall Lecture 7: Slide 16)
 For more details, use `?scanBamFlag`
 
 ```{r}
@@ -58,7 +58,7 @@ flag <- scanBamFlag(isDuplicate = FALSE)
 flag
 ```
 
->Next, specify additional filters to use including `mapqFilter`, `tagFilter`. These are included in the final `scanBamParam` object instantiation, along with all the previous arguments.
+Next, specify additional filters to use including `mapqFilter`, `tagFilter`. These are included in the final `scanBamParam` object instantiation, along with all the previous arguments.
 
 ```{r}
 param <- ScanBamParam(which = whichRanges, what = whatFields,  
@@ -99,9 +99,9 @@ The pileup is a term referring to counting the alleles from all the reads at a g
 
 There are 3 steps:
 
-* a. Define the genomic coordinates and read components to query (`ScanBamParam`) - same as before
-* b. Define the pileup-specific parameters, such as filters (`PileupParam`)
-* c. Run the `pileup` command
+  a. Define the genomic coordinates and read components to query (`ScanBamParam`) - same as before
+  b. Define the pileup-specific parameters, such as filters (`PileupParam`)
+  c. Run the `pileup` command
 
 ## 3.1 Setup pileup parameters and generate pileup
 https://www.rdocumentation.org/packages/Rsamtools/versions/1.24.0/topics/pileup

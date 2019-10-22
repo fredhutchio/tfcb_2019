@@ -43,9 +43,12 @@ seqinfo2 <- seqinfo(get("BSgenome.Hsapiens.UCSC.hg19"))  # option 2 - faster
 ```
 
 An important consideration is the chromosome naming convention. This is usually a major source of issues related to matching and querying genomic regions. For the human genome reference, there are 2 conventions for hg19:
+
   1. UCSC - uses "chr" string in front of the chromosome number (e.g. chr1)
   2. NCBI - does not add a string to the front of the chromosome number (e.g. 1)
+
 In genome build GRCh38 (or hg38), this dual convention is no longer a problem and the string "chr" is always used (e.g. chr1).
+
 Let's say we still want to only work with the known autosomes and sex chromosomes in NCBI format, `1:22, "X", "Y"`.
 ```{r, error = TRUE}
 chrs <- c(1:22, "X", "Y") # NCBI format
@@ -77,10 +80,12 @@ There are numerous text file formats for representing genomic data and some of t
 ## 2.1 SEG format
 SEGment Data (http://software.broadinstitute.org/software/igv/SEG) format is tab-delimited and a flexible way to define any genomic data.
 There are 4 required columns:
+
   1. Name
   2. Chromosome
   3. Start Coordinate
   4. End Coordinate
+
 This is similar to the BED file format but with the additional requirement for *Name* as the first column.
 
 For this example, we will work with TCGA data for primary breast cancer patient samples. Specifically, these are segmentation data used for copy number alteration analysis. See Lecture 7: Slide 38.

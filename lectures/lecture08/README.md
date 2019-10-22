@@ -16,6 +16,7 @@ This lecture will unite the last lecture's content on genomic analysis with our 
   - [Lecture8_Rsamtools.Rmd](Lecture8_Rsamtools.Rmd): Compute “pile-up” statistics at genomic loci to identify genomic variants
 - Please download all data files found in [this folder](https://www.dropbox.com/home/File%20requests/TFCB_tutorials) and add them to your `lecture08` directory. The files should have the following filenames:
   - `BRCA.genome_wide_snp_6_broad_Level_3_scna.seg`
+  - `BRCA_IDC_cfDNA.bam`
   - `BRCA_IDC_cfDNA.bam.bai`
   - `GIAB_highconf_v.3.3.2.vcf.gz` (talk to Kate if this file was automatically uncompressed on your computer, resulting in a file named `GIAB_highconf_v.3.3.2.vcf`)
   - `GIAB_highconf_v.3.3.2.vcf.gz.tbi`
