@@ -23,7 +23,7 @@ What happens?
 
 More generally, shell commands look like
 
-    command flags arguments
+`command` `flags` `arguments`
 
 where `flags` and `arguments` are optional.
 We separate these components with spaces (extra spaces are fine).
@@ -64,10 +64,10 @@ Flags modify some form of the command behavior, and can range from simple to rat
 
 Flags can have arguments, like
 
-    ls -w 15 /
+    ls -w 50 /
 
-in which we give the `-w` flag the value of 15.
-The `-w` flag tells `ls` that the user wants to wrap output to some number of letters wide and no wider, in this case 15 letters wide.
+in which we give the `-w` flag the value of 50.
+The `-w` flag tells `ls` that the user wants to wrap output to some number of letters wide and no wider, in this case 50 letters wide.
 
 Try varying the argument to `-w` from very small to very large.
 Are negative numbers allowed?
@@ -133,7 +133,7 @@ to learn about the command `man`.
 2. save this information somewhere (on a piece of paper?)
 
 
-## A quick practicum
+## On your own
 
 Use any method you like to find documentation about the `wc` command, then use it to count the number of lines in `sequence.gb`.
 
@@ -143,4 +143,4 @@ Use any method you like to find documentation about the `wc` command, then use i
 Congratulations!
 You now know how to navigate around the file system.
 
-For the next step, execute `cd directories` then `less README.md` to work through the next part of the adventure
+For the next step, look at the README file in the `directories` directory to work through the next part of the adventure.

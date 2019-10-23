@@ -1,5 +1,9 @@
 # Directories
 
+Execute
+
+    cd directories
+
 Congratulations, you just changed directory using `cd`, which is short for "change directory".
 By executing `cd directories` you moved your current location inside a directory called `directories`.
 You can think about this being like double clicking on a folder in a graphical user interface.
@@ -32,7 +36,13 @@ Now give that command a part of your path, so see the list of files at various p
 ### Tree
 
 Of course, directories can be nested and so it's not always easy to get an overall view of what is where.
-For this there is the `tree` command, which will show a nested directory structure as a tree:
+For this there is the `tree` command, which will show a nested directory structure as a tree.
+
+Try
+
+    tree
+
+The output should look like
 
     .
     ├── purchase
@@ -58,10 +68,10 @@ The `tree` command can also take an argument, which is the directory for which i
 Experienced shell users do not write out the full names of files or directories.
 Instead, they use the tab key to have the shell complete file names for them.
 
-For example, try typing `ls seq` and then hitting the tab key.
+For example, try typing `ls REA` and then hitting the tab key.
 
 This also works to make your way through directories!
-Try `ls dir`, and tab.
+Try `ls pur`, and tab.
 Now just hit tab a few more times.
 The shell should bring up some options, and you can select between them by typing the first letter or so and hitting tab again.
 Continue doing this until you run out of directories.

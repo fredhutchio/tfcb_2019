@@ -59,11 +59,9 @@ You can make your shell script like executing a normal command by
 
 Now you should be able to run your script with `./script1.sh`.
 
-Next we'll be playing around scripting with samtools.
-Please download [this bam file](https://console.cloud.google.com/storage/browser/_details/gatk-test-data/wgs_bam/NA12878_20k_b37/NA12878.bam) and move it to the same directory as where your scripts live.
+Next we'll be playing around scripting with samtools using [this bam file](https://console.cloud.google.com/storage/browser/_details/gatk-test-data/wgs_bam/NA12878_20k_b37/NA12878.bam) that's available to you in the GitHub repository.
 
-It has an awkward name, so let's rename it `input.bam`.
-In the shell you would do that with
+It has an awkward name, so let's rename it `input.bam` with
 
     mv wgs_bam_NA12878_20k_b37_NA12878.bam input.bam
 
@@ -72,7 +70,8 @@ You first need to prepare this file like so:
 
     samtools index input.bam
 
-Samtools has a nice command line user interface that has commands within the command. The format is like
+Samtools has a nice command line user interface that has commands within the command.
+The format is like
 
     samtools COMMAND ETC
 
@@ -89,7 +88,9 @@ Rather than using `head`, try piping to something that will allow you to scroll.
 
 ## ERRORS!!!
 
-Try running `./script2.sh`.
+Try running `./script2.sh` via
+
+    ./script2.sh
 
 * What happened?
 * Did the script run to completion?
@@ -112,9 +113,9 @@ Now we will learn something very important...
 
 ## Don't write shell
 
-"Classic" shell is a rich programming language.
+"Classic" shell is a complex programming language.
 The most frequently used shell, called "bash", [is way more complex](https://www.tldp.org/LDP/abs/html/).
-However, I do not suggest that you use shell in this way.
+However, I do not suggest that you write complex shell scripts.
 
 Rather, I suggest that once you start to need more than just executing a series of commands, you reach for a general-purpose programming language such as Python.
 Speaking from personal experience and experience of those in my group, scripts often get increasingly complex to the point where one is doing more complex manipulations that are more suited to a more complete programming language.

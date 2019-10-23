@@ -4,7 +4,7 @@ Vi is a wonderful, powerful, but arcane editor.
 It's worth being able to use because even the sparsest linux install will have some variant of vi.
 Also, when working with remote machines, it's nice to be able to edit text in a powerful editor directly on that machine.
 Finally, sometimes another program (e.g. git) will plop you into vim without you realizing it, so it's nice to know what to do in this situation.
-In addition, many programs, such as `less` use vim keybindings for fast navigation.
+In addition, many programs, such as `less` and Jupyter notebook use vim keybindings for fast navigation.
 
 
 ## The simplest `vi` session
@@ -109,7 +109,6 @@ Here we'll be a little specific and say that the software we've been calling `vi
 
 * a [cheat-sheet](http://i.imgur.com/YLInLlY.png)
 * a [wallpaper](https://github.com/LevelbossMike/vim_shortcut_wallpaper)
-
 * [Ben Crowder's vim tips](http://bencrowder.net/files/vim-fu/)
 * The `vimtutor` command, available wherever you find `vim`
 * [An online vim tutorial](http://www.openvim.com/)
