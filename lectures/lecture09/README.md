@@ -1,6 +1,6 @@
 # Lecture 9: First steps in the shell
 
-**Erick Matsen ([@ematsen](https://twitter.com/ematsen), [matsen.group](https://matsen.group))**
+**Erick Matsen ([@ematsen](https://twitter.com/ematsen), [matsen.group](http://matsen.group))**
 
 ## Learning objectives
 
@@ -17,7 +17,7 @@ After this course, you should be able to:
 
 Everything you need is in this repository.
 
----
+## Tutorial
 
      _______     _______.  ______     ___      .______    _______
     |   ____|   /       | /      |   /   \     |   _  \  |   ____|
@@ -48,7 +48,7 @@ To get started, execute the following commands in your shell:
 
 
     ssh rhino
-    git clone git@github.com:fredhutchio/tfcb_2019.git
+    git clone https://github.com/fredhutchio/tfcb_2019.git
     cd tfcb_2019/lectures/lecture09
 
 Now you can start the first lesson by clicking on the `first-steps.md` link in the file list above and starting your adventure!

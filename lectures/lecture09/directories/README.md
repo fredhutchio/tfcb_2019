@@ -28,6 +28,7 @@ As I described before the beginning ("root") directory is called `/`.
 Remember how before we learned how to give an argument to the directory-listing command?
 Now give that command a part of your path, so see the list of files at various places in your directory hierarchy.
 
+
 ### Tree
 
 Of course, directories can be nested and so it's not always easy to get an overall view of what is where.
@@ -50,6 +51,21 @@ The `tree` command can also take an argument, which is the directory for which i
 * without changing directories, show the directory tree of the `purchase` directory only
 * look in the `tree` documentation to list only directories and try that out here
 * try giving `cd` the name of a directory that doesn't exist or isn't a subdirectory of the current directory
+
+
+### Tab completion
+
+Experienced shell users do not write out the full names of files or directories.
+Instead, they use the tab key to have the shell complete file names for them.
+
+For example, try typing `ls seq` and then hitting the tab key.
+
+This also works to make your way through directories!
+Try `ls dir`, and tab.
+Now just hit tab a few more times.
+The shell should bring up some options, and you can select between them by typing the first letter or so and hitting tab again.
+Continue doing this until you run out of directories.
+
 
 ### Moving around more freely
 
