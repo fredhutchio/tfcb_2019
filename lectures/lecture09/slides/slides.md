@@ -31,6 +31,8 @@
 
 # a silly demo
 
+# it is arcane, no doubt
+
 # goals
 
 * rudiments of running a command in shell
