@@ -19,8 +19,8 @@ After this course, you should be able to:
 
 - All instructions for this lesson are available in this repository.
   - See the Tutorial section below to get started with the exercises
-  - View the introductory presentation by opening the [`slides.html`](slides/slides.html) in a web browser from your local copy of the repository 
-- This material requires use of a [unix shell](https://github.com/fredhutchio/tfcb_2019/tree/master/software#unix-command-line). Different "flavors" of shell have slight variations in commands available. These materials are designed to work on a compute cluster at Fred Hutch called rhino. Please see [these instructions](https://github.com/fredhutchio/tfcb_2019/tree/master/software/unix_rhino.md) for logging on to rhino, and note there is an extra step to log in off campus. You can execute most of these commands on your own computer (e.g., without logging in to rhino), but don't be surprised if some of the commands and options don't work!
+  - View the introductory presentation by opening the [`slides.html`](slides/slides.html) in a web browser from your local copy of the repository
+- This material requires access to a [unix shell](https://github.com/fredhutchio/tfcb_2019/tree/master/software#unix-command-line). Different "flavors" of shell have slight variations in commands available. These materials are designed to work on a compute cluster at Fred Hutch called rhino. Please see [these instructions](https://github.com/fredhutchio/tfcb_2019/tree/master/software/unix_rhino.md) for logging on to rhino, and note there is an extra step to log in off campus. You can execute most of these commands on your own computer (e.g., without logging in to rhino), but don't be surprised if some of the commands and options are slightly different (especially on OS X).
 
 ## Reminders
 
@@ -54,12 +54,12 @@ After this course, you should be able to:
 This is an interactive tutorial to teach you about navigating the shell.
 For reference you might be interested in the excellent [course material put out by Software Carpentry](https://swcarpentry.github.io/shell-novice/).
 
-To get started, make sure you're connected to the Marconi wireless network. Open Unix shell program on your computer and execute the following commands (where username is your HutchNetID):
+To get started, make sure you're connected to the Marconi wireless network. [Access the unix shell on your computer](https://github.com/fredhutchio/tfcb_2019/tree/master/software#unix-command-line) and execute the following commands (where `username` is your HutchNetID):
 
     ssh username@rhino
     git clone https://github.com/fredhutchio/tfcb_2019.git
     cd tfcb_2019/lectures/lecture09
 
-Now you can start the first lesson by clicking on the `first-steps.md` link in the file list above and starting your adventure!
+Now you can start the first lesson by clicking on the `first-steps.md` link in the file list above on the GitHub website and starting your adventure!
 
 If you have problems at any point, flag us down and we'll come by to help out.
