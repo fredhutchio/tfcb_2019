@@ -24,7 +24,7 @@ Location: B1-072, Fred Hutch
 | 6       | Oct 15 | Rasi Subramaniam | [Working with data using R/tidyverse](lectures/lecture06/)
 | 7       | Oct 17 | Gavin Ha         | [Introduction to sequencing data](lectures/lecture07/)
 | 8       | Oct 22 | Gavin Ha         | [Genomic data in R](lectures/lecture08/)
-| 9       | Oct 24 | Erick Matsen     | Introduction to the command line
+| 9       | Oct 24 | Erick Matsen     | [Introduction to the command line](lectures/lecture09/)
 | 10      | Oct 29 | Phil Bradley     | Introduction to Python
 | 11      | Oct 31 | Phil Bradley     | Intro to Python (continued)
 | 12      | Nov 5  | Erick Matsen     | Intro to the command line (continued)
@@ -37,13 +37,11 @@ Location: B1-072, Fred Hutch
 | 19      | Dec 3  | Rasi Subramaniam | Course summary and synthesis
 | 20      | Dec 5  | Kate Hertweck    | Capstone project
 
-Materials for each lecture will be available in this repository prior to the class session; 
+Materials for each lecture will be available in this repository prior to the class session;
 the link for each topic will take you to the folder containing materials for that class.
 
-For further assistance, Kate and/or TA Katie Kistler will be available for office hours Tuesday from 9 am to noon
-in the [Coop Lab (M1-B406, Arnold](https://research.fhcrc.org/coop/en/coop-lab.html). 
-If you do not have key-card access to the Hutch, or if you are unable to attend during this time, 
-please email Kate (khertwec at fredhutch.org) to set up an (in person or online) appointment.
+For further assistance, Kate Hertweck and/or TA Katie Kistler will be available for
+to offer assistance just prior to (or after) the regular class session. Email Kate (khertwec at fredhutch.org) to schedule a time to meet, or to set up a separate appointment.
 
 ## Homework and grading
 
@@ -55,6 +53,7 @@ Grading criteria and assessment will also be available there.
 However, the answers you submit should be written in your own words.
 You should also cite any online source or person that helped you arrive at your solution as inline comments in your code.
 - Each homework will count for 10% of your final grade. In-class participation will count for the remaining 20%, and will be assessed from the rubric presented [here](lectures/lecture01/participation_rubric.md).
+- If you have a question about homework, please comment in the [GitHub issue](https://github.com/fredhutchio/tfcb_2019/issues) for the assignment, or email Kate (khertwec at fredhutch.org) for assistance.
 
 | Homework | Assigned Date | Due Date | Topic
 |----------|--------------|----------|-------
@@ -87,7 +86,7 @@ flow cytometry, and 96-well plate readers.
 
 - This course will require a laptop computer, on which you should install the [required software](software/README.md).
 - Additional reading material is available [for your reference](reference.md).
-- If you are a UW student who does not possess a prior affiliation with Fred Hutch: We will request a HutchNetID for you, 
+- If you are a UW student who does not possess a prior affiliation with Fred Hutch: We will request a HutchNetID for you,
 which will allow access to computational resources used for this class (please note that this process
 requires a background check). Parking on campus is limited, so we recommend taking public transit. More information
 for visitors to campus can be found [here](https://www.fredhutch.org/en/about/contact-us.html).
