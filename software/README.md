@@ -80,7 +80,7 @@ RStudio + R is available through the Self Service application.
 - Click the Install button (upper left corner of the panel). In the empty space for Packages, type `tidyverse`. The other defaults (Install from CRAN and the Install to Library path) should be ok. Make sure the box next to "Install dependencies" is checked, and click Install.
 - If your installation is successful, you should see tidyverse appear in the list below. 
 
-## Unix command line
+## Unix command line (shell)
 
 ### Windows
 
@@ -91,6 +91,10 @@ Another option (such as if you are not running Windows 10) is Git for Windows, w
 ### MacOSX
 
 Macintosh operating systems are built on Unix, so many of the tools you'll need are pre-installed on your computer. You can access the command line through an application called **Terminal**. You can either search for this in Finder, or use the Go drop-down menu to locate it in the Utilities folder.
+
+### Logging on to rhino
+
+We'll be using a computer cluster at Fred Hutch called rhino for the unix classes. Please see [these instructions](https://github.com/fredhutchio/tfcb_2019/tree/master/software/unix_rhino.md) for logging on to rhino, and note there is an extra step to log in off campus.
 
 ## Python
 
