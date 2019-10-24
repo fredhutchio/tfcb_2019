@@ -18,6 +18,8 @@ After this course, you should be able to:
 ## Class materials
 
 - All instructions for this lesson are available in this repository.
+  - See the Tutorial section below to get started with the exercises
+  - View the introductory presentation by opening the [`slides.html`](slides/slides.html) in a web browser from your local copy of the repository 
 - This material requires use of a [unix shell](https://github.com/fredhutchio/tfcb_2019/tree/master/software#unix-command-line). Different "flavors" of shell have slight variations in commands available. These materials are designed to work on a compute cluster at Fred Hutch called rhino. Please see [these instructions](https://github.com/fredhutchio/tfcb_2019/tree/master/software/unix_rhino.md) for logging on to rhino, and note there is an extra step to log in off campus. You can execute most of these commands on your own computer (e.g., without logging in to rhino), but don't be surprised if some of the commands and options don't work!
 
 ## Reminders
