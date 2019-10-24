@@ -1,10 +1,10 @@
-# Homework 4a: Command line
+# Homework 4: Unix shell
 
-This homework will assess your ability to run commands in the shell, and uses content covered in lecture 09.
+This homework will assess your ability to run commands in the shell, and uses content covered in lecture 09 and 10.
 
 Replace the lines specified in _italics_ with your answers.
 
-Your responses should be submitted through the private repository created via GitHub Classroom using the link emailed to you. 
+The assignment is due at 12 pm on Nov 7. It is not yet available through GitHub Classroom, but a link will be emailed to you by Nov 5 when the second half of the shell homework is available.  Your responses should be submitted through the private repository created via GitHub Classroom.
 
 ## Problem 0
 
