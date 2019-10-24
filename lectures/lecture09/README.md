@@ -25,6 +25,7 @@ After this course, you should be able to:
 ## Reminders
 
 - Homework 3 (genomic data in R) is available through GitHub Classroom and is due Tuesday, October 28 at noon.
+- We'll be working in Python in the next class; please make sure you have [Anaconda](https://github.com/fredhutchio/tfcb_2019/tree/master/software#python) installed, which includes Python, Jupyter notebooks and other packages we'll be using in later classes.
 
 ## Tutorial
 
