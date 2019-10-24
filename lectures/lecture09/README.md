@@ -25,6 +25,7 @@ After this course, you should be able to:
 ## Reminders
 
 - Homework 3 (genomic data in R) is available through GitHub Classroom and is due Tuesday, October 28 at noon. Please add your questions to [this issue](https://github.com/fredhutchio/tfcb_2019/issues/21) or contact Kate for assistance.
+- The questions for homework 4 (command line) are available [here](https://github.com/fredhutchio/tfcb_2019/tree/master/homeworks/homework04); it may be useful to reference these questions as you work through material in today's class.
 - We'll be working in Python in the next class; please make sure you have [Anaconda](https://github.com/fredhutchio/tfcb_2019/tree/master/software#python) installed, which includes Python, Jupyter notebooks and other packages we'll be using in later classes.
 - The regularly scheduled office hours (for fredhutch.io) don't seem to be workable or necessary for most folks! If you would like assistance with homework or course material, please let Kate (or Katie) know, and we'd be happy to meet you before (or after) class (the syllabus/README for this repo has been updated accordingly).
 
