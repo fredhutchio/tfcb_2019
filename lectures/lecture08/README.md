@@ -18,7 +18,7 @@ This lecture will unite the last lecture's content on genomic analysis with our 
   - `BRCA.genome_wide_snp_6_broad_Level_3_scna.seg`
   - `BRCA_IDC_cfDNA.bam`
   - `BRCA_IDC_cfDNA.bam.bai`
-  - `GIAB_highconf_v.3.3.2.vcf.gz` (talk to Kate if this file was automatically uncompressed on your computer, resulting in a file named `GIAB_highconf_v.3.3.2.vcf`)
+  - `GIAB_highconf_v.3.3.2.vcf.gz` (if this file was automatically uncompressed on your computer, resulting in a file named `GIAB_highconf_v.3.3.2.vcf`, look in your Trash folder to find the original file ending in `gz`)
   - `GIAB_highconf_v.3.3.2.vcf.gz.tbi`
 - You should run [this script in RStudio](../../software/genomic_data.R) to ensure all Bioconductor packages are installed.
 - Your homework will also require use of the [Integrative Genomics Viewer (IGV)](https://software.broadinstitute.org/software/igv/)
