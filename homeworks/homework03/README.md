@@ -172,7 +172,8 @@ Hints:
 3.  To expand a list of information for `geno`, use
 `unlist(x)`.
 
-### f. Find the phased SNPs for both haplotypes within the region chr8:128,740,000-128,760,000. (4 points)
+### (BONUS) f. Find the phased SNPs for both haplotypes within the region chr8:129127000-129128000. (4 bonus points)
+### NOTE: Previously, the region was chr8:128,740,000-128,760,000 but this is a larger region and made the problem much harder. This question is now just for bonus marks.
 
 Print the sequence of phased SNPs for Haplotype 1 and Haplotype 2.
 Haplotype 1 is defined as the number to the left of the `"|"` and
@@ -180,9 +181,10 @@ Haplotype 2 is defined as the number to the right of the `"|"`. Recall
 that a `0` denotes the reference allele and a `1` denotes the alternate
 allele.
 
-You may type this out manually in your answer and still get full marks.
-Bonus question (2 points): rpovide code to determine the two haplotype
-sequences.
+You may type this out manually in your answer and still the full 4 bonus points.
+Bonus question (2 bonus points): provide code to determine the two haplotype
+sequences. 
+A total of 6 bonus points is available from this question.
 
 **When you are satisfied with your code and answers, use the “Knit”
 button in RStudio to create the final set of files that you may then
