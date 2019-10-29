@@ -1,4 +1,6 @@
-# Lecture 10
+# Lecture 10: Introduction to Python
+
+This section introduces the last of the programming languages we'll be using this semester: Python. These two lectures introduce you to the main syntax, data types, data structures, and programming structures in Python. We've grouped this intro to Python with the command line material, as these tools often operate hand-in-hand for computational biology projects. We'll be continuing to develop your Python skills throughout the rest of the quarter, so a good grasp on the fundamentals in this section will be especially important. We've included a number of practice exercises in this section to help you gauge your understanding of the material. 
 
 ## Learning objectives
 
@@ -6,7 +8,7 @@ After this section, you should be able to:
 - Write and execute Python code using Jupyter notebooks
 - Manipulate basic data types and structures in Python
 - Apply the general programming structures of for loops and defining functions
-- Work with Python modules and system commands 
+- Work with Python modules and system commands
 
 ## Class materials
 
