@@ -8,7 +8,7 @@ The assignment is due at 12 pm on Nov 7. It is not yet available through GitHub 
 
 ## Problem 0
 
-**40 points**
+**30 points**
 
 Complete the interactive tutorial through the section on redirection.
 
@@ -31,7 +31,7 @@ _Write a command here that redirects stdout from `script2.sh` to a file named `s
 
 Use `man` or web search to learn about the `tee` command.
 
-_Modify your previous command to also write stdout to the terminal as well as redirect it to `stderr.txt`_
+_Modify your previous command to also write stdout to the terminal as well as redirect it to `stdout.txt`_
 
 
 ## Problem 4
@@ -53,10 +53,24 @@ Hint: learn about the `uniq` command and its flags first, but to successfully an
 
 # Problem 5
 
-**10 points**
+**20 points**
 
-The `grep` command can act as a filter that you can use as part of your series of piped commands.
-For example, `grep "f"` will only select words that contain "f".
-Read `grep`'s documentation and find flags so you can...
+You might have noticed that the files we're dealing with have "extensions" that describe their file type.
+For example, text files are marked with `.txt`, and shell scripts are labeled with `.sh`.
 
-_Modify your answer to the previous question to obtain the number of unique occurrences of words that do NOT contain uppercase or lower-case f in a `anthony.txt`._
+This is a handy convention which is used heavily by a command-line library called "imagemagick" to manipulate images.
+Go to the `lecture09/slides/images` directory and try
+
+    convert betty-crocker.jpg betty-crocker.png
+
+which converts `betty-crocker.jpg` (a JPG image) to `betty-crocker.png` (a PNG image).
+You can confirm proper conversion using `file`.
+Now, your turn:
+
+_Use parallel to convert all of the JPGs in this directory to PNG images._
+
+Big hint: There is a very similar sort of command in the "Compute intensive jobs and substitution" section of the `parallel` man page.
+
+Next:
+
+_Write a script that will take all of the JPGs in the current directory, convert them to PNGs, and then assemble all of the PNGs in the current directory into a file called `montage.png` using the `montage` command. Paste that script here._
