@@ -10,9 +10,9 @@ The assignment is due on Thursday, November 7 at noon, and includes material fro
 
 **30 points**
 
-Complete the interactive tutorial through the section on redirection.
+Complete the interactive tutorial.
 
-_Ask a question about this material here._
+_Did you hit any points of frustration, and if so, how could we improve the material to avoid that frustration?_
 
 
 ## Problem 1
@@ -48,10 +48,10 @@ will spit out the words of this file one by one.
 
 _Figure out a series of commands, piped together, that will count the number of unique occurrences of various words in `anthony.txt`._
 
-Hint: learn about the `uniq` command and its flags first, but to successfully answer the question you'll need another command.
+Hint: learn about the `uniq` command and its flags first, but to successfully answer the question you'll need another command to transform your list.
 
 
-# Problem 5
+## Problem 5
 
 **20 points**
 

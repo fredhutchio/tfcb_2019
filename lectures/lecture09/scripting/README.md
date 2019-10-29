@@ -187,6 +187,11 @@ Try this version as well as with `-j 1` to run one process at a time.
 Which is faster?
 Do you notice anything about the execution order when using `-j 4`?
 
+Before we close, I wanted to point out that that the easiest way to run parallel with complex commands is to simply write out a list of those commands to a file, one per line, and just redirect those commands to parallel.
+That is, if the commands are `my-commands.sh`, just do
+
+    parallel < my-commands.sh
+
 We have just barely scratched the surface of `parallel`.
 It is tremendously powerful!
 
