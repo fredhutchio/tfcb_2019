@@ -4,7 +4,7 @@ This homework will assess your ability to run commands in the shell, and uses co
 
 Replace the lines specified in _italics_ with your answers.
 
-The assignment is due at 12 pm on Nov 7. It is not yet available through GitHub Classroom, but a link will be emailed to you by Nov 5 when the second half of the shell homework is available.  Your responses should be submitted through the private repository created via GitHub Classroom.
+The assignment is due on Thursday, November 7 at noon, and includes material from lectures 9 and 12. This assignment will be available in GitHub Classroom on Tuesday, November 5.
 
 ## Problem 0
 
@@ -12,7 +12,7 @@ The assignment is due at 12 pm on Nov 7. It is not yet available through GitHub 
 
 Complete the interactive tutorial through the section on redirection.
 
-_Ask a question here._
+_Ask a question about this material here._
 
 
 ## Problem 1
