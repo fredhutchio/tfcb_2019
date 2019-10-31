@@ -63,6 +63,10 @@ ImageMagick has been installed on rhino, but needs to be loaded before you use i
 
     ml ImageMagick
     
+Don't forget to load the updated version of parallel:
+
+    ml parallel
+    
 Once the library is loaded, go to the `lecture09/slides/images` directory and try
 
     convert betty-crocker.jpg betty-crocker.png
