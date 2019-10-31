@@ -1,6 +1,6 @@
 # Homework 4: Unix shell
 
-This homework will assess your ability to run commands in the shell, and uses content covered in lecture 09 and 10.
+This homework will assess your ability to run commands in the shell.
 
 Replace the lines specified in _italics_ with your answers.
 
