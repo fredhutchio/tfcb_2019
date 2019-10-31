@@ -128,25 +128,30 @@ Of course, shell does have loops, but next I'll present an alternative, which is
 
 Here we will provide an introduction to a command that provides a convenient and efficient alternative to loops: [GNU Parallel](https://www.gnu.org/software/parallel/).
 
-To get set up, let's split our input BAM file into a bunch of text-format SAM files.
+First, let's load the software we'll need for the rest of this exercise. These libraries are installed on rhino, 
+but need to be made available for use using `module load`, or `ml` for short:
 
-    samtools split --output-fmt SAM input.bam
+    ml samtools parallel
+
+To get our data set up, let's split our input BAM file into a set of smaller files.
+
+    samtools split input.bam
 
 Have a look at these files using your favorite method.
 
 There also exists a command called `file` that tells us information about the file.
-Run `file` on `input_0.sam`.
+Run `file` on `input_0.bam`.
 
 Now, if we want to run file on all of the sam files, we can can use the fact that `file` accepts multiple arguments like so:
 
-    file *sam
+    file input_*.bam
 
 If `file` didn't accept multiple files as arguments, we'd have to do something else.
 
 Here we're going to use `parallel` to do that job.
 To use it in this case we can do
 
-    ls *sam | parallel file
+    ls input_*.bam | parallel file
 
 Here we are piping the file names to the `parallel` command.
 We give `parallel` the argument `file`, which tells it which command to run.
@@ -157,14 +162,14 @@ We'll play around with that for a bit.
 
 First try
 
-    gzip -k -f input_0.sam
+    gzip -k -f input_0.bam
 
 What do the `-k` and `-f` flags do?
 Look them up in the `gzip` documentation.
 
 Now try
 
-    ls *sam | parallel gzip -k -f
+    ls input_*.bam | parallel gzip -k -f
 
 What did that do?
 Use `ls` and `file` to find out.
@@ -172,7 +177,7 @@ Use `ls` and `file` to find out.
 We now want to start giving flags to `parallel`.
 This works like so:
 
-    ls *sam | parallel -v gzip -k -f
+    ls input_*.bam | parallel -v gzip -k -f
 
 This may seem a little confusing at first, but all that's happening is that we are running `parallel` with the `-v` flag, giving `gzip -k -f` as the argument.
 What did the `-v` flag do?
@@ -181,7 +186,7 @@ OK, now for the fun part: running in parallel!
 "Parallel" means to run multiple computations at the same time, which is faster than running them one at a time.
 We can tell `parallel` that we want to run (at most) 4 parallel processes at once with the `-j 4` flag:
 
-    ls *sam | parallel -j 4 -v gzip -k -f
+    ls input_*.bam | parallel -j 4 -v gzip -k -f
 
 Try this version as well as with `-j 1` to run one process at a time.
 Which is faster?
