@@ -59,7 +59,11 @@ You might have noticed that the files we're dealing with have "extensions" that 
 For example, text files are marked with `.txt`, and shell scripts are labeled with `.sh`.
 
 This is a handy convention which is used heavily by a command-line library called "imagemagick" to manipulate images.
-Go to the `lecture09/slides/images` directory and try
+ImageMagick has been installed on rhino, but needs to be loaded before you use it:
+
+    ml ImageMagick
+    
+Once the library is loaded, go to the `lecture09/slides/images` directory and try
 
     convert betty-crocker.jpg betty-crocker.png
 
