@@ -4,7 +4,7 @@ This homework will assess your ability to run commands in the shell.
 
 Replace the lines specified in _italics_ with your answers.
 
-The assignment is due on Thursday, November 7 at noon, and includes material from lectures 9 and 12. This assignment will be available in GitHub Classroom on Tuesday, November 5.
+The assignment is worth 100 points, is due on Thursday, November 7 at noon, and includes material from lectures 9 and 12. This assignment will be available in GitHub Classroom on Tuesday, November 5.
 
 ## Problem 0
 
