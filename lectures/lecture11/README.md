@@ -1,3 +1,12 @@
 # Lecture 11: Introduction to Python
 
-The materials for this class are included with [Lecture 10](../lecture10).
+The materials for this class are included with [Lecture 10](../lecture10). Other reminders include:
+
+- Upcoming due dates: see below for information about the two homework assignments due on November 7. We've created issues for both the homework assignments AND general questions about the topic/lecture materials (the latter were created based on feedback from the mid-course survey). 
+  - [Homework 4 (command line)](../../homeworks/homework04) is due on Thursday, November 7 at noon, and includes material from lectures 9 and 12. This assignment will be available in GitHub Classroom on Tuesday, November 5. Please see [this issue](https://github.com/fredhutchio/tfcb_2019/issues/27) for discussion of general questions about command line, and [this issue](https://github.com/fredhutchio/tfcb_2019/issues/26) for specific questions about homework 4.
+  - [Homework 5 (intro to python)](../../homeworks/homework05) will also be due at Thursday, November 7 at noon, and includes material from lectures 10 and 11. This assignment will be available in GitHub Classroom on Thursday, October 31. Please see [this issue](https://github.com/fredhutchio/tfcb_2019/issues/29) for discussion of general questions about the intro to python materials, and [this issue](https://github.com/fredhutchio/tfcb_2019/issues/28) for specific questions about homework 5.
+- Last opportunity for mid-course feedback [here](https://docs.google.com/forms/d/e/1FAIpQLSc9Kfgoonlq-UaLI65XPyqDfllXHZw4YYqgISfODqXuxWej8Q/viewform?usp=sf_link). Thank you for your feedback so far! A few quick responses:
+  - *Logistics (software installs, file installs, etc) are challenging:* please also check the lecture reminders to make sure you're ready for the next class! We can send additional email reminders, but you also have responsibility to use information accessible to you. 
+  - *Increase hands-on in-class activities to make sure you're actively engaging with the material:* yes, we're doing this!
+  - *Office hours:* We'll announce specific office hours for the day prior to each homework assignment. 
+  - *Covering content specific to projects pursued by folks in class:* This class focuses on introducing general tools and concepts. We clearly can't meet all the specific research needs of students in class, but will try to connect together how the material we introduce can be translated into more specific workflows for things we know multiple people will encounter in their own research. We also specifically cover open-source, reproducible methods, which puts Geneious outside the scope of this class.
