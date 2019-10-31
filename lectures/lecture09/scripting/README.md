@@ -61,7 +61,14 @@ Now you should be able to run your script with `./script1.sh`.
 
 Next we'll be playing around scripting with samtools using [this bam file](https://console.cloud.google.com/storage/browser/_details/gatk-test-data/wgs_bam/NA12878_20k_b37/NA12878.bam) that's available to you in the GitHub repository.
 
-It has an awkward name, so let's rename it `input.bam` with
+[samtools](https://www.htslib.org/doc/samtools.html) is a collection of tools for manipulating data in 
+Sequence Alignment/Map (SAM) format.
+This software is installed on rhino, 
+but needs to be made available for use using `module load`, or `ml` for short:
+
+    ml samtools
+
+Our data has an awkward name, so let's rename it `input.bam` with
 
     mv wgs_bam_NA12878_20k_b37_NA12878.bam input.bam
 
@@ -128,10 +135,9 @@ Of course, shell does have loops, but next I'll present an alternative, which is
 
 Here we will provide an introduction to a command that provides a convenient and efficient alternative to loops: [GNU Parallel](https://www.gnu.org/software/parallel/).
 
-First, let's load the software we'll need for the rest of this exercise. These libraries are installed on rhino, 
-but need to be made available for use using `module load`, or `ml` for short:
+First, let's load the software we'll need for parallel processing:
 
-    ml samtools parallel
+    ml parallel
 
 To get our data set up, let's split our input BAM file into a set of smaller files.
 
