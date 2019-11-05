@@ -61,9 +61,9 @@ Now you should be able to run your script with `./script1.sh`.
 
 Next we'll be playing around scripting with samtools using [this bam file](https://console.cloud.google.com/storage/browser/_details/gatk-test-data/wgs_bam/NA12878_20k_b37/NA12878.bam) that's available to you in the GitHub repository.
 
-[samtools](https://www.htslib.org/doc/samtools.html) is a collection of tools for manipulating data in 
+[samtools](https://www.htslib.org/doc/samtools.html) is a collection of tools for manipulating data in
 Sequence Alignment/Map (SAM) format.
-This software is installed on rhino, 
+This software is installed on rhino,
 but needs to be made available for use using `module load`, or `ml` for short:
 
     ml samtools
@@ -217,3 +217,4 @@ It is tremendously powerful!
 
 Congratulations!
 You are done with the tutorial!
+If you want a little more, take a look at the `puritanical.md` file in this same directory.

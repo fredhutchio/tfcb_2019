@@ -26,7 +26,6 @@ For a more introductory perspective, try [Classic Shell Scripting](http://shop.o
 * [The tiniest bit of `sed`](#the-tiniest-bit-of-sed)
 * [Functions](#functions)
 * [Command line arguments](#command-line-arguments)
-* [Doing lots of things](#doing-lots-of-things)
 
 
 ## Your first shell script
@@ -142,7 +141,7 @@ one:
 two
 ```
 
-Exercise: Learn about the `sleep` command, and write a command that sleeps as many seconds as there are lines in the `script2.sh` file.
+_Exercise:_ Learn about the `sleep` command, and write a command that sleeps as many seconds as there are lines in the `script2.sh` file.
 Hint: if you directly call `wc` on a file it will list the file that it is called on as part of the output, however if you pipe `script2.sh` to `wc` it will not.
 
 
@@ -197,7 +196,7 @@ Let's paint the house blueish
 $
 ```
 
-Exercise: echo a string that describes your status, including these variables: `USER`, `PWD`, and `SHELL`.
+_Exercise:_ echo a string that describes your status, including these variables: `USER`, `PWD`, and `SHELL`.
 
 
 ## Return codes
@@ -331,7 +330,7 @@ do
 done
 ```
 
-Exercise: loop over the output of the `users` command on rhino, running `finger` on each user.
+_Exercise:_ loop over the output of the `users` command on rhino, running `finger` on each user.
 
 
 ## The tiniest bit of `sed`
@@ -394,7 +393,7 @@ ldo head
 
 will run `head` on the most recently modified file.
 
-Exercise: write a function, `lcd`, which enters the most recently touched directory. Note that you'll need to look at the command-line flags for `cd`.
+_Exercise:_ write a function, `lcd`, which enters the most recently touched directory. Note that you'll need to look at the command-line flags for `cd`.
 
 
 ## Command line arguments
@@ -417,4 +416,4 @@ output_directory=$2
 this checks that we have the right number of arguments and complains if we don't get them, then renames them something more reasonable.
 Note that `$0` is the name of the script.
 
-Exercise: write a shell script that takes a directory as an argument, then loops at all of the files in that directory and unzips all of the zip files, gunzips all of the gzipped files, and leaves all other file types untouched.
+_Exercise:_ write a shell script that takes a directory as an argument, then loops at all of the files in that directory and unzips all of the zip files, gunzips all of the gzipped files, and leaves all other file types untouched.
