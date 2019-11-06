@@ -18,6 +18,7 @@ Look at the manual for `tail` so that you can get the last 25 lines of your hist
 
 There's one annoying thing about `history`, which is that it includes the number of the command.
 We can avoid that by using [fc](http://pubs.opengroup.org/onlinepubs/9699919799/utilities/fc.html#top) as `fc -ln 1` in place of `history`.
+If you get an error with `fc`, use `builtin fc -ln 1`.
 
 Let's noodle around in the shell a bit to generate more history.
 
