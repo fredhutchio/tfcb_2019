@@ -1,0 +1,247 @@
+---
+title: "MCB517A Lecture 8: Genomic Data Analysis in R"
+author: "Gavin Ha"
+date: "10/22/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# 1. GenomicRanges Object to Store Genomic Data
+
+## 1.0 Install and load the GenomicRanges Bioconductor package
+```{r, message=FALSE}
+#BiocManager::install(GenomicRanges")
+library(GenomicRanges)
+```
+
+## 1.1 Manually create GRanges object
+This will make use of two of the packages (`GRanges` and `IRanges`). A `GRanges` object must contain an attribute called `seqnames` to represent chromosomes and `ranges` attribute to represent the `start` and `end` coordinates. The range is 1-index-based (as opposed to 0-index), The `start` and `end` can be the same value if it is a single base-pair.  
+```{r}
+myGRange1 <- GRanges(seqnames = "chr17",
+                        ranges = IRanges(start = 37844393, end = 37844393), myCol = "moreInfo1")
+myGRange2 <- GRanges(seqnames = "chr17",
+                        IRanges(start = 37844477, end = 37844477), myCol = "moreInfo2")
+myGRange <- append(myGRange1, myGRange2)
+myGRange
+```
+
+## 1.2 SeqInfo for a genome build and chromosome naming conventions
+We can get genome build information directly in R, which can be useful. In this example, we will work with the human genome build, hg19. For this, we will need to install and load the library `BSgenome.Hsapiens.UCSC.hg19`
+http://bioconductor.org/packages/release/data/annotation/html/BSgenome.Hsapiens.UCSC.hg19.html
+```{r, message=FALSE}
+#BiocManager::install("BSgenome.Hsapiens.UCSC.hg19")
+library(BSgenome.Hsapiens.UCSC.hg19)
+```
+
+Now load the `SeqInfo` object for human genome hg19. There are 2 ways to do this.
+```{r}
+seqinfo1 <- Seqinfo(genome="hg19")  # option 1 - slower
+seqinfo2 <- seqinfo(get("BSgenome.Hsapiens.UCSC.hg19"))  # option 2 - faster
+```
+
+An important consideration is the chromosome naming convention. This is usually a major source of issues related to matching and querying genomic regions. For the human genome reference, there are 2 conventions for hg19:
+
+  1. UCSC - uses "chr" string in front of the chromosome number (e.g. chr1)
+  2. NCBI - does not add a string to the front of the chromosome number (e.g. 1)
+
+In genome build GRCh38 (or hg38), this dual convention is no longer a problem and the string "chr" is always used (e.g. chr1).
+
+Let's say we still want to only work with the known autosomes and sex chromosomes in NCBI format, `1:22, "X", "Y"`.
+```{r, error = TRUE}
+chrs <- c(1:22, "X", "Y") # NCBI format
+keepSeqlevels(seqinfo2, value = chrs)
+```
+
+This gives an error because `seqinfo1` is in `UCSC` format and so we need to convert this to `NCBI` format.
+```{r}
+seqlevelsStyle(seqinfo2) <- "NCBI"
+seqinfo2
+```
+
+Now, we can select the autosomes and sex chromosomes.
+```{r}
+seqinfo3 <- keepSeqlevels(seqinfo2, value = chrs)
+seqinfo3
+```
+
+Functions such as `keekpSeqlevels` and `seqlevelsStyle` can be applied to `GRanges` objects as well. Let's try this on our exmample `myGRange` variable.
+```{r}
+myGRange # original format: UCSC
+seqlevelsStyle(myGRange) <- "NCBI"
+myGRange # new format: NCBI
+```
+
+# 2. Loading Genomic Data From A File
+There are numerous text file formats for representing genomic data and some of these were discussed in Lecture 7. Here, we will show you that a `GRanges` can be easily created from any text file that contains delimited columns specifying genomic coorindates.
+
+## 2.1 SEG format
+SEGment Data (http://software.broadinstitute.org/software/igv/SEG) format is tab-delimited and a flexible way to define any genomic data.
+There are 4 required columns:
+
+  1. Name
+  2. Chromosome
+  3. Start Coordinate
+  4. End Coordinate
+
+This is similar to the BED file format but with the additional requirement for *Name* as the first column.
+
+For this example, we will work with TCGA data for primary breast cancer patient samples. Specifically, these are segmentation data used for copy number alteration analysis. See Lecture 7: Slide 38.
+
+First, we will learn about a very useful R package to read large datasets in R called, `data.table`. `data.table` allows for very fast operations on very large tables. We won't be able to go over the common operations here but I encourage you to check out the documentation and cheat sheet (https://www.datacamp.com/community/tutorials/data-table-cheat-sheet)
+```{r, message=FALSE}
+#install.packages("data.table")
+library(data.table)
+segs <- fread("BRCA.genome_wide_snp_6_broad_Level_3_scna.seg")
+segs
+```
+
+Small processing of this file to correct a few legacy hacks. We need to change chromosome 23 to chromosome X.
+```{r}
+str(segs) # show the class type for each column
+mode(segs$Chromosome) <- "character" # change the class of the chromosome to character
+segs[Chromosome == 23, Chromosome := "X"]
+segs
+```
+
+Convert the `data.table` object into a `GRanges`. You can use the `as()` function, as long as the 3 required columns are present. It is also flexible how the columns are named. For example, the column can be `Start`, `start`, `Chr`, `chr`, `Chromosome`, `End`, `Stop`, etc.
+```{r}
+segs.gr <- as(segs, "GRanges")
+segs.gr
+```
+
+Notice that the `seqinfo` is not specified for this `GRanges` object. So let's provide it with the `seqinfo` object we created before.
+```{r}
+seqinfo(segs.gr) <- seqinfo3
+```
+
+
+# 3. Operations and features of GenomicRanges
+Some of the most useful features of `GRanges` object is the fast and easy methods for determining overlaps between sets of ranges. Here, we will describe examples using some of the common functions.
+
+## 3.1 Tiling the genome
+Often we would like to find or count events overlapping regions in the genome. In an unbiased fashion, we could do this genome-wide by dividing the genome into tiles/windows/bins. We will use the `tileGenome()` for this task, which requires three arguments: length of the chromosomes, number of tiles and the size of each tile.
+```{r}
+slen <- seqlengths(seqinfo3) # get the length of the chromosomes
+tileWidth <- 500000 # tile size of 500kb
+tiles <- tileGenome(seqlengths = seqlengths(seqinfo3), tilewidth = tileWidth,
+                    cut.last.tile.in.chrom = TRUE)
+tiles
+```
+
+## 3.2 Subsetting by overlapping ranges
+We can select set of regions in a `GRanges` object with large number of elements/ranges by defining another `GRanges` object to intersect. In this example, we want to include 500kb ranges in `tiles` that are overlapping `17:35000000-37000000`. We use the `subsetByOverlaps` function with arguments `x` being our full genome tiles and `ranges` being the `GRanges` object of interest.
+```{r}
+q <- GRanges(seqnames = "17", ranges = IRanges(start = 35000000, end = 37000000))
+tiles.subset <- subsetByOverlaps(x = tiles, ranges = q)
+tiles.subset
+```
+
+## 3.2 Finding overlapping ranges
+One of the most useful features of `GenomicRanges` is to simply identify the ranges that overlap between two `GRanges` objects. The `findOverlaps` function is a basic method in the `GRanges` class for finding the indices of the elements that overlap between two `GRanges`. The argmuents `query` for your main `tiles.subset` and `subject` for the `segs.gr`. The `type` argument describes the type of overlap, such as `any`, `within`, `start`, `end`, `equal`, and there are additional arguments for criteria for overlap such as `minoverlap` size.
+
+In this example, we will find which copy number alteration segments from `segs.gr` overlap in *any* way with our ranges in `tiles.subset` (`17:35000000-37000000`). For the criteria of any overlap, we set `type = "any"`.
+```{r}
+hits1 <- findOverlaps(query = tiles.subset, subject = segs.gr, type = "any")
+class(hits1)
+hits1
+```
+
+In the next example, we will find which copy number alteration segments from `segs.gr` are "completely" contained within our ranges in `tiles.subset`. Because we are interested in *complete* overlap of segments in `segs.gr`, we need to set `segs.gr` as the `query` and `type = "within"`. From the documentation: "If type is `within`, the `query` interval must be wholly contained within the `subject` interval."
+```{r}
+hits2 <- findOverlaps(query = segs.gr, subject = tiles.subset, type = "within")
+hits2
+```
+
+Becareful on the use of `query` and `subject`. Make sure to consult the documentation.
+
+To access the `Hits` object, we use `subjectHits` and `queryHits`. Let's see how we can find the mean of the `Segment_Mean` in `segs.gr` for all segments that are completely contained in the 2nd tile of `tiles.subset`.
+```{r}
+ind.tiles.event2 <- which(subjectHits(hits2) == 2)
+ind.segs.overlap.tile2 <- queryHits(hits2)[ind.tiles.event2]
+segs.gr[ind.segs.overlap.tile2]
+segs.tile2.means <- segs.gr[ind.segs.overlap.tile2]$Segment_Mean
+mean(segs.tile2.means)
+```
+
+## 3.3 Counting overlapping ranges
+A method that has additional built-in functionality beyond the basic `findOverlaps` is `countOverlaps`. We can find the number of hits that overlap each of our main `tiles.subset` `GRanges` object. From the docoumentation: "the overlap hit count for each range in `query`".
+
+In this example, we will see how many copy number alteration segments from `segs.gr` overlap each of our ranges in `tiles.subset` (`17:35000000-37000000`). The same arguments as `findOverlaps` are used. Here, we are interested in `any` sort of overlap (as opposed to complete overlap) so we set `type = "any"`.
+```{r}
+counts <- countOverlaps(query = tiles.subset, subject = segs.gr, type = "any")
+tiles.subset$counts.overlapAny <- counts
+tiles.subset
+```
+
+How would we find the count of copy number segments in `segs.gr` that are *completely* `within` each `tiles.subset` ranges? Recall the specific directionality of the overlap comparison. For `type = within`, the `query` regions that are completely `within` the subject region is considered an overlap. `countOverlaps` will not work for this problem. 
+
+Therefore, we go back to the original `findOverlaps` method, which gives more the more flexible basic functionality of overlap comparisons. Then, we can do perform counting of overlaps ourselves. Here, I use the aggregate functionality of `data.table`, but you can choose to use other approaches such as `tidyverse` or `aggregate`.
+
+`data.table` can perform aggregation over a variable directly by using the argument `by`. It also contains a built-in  variable `.N` that specifies the number of rows.
+```{r}
+hits2.dt <- as.data.table(hits2)
+hits2.dt
+hits2.dt[, .N, by = subjectHits] 
+```
+
+## 3.4 Merging by overlapping ranges
+Another method that has additional built-in functionality beyond the basic `findOverlaps` is `mergeByOverlaps`. This function gives us a final `DataFrame` object that contains the columns in both `query` and `subject` for overlapping ranges. In this example, we are interested again in the *complete* overlap of copy number segments from `segs.gr` `within` `tiles.subset` ranges.
+```{r}
+mergeByOverlaps(query = segs.gr, subject = tiles.subset, type = "within")
+```
+
+# 4 Reading Genome Variation Data
+
+## 4.1 VCF format
+Variant Call Format (VCF) is a very common format for representing genomic variation data. See Lecture 7: Slides 40-42.
+
+First, load the `VariantAnnotation` package
+```{r, message=FALSE}
+#BiocManager::install("VariantAnnotation")
+library(VariantAnnotation)
+```
+
+We will learn to read VCF files within R using a publicly available dataset of genomic variant calls for the infamous individual, NA12878. The Genome-in-a-Bottle Consortium has compiled consenuse variant calls on this individual's genome and released this data for researchers to use. One of the main purposes of this data is to provide a benchmark for those to develop computational tools and analysis of human genomes. See https://github.com/genome-in-a-bottle/giab_latest_release
+
+There are a lot of variants in this file `GIAB_highconf_v.3.3.2.vcf.gz`, so we want to restrict to a smaller region for this example. First, we need to set up a `ScanVcfParam` object.
+```{r}
+vcfFile <- "GIAB_highconf_v.3.3.2.vcf.gz"
+vcfHead <- scanVcfHeader(vcfFile)
+vcf.param <- ScanVcfParam(which = tiles.subset[3]) # single 500kb bin
+vcf <- readVcf(vcfFile, genome = "hg19", param = vcf.param)
+vcf
+```
+
+The `vcf` variable is of class `CollapsedVCF` and will contain header information and data. Let's see what information has been parsed by `readVcf`.
+
+The `rowRanges` function will return a `GRanges` object containing the coordinates, REF/ALT bases, quality, and filtering status of the variants.
+```{r}
+rowRanges(vcf)
+```
+
+The `INFO` column in the original VCF text file contains a semi-colon delimited set of custom fields with flexible format that algorithms will output.  Here, it is parsed into usable format. First, let's look at what fields are available from the header.
+```{r}
+info(header(vcf)) # returns a DataFrame object
+```
+
+The `FORMAT` column in the original VCF text file contains the format and description of the genotype fields. Let's see what these are.
+```{r}
+geno(header(vcf))
+```
+
+To see the genotype `GT`, read depth `DP`, and allele depth `AD`, we access the the list.
+```{r}
+geno(vcf)$GT[1:10]
+geno(vcf)$DP[1:10]
+geno(vcf)$AD[1:10]
+```
+
+You can also combine all fields into a `data.table` object. But this code only works if the VCF contains a single sample.
+```{r}
+genoData <- data.table(do.call(cbind, geno(vcf)))
+colnames(genoData) <- rownames(geno(header(vcf)))
+genoData
+```

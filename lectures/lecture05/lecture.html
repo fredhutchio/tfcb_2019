@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title></title>
+<meta name="author" content="(Arvind ‘Rasi’ Subramaniam)"/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="./reveal.js/css/reveal.css"/>
+
+<link rel="stylesheet" href="./reveal.js/css/theme/default.css" id="theme"/>
+
+
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = './reveal.js/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+
+
+<section  class="center">
+<h1 id="orgec8472d">Lecture 5 – Principles of Data Visualization</h1>
+<p>
+Arvind R. Subramaniam
+</p>
+
+<p>
+Assistant Member
+</p>
+
+<p>
+Basic Sciences Division and Computational Biology Program
+</p>
+
+<p>
+Fred Hutchinson Cancer Research Center
+</p>
+
+</section>
+<section >
+<h1 id="org300ff0b">Learning Objectives</h1>
+<ul>
+<li>Know general dos and donts of data visualization</li>
+<li>Know about different types of data visualization</li>
+<li>Effective strategies for visualization</li>
+
+</ul>
+
+
+<p data-fragment-index="1" class="fragment appear" style="margin-top:50px;">
+<b>Useful reference</b>
+</p>
+
+<p data-fragment-index="1" class="fragment appear">
+(Source of many figures in this lecture)
+</p>
+
+<p data-fragment-index="1" class="fragment appear">
+<a href="https://serialmentor.com/dataviz/" data-fragment-index="1" class="fragment appear">Fundamentals of Data Visualization</a> by Claus O. Wilke
+</p>
+
+
+
+</section>
+<section >
+<h1 id="org31ca3c0">Goals of Visualization</h1>
+<ul>
+<li class="fragment appear">Show experimental design and results</li>
+<li class="fragment appear">Show relationships among variables</li>
+<li class="fragment appear">Range and interval of a variable</li>
+
+</ul>
+
+</section>
+<section >
+<h1 id="orgef4b79e">Same data can be visualized very differently</h1>
+
+<div class="figure">
+<p><img src="img/temp-normals-vs-time-1.png" alt="temp-normals-vs-time-1.png" />
+</p>
+</div>
+
+<p class="reference">
+<a href="https://serialmentor.com/dataviz/" class="reference">Wilke 2018</a>
+</p>
+
+</section>
+<section >
+<h1 id="orge8d2f50">Same data can be visualized very differently</h1>
+
+<div class="figure">
+<p><img src="img/four-locations-temps-by-month-1.png" alt="four-locations-temps-by-month-1.png" />
+</p>
+</div>
+
+<p class="reference">
+<a href="https://serialmentor.com/dataviz/" class="reference">Wilke 2018</a>
+</p>
+
+</section>
+<section >
+<h1 id="orgd0082fc">Same data can be visualized very differently</h1>
+
+<div class="figure">
+<p><img src="img/temperature-normals-polar-1.png" alt="temperature-normals-polar-1.png" />
+</p>
+</div>
+
+<p class="reference">
+<a href="https://serialmentor.com/dataviz/" class="reference">Wilke 2018</a>
+</p>
+
+</section>
+<section >
+<h1 id="orgc4a411d">Elements of a visualization</h1>
+<ul>
+<li>Aesthetics</li>
+<li>Scales</li>
+<li>Labeling</li>
+<li>Exporting</li>
+
+</ul>
+
+</section>
+<section >
+<h1 id="org70135c3">Aesthetics</h1>
+
+<div class="figure">
+<p><img src="img/common-aesthetics-1.png" alt="common-aesthetics-1.png" />
+</p>
+</div>
+
+
+<p class="reference">
+<a href="https://serialmentor.com/dataviz/" class="reference">Wilke 2018</a>
+</p>
+
+</section>
+<section >
+<h1 id="org66a7624">How do you pick the type of aesthetics?</h1>
+<ul>
+<li class="fragment appear">How many variables and data points do you want to show?</li>
+<li class="fragment appear">Is your data continuous or discrete?</li>
+<li class="fragment appear">Is there a natural order of discrete variables?</li>
+
+</ul>
+
+
+<aside class="notes">
+<p>
+Do not show more than 5 or 6 discrete categories in a graph.
+</p>
+
+</aside>
+
+</section>
+<section >
+<h1 id="org5628863">Scales</h1>
+
+<div class="figure">
+<p><img src="img/basic-scales-example-1.png" alt="basic-scales-example-1.png" />
+</p>
+</div>
+
+<p class="reference">
+<a href="https://serialmentor.com/dataviz/" class="reference">Wilke 2018</a>
+</p>
+
+</section>
+<section >
+<h1 id="orga020de2">Log axes suitable for P-values</h1>
+
+<div class="figure">
+<p><img src="img/dong_2019_crispr_screen.png" alt="dong_2019_crispr_screen.png" />
+</p>
+</div>
+
+<p class="reference">
+<a href="https://www.ncbi.nlm.nih.gov/pubmed/31442407" class="reference">Dong 2019</a>
+</p>
+
+</section>
+<section >
+<h1 id="org6c3f231">Log axes suitable for fold-changes</h1>
+
+<div class="figure">
+<p><img src="img/10xaag_wt_log2.png" alt="10xaag_wt_log2.png" />
+</p>
+</div>
+
+<p class="reference">
+<a href="https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.3000396" class="reference">Park 2019</a>
+</p>
+
+</section>
+<section >
+<h1 id="orgf08cd38">Log-log plots are common in biology</h1>
+
+<div class="figure">
+<p><img src="img/dong_2019_volcano_plot.png" alt="dong_2019_volcano_plot.png" />
+</p>
+</div>
+
+<p class="reference">
+<a href="https://www.ncbi.nlm.nih.gov/pubmed/31442407" class="reference">Dong 2019</a>
+</p>
+
+</section>
+<section >
+<h1 id="org128ee7c">Labels</h1>
+<blockquote nil>
+<p>
+If you take away only one single lesson from this book, make it this one: Pay attention to your axis labels, axis tick labels, and other assorted plot annotations. Chances are they are too small. In my experience, nearly all plot libraries and graphing softwares have poor defaults. If you use the default values, you’re almost certainly making a poor choice.
+</p>
+</blockquote>
+
+<p class="reference">
+<i><a href="https://serialmentor.com/dataviz/" class="reference">Wilke 2018</a></i>
+</p>
+
+
+
+<aside class="notes">
+<p>
+Figures in presentations require bigger fonts than figures in papers.
+</p>
+
+<p>
+By having small fonts, you lose your audience especially in a presentation.
+</p>
+
+<p>
+Corollary of above is that taking a figure out of a paper and blowing it up for a presentation rarely retains the readability.
+</p>
+
+</aside>
+
+</section>
+<section >
+<h1 id="org35dfe7f">Cannot-read labels</h1>
+
+<div class="figure">
+<p><img src="img/Aus-athletes-small-1.png" alt="Aus-athletes-small-1.png" />
+</p>
+</div>
+
+<p class="reference">
+<a href="https://serialmentor.com/dataviz/" class="reference">Wilke 2018</a>
+</p>
+
+</section>
+<section >
+<h1 id="orgf888ceb">Small labels</h1>
+
+<div class="figure">
+<p><img src="img/Aus-athletes-ugly-1.png" alt="Aus-athletes-ugly-1.png" />
+</p>
+</div>
+
+<p class="reference">
+<a href="https://serialmentor.com/dataviz/" class="reference">Wilke 2018</a>
+</p>
+
+</section>
+<section >
+<h1 id="org25ec82a">Appropriately-sized labels</h1>
+
+<div class="figure">
+<p><img src="img/Aus-athletes-good-1.png" alt="Aus-athletes-good-1.png" />
+</p>
+</div>
+
+<p class="reference">
+<a href="https://serialmentor.com/dataviz/" class="reference">Wilke 2018</a>
+</p>
+
+</section>
+<section >
+<h1 id="org59605ce">Too-big labels</h1>
+
+<div class="figure">
+<p><img src="img/Aus-athletes-big-ugly-1.png" alt="Aus-athletes-big-ugly-1.png" />
+</p>
+</div>
+
+<p class="reference">
+<a href="https://serialmentor.com/dataviz/" class="reference">Wilke 2018</a>
+</p>
+
+</section>
+<section >
+<h1 id="orgeca1b4c">Seemingly big but ok labels</h1>
+
+<div class="figure">
+<p><img src="img/Aus-athletes-big-good-1.png" alt="Aus-athletes-big-good-1.png" />
+</p>
+</div>
+
+<p class="reference">
+<a href="https://serialmentor.com/dataviz/" class="reference">Wilke 2018</a>
+</p>
+
+</section>
+<section >
+<h1 id="orgbeda562">Exporting</h1>
+<ul>
+<li class="fragment appear">Finalize the figure within R as much as possible.</li>
+<li class="fragment appear">Use vector graphics for saving: PDF or SVG.</li>
+<li class="fragment appear"><a href="https://inkscape.org">Inkscape</a> – useful open source vector graphics program for editing figures.</li>
+<li class="fragment appear">Make sure that text can be edited when you open the image.</li>
+
+</ul>
+
+<aside class="notes">
+<p>
+Do not use Powerpoint to draw figures. They are not easily editable by others.
+</p>
+
+</aside>
+
+</section>
+<section >
+<h1 id="orgcda8414">Colors</h1>
+<p>
+Why use colors?
+</p>
+
+<ol>
+<li class="fragment appear">As a tool to distinguish</li>
+<li class="fragment appear">To represent data values</li>
+
+</ol>
+
+</section>
+<section >
+<h1 id="orgca51d49">Color to distinguish groups</h1>
+
+<div class="figure">
+<p><img src="img/findlay_2018_colors_example.png" alt="findlay_2018_colors_example.png" />
+</p>
+</div>
+
+<p class="reference">
+<a href="https://www.ncbi.nlm.nih.gov/pubmed/30209399" class="reference">Findlay 2018</a>
+</p>
+
+</section>
+<section >
+<h1 id="org29acad8">Color to represent quantitative data</h1>
+
+<div class="figure">
+<p><img src="img/tukiainen_2017_heatmap.png" alt="tukiainen_2017_heatmap.png" />
+</p>
+</div>
+
+<p class="reference">
+<a href="https://www.nature.com/articles/nature24265" class="reference">Tukiainen 2017</a>
+</p>
+
+
+</section>
+<section >
+<h1 id="org48ab685">How to choose colors</h1>
+<p>
+Avoid using many colors in a single graph
+</p>
+
+
+<div class="figure">
+<p><img src="img/biddy_2018_lot_of_colors.png" alt="biddy_2018_lot_of_colors.png" />
+</p>
+</div>
+
+<p class="reference">
+<a href="https://www.ncbi.nlm.nih.gov/pubmed/30518857" class="reference">Biddy 2018</a>
+</p>
+
+</section>
+<section >
+<h1 id="orgbff0ffb">How to choose colors</h1>
+
+<div class="figure">
+<p><img src="img/fluorescent_micrograph_colorblind_example.jpg" alt="fluorescent_micrograph_colorblind_example.jpg" />
+</p>
+</div>
+
+<div class="figure">
+<p><img src="img/fluorescent_micrograph_colorblind_simulation.jpg" alt="fluorescent_micrograph_colorblind_simulation.jpg" class="fragment appear" />
+</p>
+</div>
+
+<p class="fragment appear">
+Use colorblind-friendly palettes 
+</p>
+
+
+<div class="figure">
+<p><img src="img/colorblind_friendly_palette.png" alt="colorblind_friendly_palette.png" class="fragment appear" style="margine-top:100px" />
+</p>
+</div>
+
+
+<ul class="fragment appear" style="margine-top:20px">
+<li><a href="http://www.cookbook-r.com/Graphs/Colors_(ggplot2)">http://www.cookbook-r.com/Graphs/Colors_(ggplot2)</a></li>
+<li><a href="https://jfly.uni-koeln.de/color/">https://jfly.uni-koeln.de/color/</a></li>
+
+</ul>
+
+</section>
+<section >
+<h1 id="orgc09d33c">Different types of data that we want to visualize</h1>
+<table border="2" cellspacing="0" cellpadding="6" rules="none" frame="none" class="shrunk" style="margin:auto;">
+
+
+<colgroup>
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">Amounts</td>
+</tr>
+
+<tr>
+<td class="org-left">X-Y Relationships</td>
+</tr>
+
+<tr>
+<td class="org-left">Distributions</td>
+</tr>
+
+<tr>
+<td class="org-left">Proportions</td>
+</tr>
+</tbody>
+</table>
+
+
+</section>
+<section >
+<h1 id="orgb17a4b9">Common types of data visualizations</h1>
+
+<div class="figure">
+<p><img src="img/types_of_visualizations.png" alt="types_of_visualizations.png" width="900px" />
+</p>
+</div>
+
+</section>
+<section >
+<h1 id="org6a877ee">Visualizing uncertainty</h1>
+<table border="2" cellspacing="0" cellpadding="6" rules="none" frame="none" class="shrunk" style="margin:auto;">
+
+
+<colgroup>
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">Standard Error</td>
+</tr>
+
+<tr>
+<td class="org-left">Confidence Bands</td>
+</tr>
+</tbody>
+</table>
+
+
+<div class="figure">
+<p><img src="img/types_of_uncertainty.png" alt="types_of_uncertainty.png" class="fragment appear" width="900px" />
+</p>
+</div>
+
+
+</section>
+<section >
+<h1 id="org74b57a4">Visualizing uncertainty</h1>
+<table border="2" cellspacing="0" cellpadding="6" rules="none" frame="none" class="shrunk" style="margin:auto;">
+
+
+<colgroup>
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">Standard Error</td>
+</tr>
+
+<tr>
+<td class="org-left">Confidence Bands</td>
+</tr>
+</tbody>
+</table>
+
+<p style="margin-top:100px;">
+Standard deviation or standard error?
+</p>
+
+<p class="fragment appear" style="margin-top:30px;">
+Standard deviation does not decrease with more measurements.
+</p>
+
+</section>
+<section >
+<h1 id="org9620292">👍 or 👎?</h1>
+
+<div class="figure">
+<p><img src="img/hawaii-income-bars-bad-1.png" alt="hawaii-income-bars-bad-1.png" width="800px" />
+</p>
+</div>
+
+
+<p data-fragment-index="1" class="fragment appear" style="margin-top:30px;">
+Linear scales should begin at 0.
+</p>
+<p data-fragment-index="1" class="fragment appear" class="reference">
+<a href="https://serialmentor.com/dataviz/" data-fragment-index="1" class="fragment appear" class="reference">Wilke 2018</a>
+</p>
+
+</section>
+<section >
+<h1 id="orgb9ecc67">👍 or 👎?</h1>
+
+<div class="figure">
+<p><img src="img/oceania-gdp-logbars-1.png" alt="oceania-gdp-logbars-1.png" />
+</p>
+</div>
+
+
+<p data-fragment-index="1" class="fragment appear" style="margin-top:30px;">
+Bar areas are not proportional to value.
+</p>
+<p data-fragment-index="2" class="fragment appear">
+<i>Principle of proportional ink</i>
+</p>
+<p data-fragment-index="2" class="fragment appear" class="reference">
+<a href="https://serialmentor.com/dataviz/" data-fragment-index="2" class="fragment appear" class="reference">Wilke 2018</a>
+</p>
+
+
+</section>
+<section >
+<h1 id="org108386f">👍 or 👎?</h1>
+
+<div class="figure">
+<p><img src="img/oceania-gdp-dots-1.png" alt="oceania-gdp-dots-1.png" />
+</p>
+</div>
+
+
+<p data-fragment-index="1" class="fragment appear" style="margin-top:30px;">
+Log data values are best shown as points.
+</p>
+<p data-fragment-index="1" class="fragment appear" class="reference">
+<a href="https://serialmentor.com/dataviz/" data-fragment-index="1" class="fragment appear" class="reference">Wilke 2018</a>
+</p>
+
+</section>
+<section >
+<h1 id="org9355ace">Which is better – pie or bar?</h1>
+
+<div class="figure">
+<p><img src="img/RI-pop-pie-1.png" alt="RI-pop-pie-1.png" width="800px" />
+</p>
+</div>
+
+</section>
+<section >
+<h1 id="orgc0346d1">Which is better – pie or bar?</h1>
+
+<div class="figure">
+<p><img src="img/RI-pop-bars-1.png" alt="RI-pop-bars-1.png" width="800px" />
+</p>
+</div>
+
+
+<p data-fragment-index="2" class="fragment appear" style="margin-top:30px;">
+Bars are more accurately perceived than areas.
+</p>
+<p data-fragment-index="2" class="fragment appear" class="reference">
+<a href="https://serialmentor.com/dataviz/" data-fragment-index="2" class="fragment appear" class="reference">Wilke 2018</a>
+</p>
+
+
+</section>
+<section >
+<h1 id="org1803950">👍 or 👎?</h1>
+
+<div class="figure">
+<p><img src="img/mpg-cty-displ-solid-1.png" alt="mpg-cty-displ-solid-1.png" width="750px" />
+</p>
+</div>
+
+<p data-fragment-index="1" class="fragment appear" style="margin-top:30px;">
+Overlapping points can be hidden.
+</p>
+<p data-fragment-index="1" class="fragment appear" class="reference">
+<a href="https://serialmentor.com/dataviz/" data-fragment-index="1" class="fragment appear" class="reference">Wilke 2018</a>
+</p>
+
+</section>
+<section >
+<h1 id="org22cad79">👍 or 👎?</h1>
+
+<div class="figure">
+<p><img src="img/mpg-cty-displ-transp-1.png" alt="mpg-cty-displ-transp-1.png" width="750px" />
+</p>
+</div>
+
+<p data-fragment-index="1" class="fragment appear" style="margin-top:30px;">
+Make points semi-transparent.
+</p>
+<p data-fragment-index="1" class="fragment appear" class="reference">
+<a href="https://serialmentor.com/dataviz/" data-fragment-index="1" class="fragment appear" class="reference">Wilke 2018</a>
+</p>
+
+</section>
+<section >
+<h1 id="orgdd48ac9">👍 or 👎?</h1>
+
+<div class="figure">
+<p><img src="img/mpg-cty-displ-jitter-1.png" alt="mpg-cty-displ-jitter-1.png" width="750px" />
+</p>
+</div>
+
+<p data-fragment-index="1" class="fragment appear" style="margin-top:30px;">
+Slightly jitter points along the direction of overlap.
+</p>
+<p data-fragment-index="1" class="fragment appear" class="reference">
+<a href="https://serialmentor.com/dataviz/" data-fragment-index="1" class="fragment appear" class="reference">Wilke 2018</a>
+</p>
+
+</section>
+<section >
+<h1 id="orgeeb1005">👍 or 👎?</h1>
+
+<div class="figure">
+<p><img src="img/mpg-cty-displ-jitter-extreme-1.png" alt="mpg-cty-displ-jitter-extreme-1.png" width="750px" />
+</p>
+</div>
+
+<p data-fragment-index="1" class="fragment appear" style="margin-top:30px;">
+But too much jittering can be misleading.
+</p>
+<p data-fragment-index="1" class="fragment appear" class="reference">
+<a href="https://serialmentor.com/dataviz/" data-fragment-index="1" class="fragment appear" class="reference">Wilke 2018</a>
+</p>
+
+</section>
+<section >
+<h1 id="org2febe56">👍 or 👎?</h1>
+
+<div class="figure">
+<p><img src="img/nycflights-points-1.png" alt="nycflights-points-1.png" width="750px" />
+</p>
+</div>
+
+<p data-fragment-index="1" class="fragment appear" style="margin-top:30px;">
+Neither transparency nor jittering will help when data density is too high.
+</p>
+<p data-fragment-index="1" class="fragment appear" class="reference">
+<a href="https://serialmentor.com/dataviz/" data-fragment-index="1" class="fragment appear" class="reference">Wilke 2018</a>
+</p>
+
+</section>
+<section >
+<h1 id="org906e9fc">👍 or 👎?</h1>
+
+<div class="figure">
+<p><img src="img/nycflights-2d-bins-1.png" alt="nycflights-2d-bins-1.png" width="750px" />
+</p>
+</div>
+
+<p data-fragment-index="1" class="fragment appear" style="margin-top:30px;">
+Binned 2D histograms is a good solution.
+</p>
+<p data-fragment-index="1" class="fragment appear" class="reference">
+<a href="https://serialmentor.com/dataviz/" data-fragment-index="1" class="fragment appear" class="reference">Wilke 2018</a>
+</p>
+
+</section>
+<section >
+<h1 id="org0089367">👍 or 👎?</h1>
+
+<div class="figure">
+<p><img src="img/nycflights-hex-bins-1.png" alt="nycflights-hex-bins-1.png" width="750px" />
+</p>
+</div>
+
+<p data-fragment-index="1" class="fragment appear" style="margin-top:30px;">
+Hexagonal bins are slightly more accurate.
+</p>
+<p data-fragment-index="1" class="fragment appear" class="reference">
+<a href="https://serialmentor.com/dataviz/" data-fragment-index="1" class="fragment appear" class="reference">Wilke 2018</a>
+</p>
+
+</section>
+<section >
+<h1 id="org4e58e45">👍 or 👎?</h1>
+
+<div class="figure">
+<p><img src="img/tech-stocks-bad-legend-1.png" alt="tech-stocks-bad-legend-1.png" width="800px" />
+</p>
+</div>
+
+<p data-fragment-index="1" class="fragment appear" style="margin-top:30px;">
+Legend order does not match plot order.
+</p>
+<p data-fragment-index="1" class="fragment appear" class="reference">
+<a href="https://serialmentor.com/dataviz/" data-fragment-index="1" class="fragment appear" class="reference">Wilke 2018</a>
+</p>
+
+</section>
+<section >
+<h1 id="orgfd6db44">👍 or 👎?</h1>
+
+<div class="figure">
+<p><img src="img/tech-stocks-good-legend-1.png" alt="tech-stocks-good-legend-1.png" width="800px" />
+</p>
+</div>
+
+<p data-fragment-index="1" class="fragment appear" style="margin-top:30px;">
+Legend order matches plot order.
+</p>
+<p data-fragment-index="1" class="fragment appear" class="reference">
+<a href="https://serialmentor.com/dataviz/" data-fragment-index="1" class="fragment appear" class="reference">Wilke 2018</a>
+</p>
+
+</section>
+<section >
+<h1 id="org92ee31d">👍 or 👎?</h1>
+
+<div class="figure">
+<p><img src="img/tech-stocks-good-no-legend-1.png" alt="tech-stocks-good-no-legend-1.png" width="800px" />
+</p>
+</div>
+
+<p data-fragment-index="1" class="fragment appear" style="margin-top:30px;">
+Pick direct labeling over legend.
+</p>
+<p data-fragment-index="1" class="fragment appear" class="reference">
+<a href="https://serialmentor.com/dataviz/" data-fragment-index="1" class="fragment appear" class="reference">Wilke 2018</a>
+</p>
+</section>
+</section>
+</div>
+</div>
+<script src="./reveal.js/lib/js/head.min.js"></script>
+<script src="./reveal.js/js/reveal.js"></script>
+
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+controls: false,
+progress: true,
+history: true,
+center: false,
+slideNumber: 'c',
+rollingLinks: false,
+keyboard: true,
+overview: true,
+
+theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+transition: Reveal.getQueryHash().transition || 'fade', // default/cube/page/concave/zoom/linear/fade/none
+transitionSpeed: 'default',
+multiplex: {
+    secret: '', // null if client
+    id: '', // id, obtained from socket.io server
+    url: '' // Location of socket.io server
+},
+
+// Optional libraries used to extend on reveal.js
+dependencies: [
+ { src: './reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+ { src: './reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: './reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: './reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: './reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }]
+});
+</script>
+</body>
+</html>
