@@ -5,12 +5,13 @@ For our next set of lectures, we'll be heading back to Python to explore some sp
 ## Learning objectives
 
 After this section, you should be able to:
-- 
+-
 
 ## Class materials
 
 - The content for this lecture is contained in the Jupyter notebook [lecture_13.ipynb](lecture_13.ipynb) located in this directory.
 - Please install [Biopython](https://anaconda.org/anaconda/biopython) prior to class by opening Terminal (Mac) or Anaconda Prompt (Windows) and executing the following code: `conda install -c anaconda biopython` . Alternatively (on either platform), open Anaconda Navigator, go to "Environments" and click "not installed". Search for biopython click the box to install.
+- This class requires use of Python 3.6+. If you installed Anaconda recently (e.g., within the last few months, since the start of the course), you should be fine. If you are working with an older installation of Python, please see [these instructions](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-python.html#updating-or-upgrading-python) for checking your version and updating if necessary.
 
 ## Reminders
 
