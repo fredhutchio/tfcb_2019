@@ -28,7 +28,7 @@ Location: B1-072, Fred Hutch
 | 10      | Oct 29 | Phil Bradley     | [Introduction to Python](lectures/lecture10/)
 | 11      | Oct 31 | Phil Bradley     | [Intro to Python (continued)](lectures/lecture11/)
 | 12      | Nov 5  | Erick Matsen     | [Intro to the command line (continued)](lectures/lecture12/)
-| 13      | Nov 7  | Jesse Bloom      | Data structures and biological analyses using Python
+| 13      | Nov 7  | Jesse Bloom      | [Data structures and biological analyses using Python](lectures/lecture13/)
 | 14      | Nov 12 | Jesse Bloom      | Data structures/biological analyses in Python (continued)
 | 15      | Nov 14 | Phil Bradley     | Modeling and machine learning in Python
 | 16      | Nov 19 | Phil Bradley     | Modeling/machine learning in Python (continued)
