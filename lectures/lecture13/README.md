@@ -18,6 +18,8 @@ After this section, you should be able to write Python functions that perform so
 
 - Please install [Biopython](https://anaconda.org/anaconda/biopython) prior to class by opening Terminal (Mac) or Anaconda Prompt (Windows) and executing the following code: `conda install -c anaconda biopython` . Alternatively (on either platform), open Anaconda Navigator, go to "Environments" and click "not installed". Search for biopython click the box to install.
 
+- This class requires use of Python 3.6+. If you installed Anaconda recently (e.g., within the last few months, since the start of the course), you should be fine. If you are working with an older installation of Python, please see [these instructions](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-python.html#updating-or-upgrading-python) for checking your version and updating if necessary.
+
 ## Reminders
 
 - Homeworks 4 and 5 were due at noon on Thursday, November 7.
