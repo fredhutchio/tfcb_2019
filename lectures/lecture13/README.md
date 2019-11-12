@@ -14,7 +14,7 @@ After this section, you should be able to write Python functions that perform so
 
 ## Class materials
 
-- The content for this lecture is contained in the Jupyter notebook [lecture13.ipynb](lecture13.ipynb) located in this directory.
+- The content for this lecture is contained in the Jupyter notebook [lecture13and14.ipynb](lecture13and14.ipynb) located in this directory.
 
 - Please install [Biopython](https://anaconda.org/anaconda/biopython) prior to class by opening Terminal (Mac) or Anaconda Prompt (Windows) and executing the following code: `conda install -c anaconda biopython` . Alternatively (on either platform), open Anaconda Navigator, go to "Environments" and click "not installed". Search for biopython click the box to install.
 
