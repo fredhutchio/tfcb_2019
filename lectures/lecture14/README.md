@@ -16,7 +16,7 @@ After this lecture, you should be able to write Python functions:
 
 ## Class materials
 
-- The content for this lecture is containing in the Jupyter notebook [lecture13and14.ipynb](lecture13and14.ipynb) located in this directory.
+- The content for this lecture is containing in the Jupyter notebook [lecture14.ipynb](lecture14.ipynb) located in this directory.
 
 - Please also install [plotnine](https://plotnine.readthedocs.io/) prior to class by opening Terminal (Mac) or Anaconda Prompt (Windows) and executing the following code: `conda install -c conda-forge plotnine` . Alternatively (on either platform), open Anaconda Navigator, go to "Environments" and click "not installed". Search for plotnine and click the box to install.
 
