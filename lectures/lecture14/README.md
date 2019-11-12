@@ -22,4 +22,4 @@ After this lecture, you should be able to write Python functions:
 
 ## Reminders
 
-- Homework 6 will be assigned today and is due on November 19.
+- Homework 6 (Practical Python with biopython) is due on Tuesday, November 19 at noon, and includes material from lectures 13 and 14. Please see [this issue](https://github.com/fredhutchio/tfcb_2019/issues/35) for discussion of general questions about the class materials, and [this issue](https://github.com/fredhutchio/tfcb_2019/issues/34) for specific questions about homework 6. Kate will hold office hours for homework 6 on Monday, November 20 from 9-11 am in Arnold Atrium.
