@@ -33,3 +33,7 @@ Thumbs.db
 # IDE #
 #######
 *sublime*
+
+# Jupyter notebooks #
+#####################
+.ipynb_checkpoints
