@@ -6,6 +6,7 @@ This final section on Python will provide more depth to your understanding of th
 
 - Apply functions from `numpy` to manipulate multidimensional numeric data
 - Import, manipulate, and visualize data with pandas
+- Understand and apply common methods in machine learning using scikit-learn
 
 ## Class materials
 
