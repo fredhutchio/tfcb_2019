@@ -1,25 +1,29 @@
-# Lecture 17
+# Lecture 17: Introduction to remote computing
 
-## Following up from questions
+**Erick Matsen ([@ematsen](https://twitter.com/ematsen), [matsen.group](http://matsen.group))**
 
-* thank you!
-* describe why vim
-* i will make a glossary / cheat sheet
-* structure of a shell script; is the shebang
+Now that you have some experience with shell, we'll dive a little more deeply into what remote and cloud computing are, including the modern container-based approach to high-performance computing.
+However, we will start by going over some of the questions from last time.
 
+## Learning objectives
 
-## Lecture/discussion
+After this course, you should be able to:
 
-* local versus remote (use https://vcl.apache.org/img/remote-access.png)
-* demo: htop on my machine versus on rhino
-* what is the cloud
-* cloud providers
-* AWS / EC2 / S3
+- Be able to run shell commands from Python
+- Understand local versus remote execution
+- Understand the basics of what cloud computing is and what it offers
+- Understand what a container is and how
+
+## Class materials
+
+This directory has the class materials for the course.
+I have added a `quickref.md` quick reference file with basic commands we've used so far.
+
+## Reminders
 
 
 ## Interactive work
 
-When appropriate, we will do tasks by both calling an external command from python and writing a shell script.
 
 * removing, copying, moving, files around on a single machine
 * a little about wildcards
@@ -27,4 +31,3 @@ When appropriate, we will do tasks by both calling an external command from pyth
 * scp; scp -r
 * ssh access keys
 * uncompressing zip files from the command line
-
