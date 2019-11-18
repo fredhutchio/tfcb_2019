@@ -12,7 +12,8 @@ After this course, you should be able to:
 - Be able to run shell commands from Python
 - Understand local versus remote execution
 - Understand the basics of what cloud computing is and what it offers
-- Understand what a container is and how
+- Understand what a linux container is
+- Know how to copy, move, and delete files on the command line
 
 ## Class materials
 
@@ -76,12 +77,12 @@ Removing files happens with
 
     rm FILENAMES
 
-where `FILENAMES` can be 1 or more names.
+where `FILENAMES` can be one or more names.
 Removing directories happens with
 
     rmdir DIRECTORYNAMES
 
-where `DIRECTORYNAMES` is 1 or more directory names.
+where `DIRECTORYNAMES` is one or more directory names.
 However, these directories need to be empty.
 It is more common to use the less safe
 
@@ -119,7 +120,7 @@ which makes a directory called `DIRECTORY`.
 
 ### Copying and moving/renaming files
 
-Copying files uses the `cp` command, like so
+Copying files uses the `cp` command, like so:
 
     cp SOURCE DESTINATION
 
@@ -152,6 +153,6 @@ The `file` command, when run on `../lecture09/slides/images/betty-crocker.jpg`, 
 
 which as you can see, is the file name, then a colon, then a description of the file.
 
-Make a Python script that runs `file` on each file in `../lecture09/`, extracts just the descriptions, and sorts them.
+Make a Python script that runs `file` on each file in `../lecture09/`, extracts just the descriptions (hint: see the Python `split()` function), sorts them, and prints them.
 
 You can use the `ps-count.py` script in this directory as a template (in particular the invocation of `subprocess.check_output`).
