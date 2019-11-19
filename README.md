@@ -31,7 +31,7 @@ Location: B1-072, Fred Hutch
 | 13      | Nov 7  | Jesse Bloom      | [Data structures and biological analyses using Python](lectures/lecture13/)
 | 14      | Nov 12 | Jesse Bloom      | [Data structures/biological analyses in Python (continued)](lectures/lecture14)
 | 15      | Nov 14 | Phil Bradley     | [Modeling and machine learning in Python](lectures/lecture15)
-| 16      | Nov 19 | Phil Bradley     | Modeling/machine learning in Python (continued)
+| 16      | Nov 19 | Phil Bradley     | [Modeling/machine learning in Python (continued)](lectures/lecture16)
 | 17      | Nov 21 | Erick Matsen     | Introduction to remote computing
 | 18      | Nov 26 | Kate Hertweck    | Remote computing on the command line
 | 19      | Dec 3  | Rasi Subramaniam | Course summary and synthesis
