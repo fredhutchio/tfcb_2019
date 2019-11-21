@@ -24,6 +24,8 @@ After this course, you should be able to:
 
 - Homework 7 will be available next week.
 - Homework 8 (capstone) will be available the week of December 2.
+- Don't forget to `git pull` in the directory containing your `tfcb_2019` repository to get the latest goodies.
+
 
 ## Interactive work
 

@@ -32,3 +32,8 @@
 * what is a container
 * for more details, see http://erick.matsen.org/2018/04/19/docker.html
 * how are containers used with the cloud
+
+
+# Onward!
+
+Off to the exercises. Don't forget to `git pull`.
