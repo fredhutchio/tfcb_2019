@@ -17,11 +17,13 @@ After this course, you should be able to:
 
 ## Class materials
 
-This directory has the class materials for the course.
-I have added a `quickref.md` quick reference file with basic commands we've used so far.
+- This directory has the class materials for the course. The file `quickref.md` is a quick reference file with basic commands we've used so far.
+- You should be able to execute all commands in this lesson on Rhino or on your local computer.
 
 ## Reminders
 
+- Homework 7 will be available next week.
+- Homework 8 (capstone) will be available the week of December 2.
 
 ## Interactive work
 
