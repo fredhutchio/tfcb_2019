@@ -4,6 +4,8 @@
 
 Now that you have some experience using R for data manipulation and visualization, we'll move on to explore a few of the other common tools used in computational biology. This lesson introduces you to the command line (Unix shell), which is useful (and necessary) for automating tasks, working with files/directories, and using compute clusters. We'll be integrating our knowledge of the shell with Python coding starting with lecture 10, as these tools often work hand-in-hand.
 
+**TODO for anyone revising this course: students got confused about what directory they should be in. Sprinkle in some "you should now be in directory bla/bla" notes so make sure folks didn't get off track.**
+
 ## Learning objectives
 
 After this course, you should be able to:
@@ -26,7 +28,7 @@ After this course, you should be able to:
 ## Reminders
 
 - Homework 3 (genomic data in R) is available through GitHub Classroom and is due Tuesday, October 28 at noon. Please add your questions to [this issue](https://github.com/fredhutchio/tfcb_2019/issues/21) or contact Kate for assistance.
-- The first questions for homework 4 (command line) are available [here](https://github.com/fredhutchio/tfcb_2019/tree/master/homeworks/homework04); it may be useful to reference these questions as you work through material in today's class. The assignment is due at 12 pm on Nov 7. It is not yet available through GitHub Classroom, but a link will be emailed to you by Nov 5 when the second half of the shell homework is available. 
+- The first questions for homework 4 (command line) are available [here](https://github.com/fredhutchio/tfcb_2019/tree/master/homeworks/homework04); it may be useful to reference these questions as you work through material in today's class. The assignment is due at 12 pm on Nov 7. It is not yet available through GitHub Classroom, but a link will be emailed to you by Nov 5 when the second half of the shell homework is available.
 - We'll be working in Python in the next class; please make sure you have [Anaconda](https://github.com/fredhutchio/tfcb_2019/tree/master/software#python) installed, which includes Python, Jupyter notebooks and other packages we'll be using in later classes.
 - The regularly scheduled office hours (for fredhutch.io) don't seem to be workable or necessary for most folks! If you would like assistance with homework or course material, please let Kate (or Katie) know, and we'd be happy to meet you before (or after) class (the syllabus/README for this repo has been updated accordingly).
 
