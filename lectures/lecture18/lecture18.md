@@ -90,7 +90,9 @@ Be careful with multiple versions of the same software! You can load specific ve
 
 ### Conda to control environments
 
-  module spider conda 
+  module spider conda
+
+https://docs.conda.io/projects/conda/en/latest/user-guide/getting-started.html
 
 ### Setting your path
 
@@ -134,6 +136,8 @@ Note that we can also set our own variables in shell scripts!
 ### Cluster job submission
 
 slurm
+
+https://github.com/FredHutch/slurm-examples
 
 ## Example RNAseq workflow
 
