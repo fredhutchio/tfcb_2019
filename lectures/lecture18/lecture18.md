@@ -185,7 +185,7 @@ When you log on to the cluster, all commands you run are limited by the compute 
 
     grabnode
 
-When prompted, you should type 1 for number of CPUs (since there are lots of us in this class!), hit `Enter` to select the default for memory, and type 1 for number of days. You'll note your command prompt will switch to say `gizmo` instead of `rhino`; you can interact with your directories the same as you would tumorly. See [this documentation](https://sciwiki.fredhutch.org/compdemos/howtoRhino/#guidance-for-use) for more information on when to use `grabnode`). To end your session on `gizmo`:
+When prompted, you should type 1 for number of CPUs (since there are lots of us in this class!), hit `Enter` to select the default for memory, and type 1 for number of days. You'll note your command prompt will switch to say `gizmo` instead of `rhino`; you can interact with your directories the same as you would normally. See [this documentation](https://sciwiki.fredhutch.org/compdemos/howtoRhino/#guidance-for-use) for more information on when to use `grabnode`. To end your session on `gizmo`:
 
     exit
 
@@ -226,6 +226,10 @@ Now we can load the software and assess two of our data files:
     fastqc hcc1395_tumor_rep1*.fastq.gz
 
 What files are output from fastqc? You can view some example output for bad data [here](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/bad_sequence_fastqc.html).
+
+If you'd like to view the resulting html file in a web browser, you could:
+   - transfer the file using `scp`
+   - use `sshfs` to mount the files and view on your own computer (more info [here](https://www.digitalocean.com/community/tutorials/how-to-use-sshfs-to-mount-remote-file-systems-over-ssh))
 
 For the following analysis, we're going to proceed with only a single fastq file (to save time here in class).
 
