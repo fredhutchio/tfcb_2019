@@ -28,7 +28,7 @@
 <div class="slides">
 
 <section  class="center">
-<h1 id="orgec48678">Lecture 19 – Putting it all together</h1>
+<h1 id="orge3ba519">Lecture 19 – Putting it all together</h1>
 <p>
 Arvind R. Subramaniam
 </p>
@@ -47,7 +47,7 @@ Fred Hutchinson Cancer Research Center
 
 </section>
 <section >
-<h1 id="org628ec8c">Tools we have learned in this class</h1>
+<h1 id="org1698974">Tools we have learned in this class</h1>
 <ul>
 <li>Git</li>
 <li>R</li>
@@ -60,9 +60,157 @@ Fred Hutchinson Cancer Research Center
 A full stack analysis will require many of these tools and others.
 </p>
 
+<div style="margin-top:50px;"/>
+
 <p>
 Today, we will work through a simple but realistic example of such an analysis.
 </p>
+
+</section>
+<section >
+<h1 id="org54cf937">Background: Decrease in protein levels at high initiation rates</h1>
+
+<div class="figure">
+<p><img src="img/park_2019_fig1.png" alt="park_2019_fig1.png" width="1000px" />
+</p>
+</div>
+
+<p class="reference">
+<a href="https://journals.plos.org/plosbiology/article/figure?id=10.1371/journal.pbio.3000396.g001" class="reference">Fig. 1</a> in <a href="https://journals.plos.org/plosbiology/article/figure?id=10.1371/journal.pbio.3000396">Park 2019</a>
+</p>
+
+</section>
+<section >
+<h1 id="orgfcc030b">Do changes in mRNA levels drive changes in protein levels?</h1>
+
+<div class="figure">
+<p><img src="img/park_2019_fig1.png" alt="park_2019_fig1.png" width="1000px" />
+</p>
+</div>
+
+<p class="reference">
+<a href="https://journals.plos.org/plosbiology/article/figure?id=10.1371/journal.pbio.3000396.g001" class="reference">Fig. 1</a> in <a href="https://journals.plos.org/plosbiology/article/figure?id=10.1371/journal.pbio.3000396">Park 2019</a>
+</p>
+
+</section>
+<section >
+<h1 id="orgc2cc9ea">Classic methods for measuring mRNA levels are cumersome and noisy.</h1>
+
+<div class="figure">
+<p><img src="img/radhakrishnan_2016_northern.png" alt="radhakrishnan_2016_northern.png" width="600px" />
+</p>
+</div>
+
+<div style="margin-top:200px;"/>
+
+<p class="reference">
+Fig. 5 in <a href="https://www.sciencedirect.com/science/article/pii/S0092867416311503" class="reference">Radhakrishnan 2019</a>
+</p>
+
+</section>
+<section >
+<h1 id="org68fc63c">Pooled deep-sequencing assay to measure mRNA levels</h1>
+
+<div class="figure">
+<p><img src="img/park_2019_fig2.png" alt="park_2019_fig2.png" width="600px" />
+</p>
+</div>
+
+<div style="margin-top:100px;"/>
+<p class="reference">
+<a href="https://journals.plos.org/plosbiology/article/figure?id=10.1371/journal.pbio.3000396.g002" class="reference">Fig. 2</a> in <a href="https://journals.plos.org/plosbiology/article/figure?id=10.1371/journal.pbio.3000396">Park 2019</a>
+</p>
+
+</section>
+<section >
+<h1 id="orgc5c54bd">Raw data is provided by the Sequencing Core as <code>.fastq</code> files.</h1>
+<p>
+Log on to <code>rhino</code>.
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-sh">ssh rhino
+</pre>
+</div>
+
+<div style="margin-top:100px;"/>
+
+<p>
+Check that raw <code>.fastq.gz</code> files are available.
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-sh">+rasi@rhino3:~$ ls -1 /fh/fast/subramaniam_a/tfcb/lecture19/*.fastq.gz
+hpark_exp152_cdna_1_GCGGAC_L002_R1_001.fastq.gz
+hpark_exp152_gdna_1_AAGCTA_L002_R1_001.fastq.gz
+hpark_exp152_gdna_1_AAGCTA_L002_R1_002.fastq.gz
+</pre>
+</div>
+
+</section>
+<section >
+<h1 id="org9b03e47">Check that the file content is as expected.</h1>
+
+</section>
+<section >
+<h1 id="org1c3d2a3">Create a Github repo <code>tfcb_lecture19</code> for the analysis</h1>
+<p data-fragment-index="1" class="fragment appear">
+<a href="http://github.com/rasilab" data-fragment-index="1" class="fragment appear">http://github.com/rasilab</a>
+</p>
+
+</section>
+<section >
+<h1 id="org1525332">Clone the repository to your local computer at <code>~/git</code></h1>
+<div class="org-src-container">
+
+<pre  class="fragment appear"><span style="color: #839496; font-weight: bold;">cd</span> ~/git
+
+git clone https://github.com/rasilab/tfcb_lecture19.git
+</pre>
+</div>
+
+</section>
+<section >
+<h1 id="orgaf9f75b">Copy the data and annotation files from rhino to <code>tfcb_lecture19/data</code></h1>
+<div class="org-src-container">
+
+<pre  class="fragment appear"><span style="color: #839496; font-weight: bold;">cd</span> ~/git/tfcb_lecture19
+
+mkdir data
+
+<span style="color: #839496; font-weight: bold;">cd</span> data
+
+scp rhino3://fh/fast/subramaniam_a/tfcb/lecture19/*.fastq.gz .
+</pre>
+</div>
+
+</section>
+<section >
+<h1 id="orgbac807c">Copy the annotation files from rhino to <code>tfcb_lecture19/data</code></h1>
+<div class="org-src-container">
+
+<pre  class="fragment appear">scp rhino3://fh/fast/subramaniam_a/tfcb/lecture19/*.tsv .
+</pre>
+</div>
+
+</section>
+<section >
+<h1 id="orgdf44b62">Design of sequencing library</h1>
+
+<div class="figure">
+<p><img src="img/illumina_library_design.png" alt="illumina_library_design.png" width="1000px" />
+</p>
+</div>
+
+</section>
+<section >
+<h1 id="orgffd5176">Analysis plan</h1>
+<ul>
+<li>Use <code>jupyter notebook</code> for counting barcodes</li>
+<li>Use <code>RStudio</code> for plotting the results</li>
+<li>Commit results to <code>Github</code></li>
+
+</ul>
 </section>
 </section>
 </div>
