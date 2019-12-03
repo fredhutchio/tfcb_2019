@@ -1,0 +1,129 @@
+#+OPTIONS: num:nil toc:nil reveal_history:t reveal_control:nil reveal_progress:t reveal_center:nil reveal_title_slide:nil
+#+REVEAL_HLEVEL: 0
+#+REVEAL_TRANS: fade
+#+REVEAL_THEME: default
+#+STARTUP: showeverything
+
+* Lecture 19 – Putting it all together
+:PROPERTIES:
+:reveal_extra_attr: class="center"
+:END:
+
+Arvind R. Subramaniam
+
+Assistant Member
+
+Basic Sciences Division and Computational Biology Program
+
+Fred Hutchinson Cancer Research Center
+
+* Tools we have learned in this class
+
+- Git
+- R
+- Python
+- Command line
+
+A full stack analysis will require many of these tools and others.
+
+#+HTML: <div style="margin-top:50px;"/>
+
+Today, we will work through a simple but realistic example of such an analysis.
+
+* Background: Decrease in protein levels at high initiation rates
+
+#+ATTR_HTML: :width 1000px
+[[file:img/park_2019_fig1.png]]
+
+#+ATTR_HTML: :class reference
+[[https://journals.plos.org/plosbiology/article/figure?id=10.1371/journal.pbio.3000396.g001][Fig. 1]] in [[https://journals.plos.org/plosbiology/article/figure?id=10.1371/journal.pbio.3000396][Park 2019]]
+
+* Do changes in mRNA levels drive changes in protein levels?
+
+#+ATTR_HTML: :width 1000px
+[[file:img/park_2019_fig1.png]]
+
+#+ATTR_HTML: :class reference
+[[https://journals.plos.org/plosbiology/article/figure?id=10.1371/journal.pbio.3000396.g001][Fig. 1]] in [[https://journals.plos.org/plosbiology/article/figure?id=10.1371/journal.pbio.3000396][Park 2019]]
+
+* Classic methods for measuring mRNA levels are cumersome and noisy.
+
+#+ATTR_HTML: :width 600px
+[[file:img/radhakrishnan_2016_northern.png]]
+
+#+HTML: <div style="margin-top:200px;"/>
+
+#+ATTR_HTML: :class reference
+Fig. 5 in [[https://www.sciencedirect.com/science/article/pii/S0092867416311503][Radhakrishnan 2019]]
+
+* Pooled deep-sequencing assay to measure mRNA levels
+
+#+ATTR_HTML: :width 600px
+[[file:img/park_2019_fig2.png]]
+
+#+HTML: <div style="margin-top:100px;"/>
+#+ATTR_HTML: :class reference
+[[https://journals.plos.org/plosbiology/article/figure?id=10.1371/journal.pbio.3000396.g002][Fig. 2]] in [[https://journals.plos.org/plosbiology/article/figure?id=10.1371/journal.pbio.3000396][Park 2019]]
+
+* Raw data is provided by the Sequencing Core as =.fastq= files.
+
+Log on to =rhino=.
+#+BEGIN_SRC sh :exports code
+ssh rhino
+#+END_SRC
+
+#+HTML: <div style="margin-top:100px;"/>
+
+Check that raw =.fastq.gz= files are available.
+#+BEGIN_SRC sh :exports code
++rasi@rhino3:~$ ls -1 /fh/fast/subramaniam_a/tfcb/lecture19/*.fastq.gz
+hpark_exp152_cdna_1_GCGGAC_L002_R1_001.fastq.gz
+hpark_exp152_gdna_1_AAGCTA_L002_R1_001.fastq.gz
+hpark_exp152_gdna_1_AAGCTA_L002_R1_002.fastq.gz
+#+END_SRC
+
+* Check that the file content is as expected.
+
+* Create a Github repo =tfcb_lecture19= for the analysis
+
+#+ATTR_REVEAL: :frag appear :frag_idx 1
+[[http://github.com/rasilab]]
+
+* Clone the repository to your local computer at =~/git=
+
+#+ATTR_REVEAL: :frag appear :frag_idx 1
+#+BEGIN_SRC sh :exports code
+cd ~/git
+
+git clone https://github.com/rasilab/tfcb_lecture19.git
+#+END_SRC
+
+* Copy the data and annotation files from rhino to =tfcb_lecture19/data=
+
+#+ATTR_REVEAL: :frag appear :frag_idx 1
+#+BEGIN_SRC sh :exports code
+cd ~/git/tfcb_lecture19
+
+mkdir data
+
+cd data
+
+scp rhino3://fh/fast/subramaniam_a/tfcb/lecture19/*.fastq.gz .
+#+END_SRC
+
+* Copy the annotation files from rhino to =tfcb_lecture19/data=
+
+#+ATTR_REVEAL: :frag appear :frag_idx 1
+#+BEGIN_SRC sh :exports code
+scp rhino3://fh/fast/subramaniam_a/tfcb/lecture19/*.tsv .
+#+END_SRC
+
+* Design of sequencing library
+
+#+ATTR_HTML: :width 1000px
+[[file:img/illumina_library_design.png]]
+
+* Analysis plan
+- Use =jupyter notebook= for counting barcodes
+- Use =RStudio= for plotting the results
+- Commit results to =Github=
