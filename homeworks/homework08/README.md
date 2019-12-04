@@ -12,7 +12,7 @@ This assignment is designed to help you:
 
 For your capstone project, you will select a dataset and identify a series of questions to answer using these data. You will apply one or more of the coding approaches covered this semester (or others you choose to learn on your own) to answer these questions. Your final submission will be a GitHub repository (`homework08`, from GitHub Classroom) containing code, figures, and documentation. 
 
-Your performance on this assignment will be assessed using the attached [rubric](#rubric) (100 points total). Your assignment is due on Tuesday, December 10 at noon.
+Your performance on this assignment will be assessed using the attached [rubric](#rubric) (80 points total). Your assignment is due on Tuesday, December 10 at noon.
 
 ## Details 
 
@@ -48,3 +48,10 @@ To complete this project, you should:
 -  In addition to your report, you may (but are not required to) include additional files used for analysis (either as intermediate results, or scripts). Make sure they are documented in your README!
         
 ## Rubric
+
+| **Criteria | Expert (20)  | Competent (16)       | Needs work (12)**
+|---------|--------|------------------|--------
+| **Content of code**      | Code is executable and fully commented, text answers formatted appropriately with markdown   | Code is missing one major or multiple minor components and/or comments, may not run to completion or have errors, markdown does not render appropriately    | Code is largely incomplete, missing comments, cannot run to completion or has errors, and markdown text not included
+| **Project organization and documentation** | Project organized following best practices and documented in README, Git and GitHub use  | Project partially organized and/or does not follow best practices, README incomplete; Git/GitHub not fully implemented       | Project lacking basic organizational structure; README missing/incomplete; no useful Git history
+| **Research questions and conclusions** | Three robust research questions clearly stated with results/conclusions, visualizations justified and follow design best practices  | Three research questions stated and partially aligned with associated code and results/conclusions, visualizations partially justified and/or do not follow design best practices       | Three research questions with code/results incomplete, visualizations lacking justification and/or do not follow design best practices
+| **Content of written responses** | Title/introduction present, “About the data” describes assumptions and recommendations for improvement, “Reproducibility” comments on both original analysis and reuse in this project  | All required components present but missing detail and/or possess minor inaccuracies       | One or more required response missing, incomplete, and/or with multiple inaccuracies
