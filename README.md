@@ -35,7 +35,7 @@ Location: B1-072, Fred Hutch
 | 17      | Nov 21 | Erick Matsen     | [Introduction to remote computing](lectures/lecture17)
 | 18      | Nov 26 | Kate Hertweck    | [Remote computing on the command line](lectures/lecture18)
 | 19      | Dec 3  | Rasi Subramaniam | [Course summary and synthesis](lectures/lecture19)
-| 20      | Dec 5  | Kate Hertweck    | [Capstone project]((lectures/lecture20)
+| 20      | Dec 5  | Kate Hertweck    | [Capstone project](lectures/lecture20)
 
 Materials for each lecture will be available in this repository prior to the class session;
 the link for each topic will take you to the folder containing materials for that class.
